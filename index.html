@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>8年级4班 · 体测冲刺工作台</title>
+<title>8年级4班 · 体测备考管理工作台</title>
 <style>
 :root{
   --bg:#eef2f7; --card:#ffffff; --ink:#101a2b; --sub:#5c6b83;
@@ -12,6 +12,8 @@
   --brand:#0f766e; --brand2:#14b8a6; --blue:#1d4ed8; --blue2:#3b82f6;
   --ok:#15803d; --okbg:#dcfce7; --bad:#b91c1c; --badbg:#fee2e2;
   --warn:#b45309; --warnbg:#fef3c7; --infobg:#e0f2fe; --info:#075985;
+  --male:#1d4ed8; --malebg:#dbeafe; --fem:#7c3aed; --fembg:#ede9fe;
+  --thin:#b45309; --thinbg:#fef3c7;
   --r:14px; --sh:0 1px 2px rgba(16,26,43,.06),0 6px 18px rgba(16,26,43,.05);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -21,10 +23,10 @@ body{
   background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7;padding-bottom:64px;
 }
 .hdr{background:linear-gradient(118deg,#0f766e 0%,#115e59 42%,#1e3a8a 100%);color:#fff;padding:14px 16px 12px}
-.hdr .wrap{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hdr .wrap{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .hdr .brand{display:flex;align-items:center;gap:10px;min-width:0}
 .hdr .logo{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
-.hdr h1{font-size:17px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
+.hdr h1{font-size:17px;font-weight:700;letter-spacing:.2px}
 .hdr .sub{font-size:12px;opacity:.82;margin-top:1px}
 .hdr .sp{flex:1 1 auto}
 .hdr .ctrl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -35,17 +37,12 @@ body{
   padding:5px 11px;font-size:12.5px;cursor:pointer;font-family:inherit;white-space:nowrap}
 .hdr .hb:hover{background:rgba(255,255,255,.24)}
 .main-nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;box-shadow:0 1px 3px rgba(16,26,43,.04)}
-.main-nav .wrap{max-width:1080px;margin:0 auto;display:flex;gap:5px;overflow-x:auto;padding:7px 12px;scrollbar-width:thin}
+.main-nav .wrap{max-width:1120px;margin:0 auto;display:flex;gap:5px;overflow-x:auto;padding:7px 12px;scrollbar-width:thin}
 .main-nav button{flex:none;background:transparent;border:1px solid transparent;color:var(--sub);border-radius:9px;
   padding:6px 13px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:.15s}
 .main-nav button:hover{background:var(--line2);color:var(--ink)}
 .main-nav button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
-.sub-nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:45px;z-index:29}
-.sub-nav .wrap{max-width:1080px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:6px 12px}
-.sub-nav button{flex:none;background:transparent;border:none;color:var(--sub);border-radius:7px;padding:4px 11px;
-  font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap}
-.sub-nav button.on{background:var(--infobg);color:var(--info);font-weight:700}
-main{max-width:1080px;margin:0 auto;padding:16px 14px 0}
+main{max-width:1120px;margin:0 auto;padding:16px 14px 0}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:16px 17px;margin-bottom:14px}
 .card.tight{padding:12px 13px}
 .card>h2,.ct{font-size:16px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -58,22 +55,24 @@ p{margin-bottom:9px}
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:9px 0 13px;border:1px solid var(--line);border-radius:10px}
 table{border-collapse:collapse;width:100%;font-size:13px;background:#fff}
 th,td{border-bottom:1px solid var(--line2);border-right:1px solid var(--line2);padding:7px 9px;text-align:left;vertical-align:top}
-th{background:#f3f6fb;font-weight:700;color:#33425c;white-space:nowrap;position:sticky;top:0}
+th{background:#f3f6fb;font-weight:700;color:#33425c;white-space:nowrap}
 tr:last-child td{border-bottom:none}
 th:last-child,td:last-child{border-right:none}
 tbody tr:nth-child(even){background:#fafcfe}
 table .c{text-align:center}
 .pill{display:inline-block;border-radius:999px;padding:1.5px 9px;font-size:11.5px;font-weight:700;line-height:1.6;white-space:nowrap}
 .p-a{background:#dcfce7;color:#15803d}
-.p-b{background:#dbeafe;color:#1d4ed8}
-.p-c{background:#fef3c7;color:#b45309}
+.p-b{background:var(--malebg);color:var(--male)}
+.p-c{background:var(--thinbg);color:var(--thin)}
+.p-f{background:var(--fembg);color:var(--fem)}
 .p-w{background:#f1f5f9;color:#475569}
 .p-d{background:#fee2e2;color:#b91c1c}
 .p-x{background:#ede9fe;color:#6d28d9}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .grid{display:grid;gap:12px}
-.g2{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
 .stat{background:#f7fafc;border:1px solid var(--line);border-radius:12px;padding:11px 13px;text-align:center}
 .stat b{display:block;font-size:23px;font-weight:800;color:var(--brand);line-height:1.25}
 .stat span{font-size:12px;color:var(--sub)}
@@ -95,6 +94,7 @@ input.f.sm{padding:4px 7px;font-size:12.5px;border-radius:7px}
 .tip.good{background:#f0fdf4;border-color:#bbf7d0;color:#14532d}
 .tip.warn{background:var(--warnbg);border-color:#fcd34d;color:#78350f}
 .tip.info{background:var(--infobg);border-color:#bae6fd;color:#0c4a6e}
+.tip.bad{background:#fef2f2;border-color:#fecaca;color:#7f1d1d}
 .tip b{font-weight:700}
 .countdown{display:flex;align-items:center;gap:16px;flex-wrap:wrap;
   background:linear-gradient(115deg,#0f766e,#115e59 55%,#1e3a8a);color:#fff;border-radius:var(--r);padding:17px 19px;box-shadow:var(--sh)}
@@ -115,6 +115,7 @@ input.f.sm{padding:4px 7px;font-size:12.5px;border-radius:7px}
 .ck{width:30px;height:26px;border:1.4px solid var(--line);background:#fff;border-radius:7px;cursor:pointer;
   font-size:15px;line-height:1;color:#c3ccdb;font-family:inherit;padding:0}
 .ck.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.ck.big{width:auto;min-width:44px;height:30px;font-size:13px;padding:0 10px;font-weight:700}
 .bar{height:9px;background:#e6ecf4;border-radius:999px;overflow:hidden;margin:7px 0}
 .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand2),var(--brand));border-radius:999px;transition:width .25s}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
@@ -136,7 +137,7 @@ input.f.sm{padding:4px 7px;font-size:12.5px;border-radius:7px}
 #toast.show{opacity:.96;transform:translate(-50%,0)}
 #modalHost{position:fixed;inset:0;background:rgba(12,18,30,.5);display:none;z-index:150;padding:18px;overflow:auto}
 #modalHost.on{display:flex;align-items:flex-start;justify-content:center}
-.modal{background:#fff;border-radius:16px;max-width:640px;width:100%;margin:auto;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
+.modal{background:#fff;border-radius:16px;max-width:700px;width:100%;margin:auto;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden}
 .modal .mh{padding:14px 17px;border-bottom:1px solid var(--line);font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:8px}
 .modal .mb{padding:15px 17px;max-height:66vh;overflow:auto;font-size:13.6px}
 .modal .mf{padding:12px 17px;border-top:1px solid var(--line);display:flex;gap:9px;justify-content:flex-end;background:#fafcfe;flex-wrap:wrap}
@@ -145,32 +146,67 @@ input.f.sm{padding:4px 7px;font-size:12.5px;border-radius:7px}
 .x{background:transparent;border:none;font-size:21px;cursor:pointer;color:var(--sub);line-height:1;padding:0 4px;font-family:inherit}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:5px 13px;font-size:13.3px}
 .kv b{color:var(--sub);font-weight:600}
-.slot{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:13px}
-.slot>.sh{background:#f3f6fb;padding:9px 13px;font-weight:700;font-size:14px;border-bottom:1px solid var(--line);
-  display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.slot>.sh .tag{background:var(--brand);color:#fff;font-size:11.5px;border-radius:6px;padding:1px 8px}
-.slot>.sb{padding:11px 13px}
-.daynav{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px}
-.daynav .ttl{font-weight:700;font-size:15px;flex:1;min-width:150px}
-.ch-note{font-size:13.2px;color:var(--sub);background:#f7fafc;border-left:3px solid var(--brand2);border-radius:0 9px 9px 0;padding:9px 12px;margin:9px 0}
 ul.li,ol.li{margin:7px 0 11px 20px}
 ul.li li,ol.li li{margin-bottom:5px;font-size:13.6px}
 .print-only{display:none}
-.foot{max-width:1080px;margin:0 auto;padding:14px 15px 0;color:var(--sub);font-size:12px;text-align:center;line-height:1.8}
+.foot{max-width:1120px;margin:0 auto;padding:14px 15px 0;color:var(--sub);font-size:12px;text-align:center;line-height:1.8}
+/* ---- 日期带 ---- */
+.dstrip{display:flex;gap:7px;overflow-x:auto;padding:3px 2px 10px;scrollbar-width:thin}
+.dchip{flex:none;min-width:76px;border:1.5px solid var(--line);background:#fff;border-radius:11px;padding:7px 9px;
+  cursor:pointer;font-family:inherit;text-align:center;transition:.15s;line-height:1.35}
+.dchip:hover{border-color:var(--brand2)}
+.dchip.on{border-color:var(--brand);background:var(--brand);color:#fff;box-shadow:0 3px 10px rgba(15,118,110,.25)}
+.dchip.today{outline:2px solid #f59e0b;outline-offset:1px}
+.dchip .m{font-size:14px;font-weight:800}
+.dchip .w{font-size:11px;opacity:.78}
+.dchip .k{font-size:10.5px;margin-top:2px;font-weight:700}
+.dchip.k-weekend .k{color:#b45309}
+.dchip.k-exam .k{color:#b91c1c}
+.dchip.on .k,.dchip.on .w{color:#fff}
+/* ---- 三组任务卡 ---- */
+.gcard{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.gcard .ghead{font-size:13.5px;font-weight:800;padding:7px 12px;border-bottom:1px solid var(--line)}
+.gcard .ghead .cnt{font-weight:600;font-size:11.5px;opacity:.8;margin-left:5px}
+.gcard.gt-m .ghead{background:var(--malebg);color:var(--male)}
+.gcard.gt-f .ghead{background:var(--fembg);color:var(--fem)}
+.gcard.gt-w .ghead{background:var(--thinbg);color:var(--thin)}
+.gcard .gnote{font-size:12px;color:var(--sub);padding:6px 12px;background:#fafcfe;border-bottom:1px solid var(--line2)}
+.gcard table{font-size:12.8px}
+.gcard td{border-right:none;padding:5px 12px}
+.gcard tr.gtr td{border-top:1px dashed var(--line2);padding-top:2px;padding-bottom:7px;color:var(--sub);font-size:12.2px;line-height:1.6}
+.gcard tr.gtr:last-child td{border-bottom:none}
+.gcard td.gn{font-weight:700;width:52%;padding-bottom:0}
+.gcard td.gs{text-align:right;color:var(--brand);font-weight:700;padding-bottom:0;white-space:nowrap}
+.gcard tbody tr:nth-child(even){background:#fff}
+/* ---- 执行勾选行 ---- */
+.exrow{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:11px;padding:9px 12px;margin-bottom:7px;background:#fff}
+.exrow.on{background:#f6fdf8;border-color:#bbf7d0}
+.exrow .lb{flex:1;min-width:0;font-size:13.6px;font-weight:700}
+.exrow .lb small{display:block;font-weight:400;color:var(--sub);font-size:12px;margin-top:1px}
+/* ---- 成绩表 ---- */
+input.cellin,select.cellin{border:1px solid transparent;background:#f8fafc;border-radius:7px;padding:4px 6px;
+  font-size:12.6px;font-family:inherit;color:var(--ink);width:100%;min-width:52px;text-align:center}
+input.cellin:hover,select.cellin:hover{border-color:var(--line)}
+input.cellin:focus,select.cellin:focus{outline:2px solid var(--brand2);outline-offset:-1px;background:#fff;text-align:left}
+input.cellin.ok{background:#f0fdf4;color:#15803d;font-weight:700}
+input.cellin.weak{background:#fef2f2;color:#b91c1c;font-weight:700}
+.empty{color:#c3ccdb;font-style:normal}
+.trend{font-weight:800;font-size:12.5px;white-space:nowrap}
+.trend.up{color:#15803d}
+.trend.down{color:#b91c1c}
+.trend.flat{color:var(--sub)}
+.weakrow td{background:#fff5f5!important}
+.weakbadge{display:inline-block;background:#fee2e2;color:#b91c1c;border-radius:6px;padding:0 6px;font-size:11px;font-weight:700;margin-left:5px}
+.okbadge{display:inline-block;background:#dcfce7;color:#15803d;border-radius:6px;padding:0 6px;font-size:11px;font-weight:700;margin-left:5px}
 @media screen and (max-width:560px){
-  /* 详案表在窄屏改成一格一行的卡片，免得「组数／用时」被裁掉要横滑。
-     注意必须限定 screen —— 否则打印时若视口被判定为窄屏，表格会散成卡片。 */
-  .rt-wrap{ border:none; margin:6px 0 4px }
-  table.rt thead{ display:none }
-  table.rt, table.rt tbody, table.rt tr, table.rt td{ display:block; width:auto; border:none }
-  table.rt tr{ border:1px solid var(--line); border-radius:10px; padding:7px 10px; margin-bottom:7px; background:#fff!important }
-  table.rt td{ padding:2px 0; font-size:13.2px; border-right:none }
-  table.rt td:before{
-    content:attr(data-l); display:inline-block; min-width:66px; font-weight:700;
-    color:var(--brand); margin-right:7px; vertical-align:top
-  }
-  table.rt td:first-child{ font-weight:700 }
-  table.rt td:first-child:before{ color:var(--sub) }
+  .rt-wrap{border:none;margin:6px 0 4px}
+  table.rt thead{display:none}
+  table.rt,table.rt tbody,table.rt tr,table.rt td{display:block;width:auto;border:none}
+  table.rt tr{border:1px solid var(--line);border-radius:10px;padding:7px 10px;margin-bottom:7px;background:#fff!important}
+  table.rt td{padding:2px 0;font-size:13.2px;border-right:none}
+  table.rt td:before{content:attr(data-l);display:inline-block;min-width:70px;font-weight:700;color:var(--brand);margin-right:7px;vertical-align:top}
+  table.rt td:first-child{font-weight:700}
+  table.rt td:first-child:before{color:var(--sub)}
 }
 @media screen and (max-width:520px){
   body{font-size:14.5px}
@@ -181,22 +217,27 @@ ul.li li,ol.li li{margin-bottom:5px;font-size:13.6px}
   table{font-size:12.4px}
   th,td{padding:6px 7px}
   .countdown .big{font-size:36px}
+  .dstrip{gap:6px}
+  .dchip{min-width:68px;padding:6px 7px}
 }
 @media print{
-  .main-nav,.sub-nav,.hdr .ctrl,.toolbar,.no-print{display:none!important}
+  .main-nav,.hdr .ctrl,.toolbar,.no-print{display:none!important}
   body{background:#fff;font-size:10.5pt;padding:0}
   .card{box-shadow:none;border:1px solid #999;margin-bottom:8px;break-inside:auto}
   .print-only{display:block;font-size:10pt;color:#333;border-bottom:1px solid #999;padding-bottom:5px;margin-bottom:8px}
   .tw{overflow:visible;border-color:#999}
   table{font-size:9.6pt}
-  th,td{padding:4px 7px}
+  th,td{padding:3px 6px}
   th{background:#eee!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  td{white-space:nowrap}
+  td{white-space:normal}
   th{white-space:normal}
-  .pill,.tag,.ck,.to-do .cbx,.ab{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pill,.ab,.ck,.to-do .cbx,.gcard .ghead,.stat{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .dstrip{display:none}
   .pb{page-break-after:always}
   .pb:last-child{page-break-after:auto}
   a{color:#000;text-decoration:none}
+  input.cellin,select.cellin{background:#fff!important;border:none;text-align:left;font-weight:400;color:#000}
+  input.cellin.weak{color:#000}
 }
 </style>
 </head>
@@ -207,13 +248,13 @@ ul.li li,ol.li li{margin-bottom:5px;font-size:13.6px}
     <div class="brand">
       <div class="logo">🏃</div>
       <div>
-        <h1 id="hTitle">8年级4班 · 体测冲刺工作台</h1>
-        <div class="sub" id="hSub">广东省初中体测抽测 · 10月16日—10月30日</div>
+        <h1 id="hTitle">8年级4班 · 体测备考管理工作台</h1>
+        <div class="sub" id="hSub">广东省初中体测抽测 · 备考截止 10月26日</div>
       </div>
     </div>
     <div class="sp"></div>
     <div class="ctrl">
-      <input class="cls" id="inClass" placeholder="班级名" title="可修改，点空白处生效">
+      <input class="cls" id="inClass" placeholder="班级名" title="可修改，回车生效">
       <button class="hb" id="btnQuickBack">备份</button>
       <button class="hb" id="btnQuickRestore">恢复</button>
     </div>
@@ -221,7 +262,6 @@ ul.li li,ol.li li{margin-bottom:5px;font-size:13.6px}
 </header>
 
 <nav class="main-nav"><div class="wrap" id="mainNav"></div></nav>
-<div class="sub-nav" id="subNav" style="display:none"><div class="wrap" id="subNavWrap"></div></div>
 
 <main id="app"></main>
 <div class="foot" id="footNote"></div>
@@ -229,32 +269,52 @@ ul.li li,ol.li li{margin-bottom:5px;font-size:13.6px}
 <div id="toast"></div>
 <div id="modalHost"></div>
 
-<script id="SEED" type="application/json">{"settings":{"school":"华南师范大学附属陆丰学校","className":"8年级4班","examStart":"2026-10-26","examEnd":"2026-10-30","today":"2026-10-16","trainStart":"2026-10-16","title":"8年级4班 · 体测冲刺工作台"},"students":[{"sid":1,"name":"王元东","sex":"男","grp":"男A","run":"4'08\"","rope":162,"pace":"男52-55秒","rs":"","note":""},{"sid":2,"name":"黄佳锐","sex":"男","grp":"男A","run":"4'09\"","rope":126,"pace":"男52-55秒","rs":"","note":""},{"sid":3,"name":"曾景昊","sex":"男","grp":"待测","run":"","rope":"","pace":"先按C组执行","rs":"","note":"原表√；跑步、跳绳均缺测"},{"sid":4,"name":"张诗琪","sex":"女","grp":"女A","run":"4'22\"","rope":150,"pace":"女60-62秒","rs":"","note":""},{"sid":5,"name":"杨其臻","sex":"男","grp":"男B","run":"4'64\"（末位不清）","rope":206,"pace":"男56-58秒","rs":"","note":"末位待确认"},{"sid":6,"name":"唐泽铭","sex":"男","grp":"男C","run":"5'33\"","rope":"待补测","pace":"75-85秒（走跑结合）","rs":"","note":"跳绳待补"},{"sid":7,"name":"林思静","sex":"女","grp":"待测","run":"","rope":"待补测","pace":"先按C组执行","rs":"","note":"放假，返校后补测"},{"sid":8,"name":"周依锌","sex":"男","grp":"男A","run":"3'58\"","rope":"待补测","pace":"男52-55秒","rs":"","note":"跳绳待补"},{"sid":10,"name":"陈雅琪","sex":"女","grp":"待测","run":"","rope":"","pace":"先按C组执行","rs":"","note":"缺测，需补测两项"},{"sid":12,"name":"陈嘉熹","sex":"女","grp":"女C","run":"5'52\"","rope":108,"pace":"75-85秒（走跑结合）","rs":"","note":"原表√"},{"sid":13,"name":"李钰晴","sex":"女","grp":"免测待核","run":"1'82\"（异常）","rope":"","pace":"先按C组执行","rs":"","note":"原表#；免测待核实"},{"sid":14,"name":"吴家俊","sex":"男","grp":"男C","run":"5'48\"","rope":141,"pace":"75-85秒（走跑结合）","rs":"","note":""},{"sid":15,"name":"李林鹏","sex":"男","grp":"男B","run":"4'48\"","rope":160,"pace":"男56-58秒","rs":"","note":""},{"sid":16,"name":"郑雅晗","sex":"女","grp":"女B","run":"5'04\"","rope":125,"pace":"女64-66秒","rs":"","note":""},{"sid":17,"name":"沈键曦","sex":"男","grp":"待测","run":"","rope":120,"pace":"先按C组执行","rs":"","note":"放假，返校后补测跑步"},{"sid":18,"name":"杨子源","sex":"男","grp":"男B","run":"4'47\"","rope":141,"pace":"男56-58秒","rs":"","note":""},{"sid":20,"name":"张可儿","sex":"女","grp":"女C","run":"6'17\"","rope":92,"pace":"75-85秒（走跑结合）","rs":"★加练2分钟","note":"跳绳专项加练"},{"sid":21,"name":"林家妮","sex":"女","grp":"女C","run":"6'12\"","rope":105,"pace":"75-85秒（走跑结合）","rs":"","note":"跳绳临界，重点观察"},{"sid":22,"name":"许舒雅","sex":"女","grp":"女B","run":"4'56\"","rope":108,"pace":"女64-66秒","rs":"","note":""},{"sid":23,"name":"黄钏铖","sex":"男","grp":"待测","run":"","rope":"","pace":"先按C组执行","rs":"","note":"原表√；两项均缺测"},{"sid":24,"name":"黄泽鸿","sex":"男","grp":"男B","run":"4'50\"","rope":112,"pace":"男56-58秒","rs":"","note":"原表√"},{"sid":25,"name":"庄可茵","sex":"女","grp":"女B","run":"4'57\"","rope":"待补测","pace":"女64-66秒","rs":"","note":"跳绳待补"},{"sid":26,"name":"徐嘉柔","sex":"女","grp":"女B","run":"4'4x\"（末位不清）","rope":122,"pace":"女64-66秒","rs":"","note":"末位待确认"},{"sid":27,"name":"周浩宇","sex":"男","grp":"男A","run":"4'20\"","rope":135,"pace":"男52-55秒","rs":"","note":""},{"sid":28,"name":"陈国楚","sex":"男","grp":"男A","run":"4'0x\"（末位不清）","rope":148,"pace":"男52-55秒","rs":"","note":"原表√；末位待确认"},{"sid":29,"name":"周宇轩","sex":"男","grp":"男A","run":"4'17\"","rope":153,"pace":"男52-55秒","rs":"","note":""},{"sid":30,"name":"吴静怡","sex":"女","grp":"女C","run":"5'58\"","rope":138,"pace":"75-85秒（走跑结合）","rs":"","note":""},{"sid":31,"name":"蔡信荣","sex":"男","grp":"男C","run":"5'35\"","rope":92,"pace":"75-85秒（走跑结合）","rs":"★加练2分钟","note":"原表√；跳绳专项加练"},{"sid":33,"name":"庄娸瑜","sex":"女","grp":"女B","run":"4'52\"","rope":161,"pace":"女64-66秒","rs":"","note":""},{"sid":34,"name":"林镀曦","sex":"男","grp":"男C","run":"6'02\"","rope":"待补测","pace":"75-85秒（走跑结合）","rs":"","note":"跳绳待补；性别待核"},{"sid":35,"name":"陈泽贤","sex":"男","grp":"男C","run":"5'48\"","rope":103,"pace":"75-85秒（走跑结合）","rs":"","note":"原表√；跳绳临界"},{"sid":36,"name":"黄圣程","sex":"男","grp":"待测","run":"","rope":116,"pace":"先按C组执行","rs":"","note":"原表√；跑步缺测"},{"sid":37,"name":"许诺诗","sex":"女","grp":"女C","run":"6'05\"","rope":120,"pace":"75-85秒（走跑结合）","rs":"","note":"原表√"},{"sid":38,"name":"张学宇","sex":"男","grp":"待测","run":"","rope":118,"pace":"先按C组执行","rs":"","note":"原表√；跑步缺测"},{"sid":39,"name":"黄浩铠","sex":"男","grp":"男B","run":"5'05\"","rope":128,"pace":"男56-58秒","rs":"","note":"原表√"},{"sid":40,"name":"唐维起","sex":"男","grp":"待测","run":"","rope":111,"pace":"先按C组执行","rs":"","note":"原表√；跑步缺测"},{"sid":41,"name":"陈晓婧","sex":"女","grp":"女A","run":"4'16\"","rope":141,"pace":"女60-62秒","rs":"","note":""},{"sid":42,"name":"何雨彤","sex":"女","grp":"女C","run":"5'14\"","rope":127,"pace":"75-85秒（走跑结合）","rs":"","note":""},{"sid":43,"name":"林奕含","sex":"女","grp":"待测","run":"","rope":"待补测","pace":"先按C组执行","rs":"","note":"放假，返校后补测"},{"sid":44,"name":"翁哲瀚","sex":"男","grp":"男A","run":"4'21\"","rope":70,"pace":"男52-55秒","rs":"★加练2分钟","note":"跳绳专项加练"},{"sid":45,"name":"康雨柔","sex":"女","grp":"女A","run":"4'14\"","rope":"待补测","pace":"女60-62秒","rs":"","note":"跳绳待补"},{"sid":46,"name":"李晓雅","sex":"女","grp":"女B","run":"4'65\"（末位不清）","rope":102,"pace":"女64-66秒","rs":"","note":"末位待确认；跳绳临界"},{"sid":47,"name":"刘雅婷","sex":"女","grp":"女C","run":"5'59\"","rope":127,"pace":"75-85秒（走跑结合）","rs":"","note":""},{"sid":48,"name":"林烨坤","sex":"男","grp":"男B","run":"5'01\"","rope":61,"pace":"男56-58秒","rs":"★加练2分钟","note":"原表√；跳绳专项加练；性别待核"},{"sid":49,"name":"周琪琪","sex":"女","grp":"女B","run":"4'50\"","rope":194,"pace":"女64-66秒","rs":"","note":""},{"sid":50,"name":"庄晓艺","sex":"女","grp":"女A","run":"3'4x\"（末位不清）","rope":176,"pace":"女60-62秒","rs":"","note":"末位待确认"},{"sid":51,"name":"陈芳菲","sex":"女","grp":"待测","run":"","rope":89,"pace":"先按C组执行","rs":"★加练2分钟","note":"放假；跳绳专项加练"}],"plan":[{"日期":"10月16日","星期":"周五","时段":"上午10:10-10:40","热身内容":"慢跑2圈＋动态拉伸（高抬腿、后踢腿、弓步走、踝绕环）","分组练习内容（A/B/C组）":"补测：缺测同学测1分钟跳绳与耐久跑；其余同学原地双人互数跳绳。技术：手腕摇绳（绳贴地“啪”）、前脚掌弹跳（离地2-3厘米）、不憋气、失误立刻续跳","组数与强度":"补测1次；技术体验30秒×3组；放松后公布分组与组长","放松内容":"静态拉伸5个动作各20秒","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月16日","星期":"周五","时段":"下午17:00-17:40","热身内容":"慢跑3圈（约400米）＋动态拉伸全套＋30米加速跑×2","分组练习内容（A/B/C组）":"A组：400米×4（男每圈1分40-50秒/女1分55秒-2分00秒）；B组：400米×3；C组：连续慢跑6-8分钟（喘就快走）；随后核心","组数与强度":"A：4组（组间快走1分钟）；B：3组（组间快走1分30秒）；C：1组；核心：平板支撑3组×30秒＋仰卧起坐2组×20＋臀桥2组×15","放松内容":"慢走1圈＋静态拉伸8个动作各25秒","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月19日","星期":"周一","时段":"上午10:10-10:40","热身内容":"慢跑2圈＋手腕脚踝绕环＋原地小跳30秒×2组","分组练习内容（A/B/C组）":"1分钟跳绳（A组目标150+／B组120+／C组80+；跳绳弱项只求不失误）；小组长一对一带徒弟纠错","组数与强度":"跳绳1分钟×3组（组间休45秒）；纠错5分钟：手臂是否抡、是否全脚掌落、跳太高","放松内容":"小腿、前臂、肩部拉伸各30秒×2轮","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月19日","星期":"周一","时段":"下午17:00-17:40","热身内容":"慢跑600米＋动态拉伸6节＋30米加速跑×2","分组练习内容（A/B/C组）":"间歇跑（跑200米走100米回起点）：A组200米×6（80%强度）；B组200米×4；C组100米快跑＋100米快走×6轮","组数与强度":"A：6组；B：4组；C：6轮；下肢力量：深蹲2组×20＋弓步走2组×15米＋提踵2组×20＋原地纵跳2组×10（落地轻、膝不内扣）","放松内容":"慢走＋腿部静态拉伸8个动作各30秒","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月20日","星期":"周二","时段":"上午10:10-10:40","热身内容":"慢跑2圈＋动态拉伸6节","分组练习内容（A/B/C组）":"摆臂专项：原地快摆臂＋坐姿摆臂（前后摆、不左右晃）；起跑反应练习（听哨跑10米）；30米加速跑","组数与强度":"快摆臂10秒×4组＋坐姿2组；起跑4次；30米加速跑6组（跑完走回即休息）","放松内容":"股四头肌、腘绳肌拉伸各30秒×2组","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月20日","星期":"周二","时段":"下午17:00-17:40","热身内容":"慢跑600米＋动态拉伸6节＋30米加速跑×2","分组练习内容（A/B/C组）":"配速跑（重点“匀速”不是快）：A组1000米（男）/800米（女）全程1次按目标配速；B组600米×1＋200米×1；C组400米×2（中间走2分钟，练两步一吸两步一呼）","组数与强度":"A：1组（男每圈52-55秒/女60-62秒）；B：2组；C：2组；核心：俄罗斯转体2组×20＋平板支撑3组×40秒＋死虫式2组×12","放松内容":"慢走＋全身拉伸","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月21日","星期":"周三","时段":"上午10:10-10:40","热身内容":"慢跑2圈＋动态拉伸（先热再拉）","分组练习内容（A/B/C组）":"柔韧专项（坐位体前屈）：并腿前屈（跳绳勾脚辅助）／分腿前屈／跨栏步拉伸／站姿体前屈放松；仰卧单腿拉伸","组数与强度":"每个前屈动作30秒×3轮；仰卧单腿拉伸左右各30秒×2组","放松内容":"完整拉伸一遍；提醒回家睡前再拉2分钟","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月21日","星期":"周三","时段":"下午17:00-17:40","热身内容":"慢跑3圈＋动态拉伸＋核心激活（臀桥10个、蚌式开合10个/侧）","分组练习内容（A/B/C组）":"男生力量：引体向上（能做3个以上自己做，否则弹力带或斜身引体）＋俯卧撑＋蹲跳；女生力量：1分钟仰卧起坐＋深蹲；全体：原地纵跳落地缓冲","组数与强度":"男：引体3组×尽力＋俯卧撑2组×15＋蹲跳2组×15；女：仰卧起坐3组×1分钟（组间1分钟）＋深蹲2组×20；纵跳3组×8","放松内容":"上肢、背部、腿部拉伸","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月22日","星期":"周四","时段":"上午10:10-10:40","热身内容":"慢跑2圈＋手腕脚踝活动＋试跳30秒","分组练习内容（A/B/C组）":"变速跳绳：30秒快（尽力）＋30秒慢（原地走）；随后冲刺跳绳30秒极限×2（体会最后10秒咬牙）","组数与强度":"变速跳绳8轮（中间休1分钟加1组）；极限跳2次","放松内容":"小腿、跟腱、肩部拉伸各30秒×2组","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月22日","星期":"周四","时段":"下午17:00-17:40","热身内容":"按体测当天流程：慢跑3分钟→动态拉伸→30米加速跑×2","分组练习内容（A/B/C组）":"体测模拟（80%强度）：女800米/男1000米跑1次；当场记录＋一对一反馈（前半程快了/后半程掉了/呼吸乱了）","组数与强度":"A组按100%尽力、B组80%、C组走跑结合计入；观察3点：起跑是否冲太猛、中途有没走、最后100米能否加速","放松内容":"慢走1圈＋静态拉伸10分钟（今天必须拉够）","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月23日","星期":"周五","时段":"上午10:10-10:40","热身内容":"慢跑600米＋动态拉伸6节","分组练习内容（A/B/C组）":"技术打磨：起跑姿势、摆臂、呼吸节奏（两步一吸两步一呼）、终点冲刺压线；每人2次30米技术跑逐个纠正；轻跳绳找手感","组数与强度":"30米技术跑2次；跳绳1分钟×2组（只做70%强度，不拼个数）","放松内容":"全身拉伸","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月23日","星期":"周五","时段":"下午17:00-17:40","热身内容":"慢跑3圈＋动态拉伸（本周期最后一次强度课）","分组练习内容（A/B/C组）":"轻松跑600-800米（能一边跑一边对话，绝不冲刺）＋动态拉伸；随后体测动员会（流程/集合时间/服装/睡眠饮食/心态）","组数与强度":"轻松跑1组；动态拉伸10分钟；动员会8分钟","放松内容":"重点拉开大腿后侧、髋、小腿","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月24日","星期":"周六","时段":"周末打卡③","热身内容":"原地小跳30秒×2组","分组练习内容（A/B/C组）":"恢复日：①慢跑或快走（能唱歌的强度）②全身静态拉伸8个动作③早睡22:30前","组数与强度":"跑步15-20分钟；拉伸各30秒×2组；睡够8-9小时","放松内容":"禁止：跳绳跳满1分钟、深蹲跳、全力跑、出大汗项目","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月25日","星期":"周日","时段":"周末打卡④","热身内容":"—","分组练习内容（A/B/C组）":"完全休息：①轻度活动（散步/拉伸）或完全不运动②饮食打卡（多主食、少油腻、不喝冰饮）③睡眠打卡（22:30前）④装备准备","组数与强度":"活动15分钟以内；拍餐食照片；填入睡时间；装备拍照","放松内容":"—","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月26日","星期":"周一","时段":"体测日","热身内容":"慢跑2-3分钟＋动态拉伸（高抬腿、弓步走、髋部激活）","分组练习内容（A/B/C组）":"激活热身：30米加速跑×2（只热身不上量）；已测完的学生慢跑800米排酸＋拉伸；800/1000米检录前做2次20-30米短加速跑","组数与强度":"加速跑2组；排酸跑1组","放松内容":"慢走1-2圈再坐下；互相踩腿、揉小腿；回家热水泡脚","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月27日","星期":"周二","时段":"体测日","热身内容":"慢跑2-3分钟＋动态拉伸","分组练习内容（A/B/C组）":"激活热身同上；已测完的学生慢跑800米排酸＋拉伸","组数与强度":"加速跑2组；排酸跑1组","放松内容":"互相踩腿、揉小腿；回家热水泡脚","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月28日","星期":"周三","时段":"体测日","热身内容":"慢跑2-3分钟＋动态拉伸","分组练习内容（A/B/C组）":"激活热身同上；已测完的学生慢跑800米排酸＋拉伸","组数与强度":"加速跑2组；排酸跑1组","放松内容":"互相踩腿、揉小腿；回家热水泡脚","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月29日","星期":"周四","时段":"体测日","热身内容":"慢跑2-3分钟＋动态拉伸","分组练习内容（A/B/C组）":"激活热身同上；已测完的学生慢跑800米排酸＋拉伸","组数与强度":"加速跑2组；排酸跑1组","放松内容":"互相踩腿、揉小腿；回家热水泡脚","出勤人数":"","缺勤学生":"","完成情况":"","备注":""},{"日期":"10月30日","星期":"周五","时段":"体测日","热身内容":"慢跑2-3分钟＋动态拉伸","分组练习内容（A/B/C组）":"激活热身同上；全部测完：慢跑800米＋充分拉伸收尾","组数与强度":"加速跑2组；收尾跑1组","放松内容":"全身拉伸＋踩腿放松","出勤人数":"","缺勤学生":"","完成情况":"","备注":""}],"planHead":["日期","星期","时段","热身内容","分组练习内容（A/B/C组）","组数与强度","放松内容","出勤人数","缺勤学生","完成情况","备注"],"daily":[{"date":"10月16日（周五）第1天：摸底补测＋分组＋有氧打底","sessions":[{"slot":"上午 10:10—10:40 · 摸底补测＋跳绳技术","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈；动态拉伸（高抬腿20米、后踢腿20米、弓步走15米、踝关节绕环10次）","各2组","5分钟"],["补测","缺测同学测1分钟跳绳；其余同学原地双人互数跳绳，不空等","1次","10分钟"],["主内容","跳绳技术：手腕摇绳（绳子贴地\"啪\"一声）、前脚掌弹跳（离地2—3厘米）、不憋气、失误后立刻续跳","30秒体验×3组","10分钟"],["放松＋宣布","静态拉伸5个动作各20秒；公布A/B/C分组与小组长","—","5分钟"]]}}]},{"slot":"下午 17:00—17:40 · 分层有氧＋核心稳定","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈（约400米）＋动态拉伸全套＋30米加速跑×2","2组","8分钟"],["A组","400米×4，组间快走1分钟（男每圈1分40秒—1分50秒／女1分55秒—2分00秒）","4组","17分钟"],["B组","400米×3，组间快走1分30秒","3组","17分钟"],["C组","连续慢跑6—8分钟（喘就快走，目标\"不停下来\"）","1组","17分钟"],["核心","平板支撑3组×30秒（休30秒）；仰卧起坐2组×20个；臀桥2组×15个","7组","8分钟"],["放松","慢走1圈＋静态拉伸8个动作（大腿前/后侧、小腿、髋、臀、胸、肩、背）各25秒","—","7分钟"]]}}]}],"intro":"上午补测、教跳绳发力，下午有氧基础＋核心稳定，把数据拿全、把组分好。","iso":"2026-10-16","short":"10月16日（周五）第1天：摸底补测＋分组＋有氧打底"},{"date":"10月19日（周一）第2天：心肺唤醒＋腿部力量","sessions":[{"slot":"上午 10:10—10:40 · 跳绳耐力","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈；手腕脚踝绕环；原地小跳","小跳30秒×2组","5分钟"],["主内容","1分钟跳绳，当场记录个数（A组目标150＋／B组120＋／C组80＋；跳绳弱项只求\"不失误\"）","1分钟×3组，组间休45秒","15分钟"],["纠错","小组长一对一带徒弟：手臂是否在抡、脚是否全脚掌落、跳得是否太高","一对一","5分钟"],["放松","小腿、前臂、肩部拉伸","各30秒×2轮","5分钟"]]}}]},{"slot":"下午 17:00—17:40 · 间歇跑＋下肢力量","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈＋动态拉伸＋30米加速跑×2","2组","8分钟"],["A组","200米×6（80%强度），跑200米走100米回起点循环","6组","17分钟"],["B组","200米×4，同上循环","4组","17分钟"],["C组","100米快跑＋100米快走","6轮","17分钟"],["下肢力量","深蹲2组×20个；弓步走2组×15米；提踵2组×20个；原地纵跳2组×10个（落地要\"轻\"、膝不内扣）","8组","10分钟"],["放松","慢走＋腿部静态拉伸8个动作各30秒","—","5分钟"]]}}]}],"intro":"上午跳绳耐力并纠正动作，下午间歇跑刺激心肺，补下肢力量。","iso":"2026-10-19","short":"10月19日（周一）第2天：心肺唤醒＋腿部力量"},{"date":"10月20日（周二）第3天：速度感觉＋配速跑","sessions":[{"slot":"上午 10:10—10:40 · 速度与起跑","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈＋动态拉伸6节","—","5分钟"],["主内容①","原地快摆臂；坐姿摆臂（体会\"前后摆、不左右晃\"）","10秒×4组＋坐姿2组","7分钟"],["主内容②","站姿起跑反应练习（听哨起跑跑10米）；30米加速跑（跑完走回即休息）","4次＋6组","13分钟"],["放松","股四头肌、腘绳肌拉伸","各30秒×2组","5分钟"]]}},{"t":"p","c":"技术口诀：身体前倾不后仰，前脚掌蹬地，手臂前后摆，眼睛看前方10米。"}]},{"slot":"下午 17:00—17:40 · 配速跑＋核心","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈＋动态拉伸＋30米加速跑×2","2组","8分钟"],["A组","1000米（男）／800米（女）全程跑1次，按目标配速（男每圈52—55秒／女60—62秒）","1组","20分钟"],["B组","600米×1＋200米×1（中间慢走3分钟）","2组","20分钟"],["C组","400米×2，中间走2分钟，重点练呼吸：两步一吸、两步一呼","2组","20分钟"],["核心","俄罗斯转体2组×20；平板支撑3组×40秒；死虫式2组×12","7组","8分钟"],["放松","慢走＋全身拉伸","—","4分钟"]]}}]}],"intro":"上午学摆臂、起跑与加速，下午重点练\"匀速\"（不是快）。","iso":"2026-10-20","short":"10月20日（周二）第3天：速度感觉＋配速跑"},{"date":"10月21日（周三）第4天：柔韧抢分＋力量补短板","sessions":[{"slot":"上午 10:10—10:40 · 柔韧专项（坐位体前屈）","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈＋动态拉伸（先热再拉，不热硬拉会拉伤）","—","5分钟"],["主内容","①坐姿双腿并拢前屈（够不到用跳绳勾脚辅助）②坐姿分腿前屈（左右各一次）③跨栏步拉伸（左右各一次）④站姿体前屈放松10秒","每动作30秒×3轮","15分钟"],["补充","仰卧单腿拉伸（用跳绳勾脚拉直腿），左右各1组","30秒×2","5分钟"],["放松","统一做一遍完整拉伸；提醒回家睡前再拉2分钟","—","5分钟"]]}}]},{"slot":"下午 17:00—17:40 · 力量课","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈＋动态拉伸＋核心激活（臀桥10个、蚌式开合10个/侧）","—","8分钟"],["男生","引体向上（能做3个以上自己做，做不了用弹力带或斜身引体）3组×尽力；俯卧撑2组×15；蹲跳2组×15","7组","22分钟"],["女生","1分钟仰卧起坐×3组（组间1分钟；手不抱头猛拉、肩胛离垫、肘碰膝）；深蹲2组×20","5组","22分钟"],["弹跳落地","原地纵跳落地缓冲（练立定跳远与跳绳的缓冲能力）","3组×8","6分钟"],["放松","上肢、背部、腿部拉伸","—","4分钟"]]}}]}],"intro":"上午专攻坐位体前屈（最容易抢分），下午按性别补力量短板。","iso":"2026-10-21","short":"10月21日（周三）第4天：柔韧抢分＋力量补短板"},{"date":"10月22日（周四）第5天：全流程模拟（80%强度）","sessions":[{"slot":"上午 10:10—10:40 · 跳绳间歇","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈＋手腕脚踝活动＋试跳30秒","—","5分钟"],["主内容","30秒快（尽力）＋30秒慢（原地走）循环，中间休息1分钟后加1组","8轮＋1组","17分钟"],["冲刺","30秒极限跳（体会\"最后10秒咬牙\"）","2次","5分钟"],["放松","小腿、跟腱、肩部拉伸","各30秒×2组","3分钟"]]}}]},{"slot":"下午 17:00—17:40 · 体测模拟（80%强度）","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["完整热身","按体测当天流程走一遍：慢跑3分钟→动态拉伸→30米加速跑×2","2组","10分钟"],["模拟测试","女800米／男1000米跑1次（A组按100%×尽力、B组80%、C组走跑结合也计入），体验呼吸节奏与分段配速","1次","20分钟"],["记录反馈","成绩写小黑板；一对一反馈\"前半程快了／后半程掉了／呼吸乱了\"","—","6分钟"],["放松","慢走1圈＋静态拉伸（今天必须拉够）","10分钟","4分钟"]]}},{"t":"p","c":"模拟测的3个观察点：起跑有没有冲太猛（前200米太快后面必掉）、中途有没有\"走\"、最后100米能不能加速。"}]}],"intro":"上午跳绳间歇，下午按体测流程完整走一遍（不用全力），把心里没底的部分补上。","iso":"2026-10-22","short":"10月22日（周四）第5天：全流程模拟（80%强度）"},{"date":"10月23日（周五）第6天：技术定型＋减量激活（最后一次强度课）","sessions":[{"slot":"上午 10:10—10:40 · 技术打磨＋轻跳绳","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑600米＋动态拉伸6节","—","5分钟"],["主内容","起跑姿势、摆臂、呼吸节奏（两步一吸两步一呼）、终点冲刺压线；每人2次30米技术跑，逐个纠正","2次","15分钟"],["轻跳绳","只做70%强度，找手感，不拼个数","1分钟×2组","6分钟"],["放松","全身拉伸","—","4分钟"]]}}]},{"slot":"下午 17:00—17:40 · 减量激活＋体测动员会","blocks":[{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈＋动态拉伸","—","8分钟"],["轻松跑","600—800米，强度\"能一边跑一边对话\"，<strong>绝不冲刺<\/strong>","1组","14分钟"],["动态拉伸","重点拉开大腿后侧、髋、小腿","10分钟","10分钟"],["动员会","体测流程、集合时间、服装要求（运动鞋、宽松衣裤、不戴首饰）；前一晚10点前睡；当天提前1.5小时吃清淡早餐；心态\"把平时练的跑出来就是赢\"","围圈讲","8分钟"]]}}]}],"intro":"上午打磨技术细节，下午轻松跑＋动员会；<strong>从这堂课结束起全班进入减量期<\/strong>。","iso":"2026-10-23","short":"10月23日（周五）第6天：技术定型＋减量激活（最后一次强度课）"},{"date":"10月24日（周六）· 打卡③ 恢复日","sessions":[],"intro":"考前周末只减不加：把模拟测试积累的疲劳排掉，严禁再上强度。本日禁止：跳绳跳满1分钟、深蹲跳、全力跑、任何\"出大汗\"的项目。","iso":"2026-10-24","short":"10月24日（周六）· 打卡③ 恢复日"},{"date":"10月25日（周日）· 打卡④ 完全休息＋睡眠饮食打卡","sessions":[],"intro":"彻底休息、备齐装备、吃足主食、早睡，让身体以最好状态迎接第二天的体测。","iso":"2026-10-25","short":"10月25日（周日）· 打卡④ 完全休息＋睡眠饮食打卡"},{"date":"10月26日—30日（体测周）· 每天怎么做","sessions":[],"intro":"体测周的原则：<strong>只热身、不上量<\/strong>。测前激活身体，测后排酸放松，保证下一项不受影响。","iso":"2026-10-26","short":"10月26日—30日（体测周）· 每天怎么做"}],"todos":[{"id":1,"cat":"跑步缺测","sid":3,"name":"曾景昊","cur":"跑步未测／跳绳未测","todo":"补测耐久跑＋1分钟跳绳，测后并入相应组"},{"id":2,"cat":"跑步缺测","sid":23,"name":"黄钏铖","cur":"跑步未测／跳绳未测","todo":"补测耐久跑＋1分钟跳绳，测后并入相应组"},{"id":3,"cat":"跑步缺测","sid":36,"name":"黄圣程","cur":"跑步未测（跳绳116）","todo":"补测耐久跑，测后并入相应组"},{"id":4,"cat":"跑步缺测","sid":38,"name":"张学宇","cur":"跑步未测（跳绳118）","todo":"补测耐久跑，测后并入相应组"},{"id":5,"cat":"跑步缺测","sid":40,"name":"唐维起","cur":"跑步未测（跳绳111）","todo":"补测耐久跑，测后并入相应组"},{"id":6,"cat":"跑步缺测","sid":17,"name":"沈键曦","cur":"放假（跳绳120）","todo":"返校后补测耐久跑"},{"id":7,"cat":"跑步缺测","sid":7,"name":"林思静","cur":"放假","todo":"返校后补测耐久跑＋跳绳"},{"id":8,"cat":"跑步缺测","sid":10,"name":"陈雅琪","cur":"两项均缺测","todo":"补测耐久跑＋1分钟跳绳"},{"id":9,"cat":"跑步缺测","sid":43,"name":"林奕含","cur":"放假","todo":"返校后补测耐久跑＋跳绳"},{"id":10,"cat":"跑步缺测","sid":51,"name":"陈芳菲","cur":"放假（跳绳89）","todo":"返校后补测耐久跑；跳绳列入专项加练"},{"id":11,"cat":"跳绳缺测","sid":6,"name":"唐泽铭","cur":"跳绳待补测","todo":"补测1分钟跳绳，测后更新跳绳专项名单"},{"id":12,"cat":"跳绳缺测","sid":8,"name":"周依锌","cur":"跳绳待补测","todo":"补测1分钟跳绳"},{"id":13,"cat":"跳绳缺测","sid":25,"name":"庄可茵","cur":"跳绳待补测","todo":"补测1分钟跳绳"},{"id":14,"cat":"跳绳缺测","sid":34,"name":"林镀曦","cur":"跳绳待补测","todo":"补测1分钟跳绳"},{"id":15,"cat":"跳绳缺测","sid":45,"name":"康雨柔","cur":"跳绳待补测","todo":"补测1分钟跳绳"},{"id":16,"cat":"字迹待确认","sid":28,"name":"陈国楚","cur":"4'0x\" 末位不清","todo":"对照原表确认末位；看不清按补测成绩定档"},{"id":17,"cat":"字迹待确认","sid":50,"name":"庄晓艺","cur":"3'4x\" 末位不清","todo":"对照原表确认末位"},{"id":18,"cat":"字迹待确认","sid":26,"name":"徐嘉柔","cur":"4'4x\" 末位不清","todo":"对照原表确认末位"},{"id":19,"cat":"字迹待确认","sid":5,"name":"杨其臻","cur":"4'64\"（末位不清）","todo":"确认是4'04\"还是4'64\"（后者不可能，疑为4'04\"或4'04）"},{"id":20,"cat":"字迹待确认","sid":46,"name":"李晓雅","cur":"4'65\"（末位不清）","todo":"确认末位（疑为4'05\"左右）"},{"id":21,"cat":"免测待核","sid":13,"name":"李钰晴","cur":"原表#；记为1'82\"（异常）","todo":"核实是否免测；若为漏读请补录正确成绩"},{"id":22,"cat":"性别待核","sid":34,"name":"林镀曦","cur":"按姓名判为男","todo":"以学籍为准核对性别，影响分组"},{"id":23,"cat":"性别待核","sid":48,"name":"林烨坤","cur":"按姓名判为男","todo":"以学籍为准核对性别，影响分组"},{"id":24,"cat":"健康排查","sid":"全班","name":"—","cur":"—","todo":"哮喘／心脏病／癫痫史、近期伤情、超重、女生生理期，逐项排查并登记"}],"checkinItems":["10/17（周六）有氧+跳绳","10/18（周日）柔韧+核心","10/24（周六）恢复日","10/25（周日）休息+睡眠"],"chapters":[{"title":"一、总体思路：10天怎么练才划算","blocks":[{"t":"p","c":"10天属于短周期，不可能靠堆跑量把1000米从6分钟练到4分钟。策略是：<strong>把有限的时间花在进步最快、最容易拿分的项目上<\/strong>。下表是提分性价比排序，也是每天排课的依据。"},{"t":"table","d":{"head":["项目","10天可提升幅度","训练策略"],"rows":[["<strong>1分钟跳绳<\/strong>","大（＋20～40个）","技术性强，手腕摇绳加节奏改对，成绩立竿见影，<strong>每天练<\/strong>"],["<strong>坐位体前屈<\/strong>","大（＋3～8cm）","柔韧见效快，每天课后2分钟拉伸就够"],["<strong>800／1000米<\/strong>","小（−10～25秒）","10天主要练\"会配速、不掉速、全程能跑完\"，这是拿分关键"],["<strong>仰卧起坐／引体向上<\/strong>","中（＋3～8个）","靠次数堆，隔天练，注意全程标准动作"]]}},{"t":"p","c":"<strong>上午下午分工（很重要）<\/strong>：上午练\"技术＋神经＋柔韧\"，少出汗，学生回教室还能上课（强度控制在\"微喘、能说话\"，主观疲劳5—6分）；下午练\"体能＋力量＋配速\"，出透汗（主观疲劳6—8分）。"},{"t":"p","c":"<strong>一条时间红线<\/strong>：10月23日（周五）下午课是本周期<strong>最后一次强度课<\/strong>。从这堂课结束起全班进入减量期——24日、25日只做低强度有氧和拉伸，<strong>任何人不得自行加练<\/strong>。体测前48—72小时练大强度，会让体测当天成绩比平时还差。"}]},{"title":"二、分组方案（按性别 × 体质水平）","blocks":[{"t":"p","c":"全班按\"性别＋体质水平\"分为六个组（男女各A/B/C三档），另将数据缺失同学单列为待测组。同一组内训练量一致、水平接近，便于小组长带练和互评。"},{"t":"h3","c":"1. 分组标准"},{"t":"table","d":{"head":["组别","定位","男生（1000米）","女生（800米）","训练目标"],"rows":[["<strong>A组·强<\/strong>","成绩良好","≤4分20秒","≤4分30秒","抠节奏技术，冲满分"],["<strong>B组·中<\/strong>","中等水平","4分21秒—4分50秒","4分31秒—5分00秒","提有氧耐力，提速率"],["<strong>C组·待提升<\/strong>","基础薄弱","&gt;4分50秒","&gt;5分00秒","有氧打底＋走跑结合，先做到\"全程不停走\""]]}},{"t":"p","c":"分组只看学生在班里的<strong>相对水平<\/strong>，因此个别原始成绩录入存在误差时，分组档位依然可用。"},{"t":"h3","c":"2. 各组训练配速参照（以200米跑道每圈计时）"},{"t":"table","d":{"head":["组别","训练目标成绩","有氧跑配速（每圈）","节奏跑配速（每圈）","间歇跑要求"],"rows":[["<strong>A组男<\/strong>","1000米 ≤4分15秒","52—55秒","48—50秒","400米×4，每个1分35秒—1分40秒"],["<strong>A组女<\/strong>","800米 ≤4分00秒","60—62秒","56—58秒","400米×4，每个1分55秒—2分00秒"],["<strong>B组男<\/strong>","1000米 ≤4分40秒","56—58秒","54—56秒","300米×3，每个1分25秒—1分30秒"],["<strong>B组女<\/strong>","800米 ≤4分30秒","64—66秒","63—65秒","300米×3，每个1分40秒—1分45秒"],["<strong>C组<\/strong>","完成即达标","75—85秒","70—80秒","200米×3，每个45—55秒"]]}},{"t":"p","c":"若跑道为400米/圈：圈数减半，每圈用时翻倍（如A组男400米按1分40秒—1分45秒）。"},{"t":"h3","c":"3. 第三维度：跳绳单独盯（不分性别）"},{"t":"p","c":"<strong>1分钟跳绳不足100个<\/strong>的同学是最容易提分的一批——本班目前有：<strong>翁哲瀚（70）、林烨坤（61）、张可儿（92）、蔡信荣（92）、陈芳菲（89）<\/strong>；另有 <strong>李晓雅（102）、陈泽贤（103）、林家妮（105）<\/strong> 处于临界，同样列入重点观察。"},{"t":"p","c":"加练安排：以上同学<strong>每天课后加练2分钟跳绳（1分钟×2组）<\/strong>。技术要点三条——手腕摇绳（不是整条手臂抡）、前脚掌弹跳、绳子打地\"啪\"一声。10天提高20—30个完全可能。"},{"t":"h3","c":"4. 分组练习的组织方式（每节课照此执行）"},{"t":"table","d":{"head":["项目","具体做法"],"rows":[["<strong>场地分道<\/strong>","A组跑第1—2道，B组第3—4道，C组第5—6道，三组同场不混道；力量/跳绳课按组分区（三区同时进行）"],["<strong>组长带队<\/strong>","每组设组长1名（控制配速）＋计时员1名（报圈时）。A组：王元东、庄晓艺；B组：杨子源、周琪琪；C组：吴家俊、何雨彤"],["<strong>错开出发<\/strong>","间歇跑/计时跑三组错开出发：A组先跑，30秒后B组，再30秒后C组，避免跑道拥堵和互相带乱节奏"],["<strong>小组长带徒弟<\/strong>","技术课（跳绳、摆臂、起跑）由组长一对一带1名同学纠正，看三点：手臂是否在抡、脚是否全脚掌落、跳得是否太高"],["<strong>教师轮转<\/strong>","主训时先盯C组\"跑完不停\"（3分钟），再盯A组配速（每圈报时），最后统一喊冲刺段"],["<strong>待补测学生<\/strong>","10月16日先补齐数据，当天随B组跟练；补测前先做健康问询"]]}},{"t":"h3","c":"5. 分组名单（共47人：男24人、女23人）"},{"t":"p","c":"<strong>男生（24人）<\/strong>"},{"t":"table","d":{"head":["组别","名单（含摸底成绩）","人数"],"rows":[["<strong>男A（强）<\/strong>","王元东（4′08″）、黄佳锐（4′09″）、周浩宇（4′20″）、翁哲瀚（4′21″）、陈国楚（4′0x″）、周宇轩（4′17″）、周依锌（3′58″）","7"],["<strong>男B（中）<\/strong>","杨子源（4′47″）、李林鹏（4′48″）、黄泽鸿（4′50″）、杨其臻（4′64″）、林烨坤（5′01″）、黄浩铠（5′05″）","6"],["<strong>男C（待提升）<\/strong>","唐泽铭（5′33″）、蔡信荣（5′35″）、吴家俊（5′48″）、陈泽贤（5′48″）、林镀曦（6′02″）","5"],["待测／免测","曾景昊、黄钏铖、黄圣程、张学宇、唐维起（跑步未测）、沈键曦（当天放假）","6"]]}},{"t":"p","c":"<strong>女生（23人）<\/strong>"},{"t":"table","d":{"head":["组别","名单（含摸底成绩）","人数"],"rows":[["<strong>女A（强）<\/strong>","庄晓艺（3′4x″）、康雨柔（4′14″）、陈晓婧（4′16″）、张诗琪（4′22″）","4"],["<strong>女B（中）<\/strong>","周琪琪（4′50″）、庄娸瑜（4′52″）、许舒雅（4′56″）、庄可茵（4′57″）、徐嘉柔（4′4x″）、郑雅晗（5′04″）、李晓雅（4′65″）","7"],["<strong>女C（待提升）<\/strong>","何雨彤（5′14″）、陈嘉熹（5′52″）、吴静怡（5′58″）、刘雅婷（5′59″）、许诺诗（6′05″）、林家妮（6′12″）、张可儿（6′17″）","7"],["待测／免测","林思静、陈雅琪、林奕含、陈芳菲（放假或缺测）、李钰晴（原表标\"＃\"，按免测处理）","5"]]}},{"t":"p","c":"名单已按成绩单的核对结果更正姓名；成绩后带\"x\"的为原表末位字迹不清，按近似值处理，当场补测或核对后即可定稿。"},{"t":"h3","c":"6. 开训第一天要当场处理的三件事"},{"t":"p","c":"名单已按核对结果更正，剩下这几项需要10月16日当天用10分钟处理掉（配套 Excel 已单列《待补测与待确认清单》，逐项打钩即可）："},{"t":"table","d":{"head":["类别","涉及学生","要做什么"],"rows":[["<strong>跑步缺测<\/strong>","曾景昊、黄钏铖、黄圣程、张学宇、唐维起、沈键曦（男）；林思静、陈雅琪、林奕含、陈芳菲（女）","当场补测耐久跑（男1000米／女800米）并登记；补测后并入相应组别，当天先随B组跟练（沈键曦、林思静、林奕含、陈芳菲原表标注\"放假\"，返校后补）"],["<strong>跳绳缺测<\/strong>","唐泽铭、周依锌、林思静、庄可茵、林镀曦、康雨柔等","当场补测1分钟跳绳并登记"],["<strong>字迹不清待确认<\/strong>","陈国楚（4′0x″）、周依锌（3′58″）、庄晓艺（3′4x″）、徐嘉柔（4′4x″）、杨其臻（4′64″）、李晓雅（4′65″）","对照原表确认末位数字；若确实看不清，按当天补测成绩定档"],["<strong>免测待核<\/strong>","李钰晴（原表标\"＃\"，另一识别记为1′82″，明显异常）","核实是否免测；若为漏读，补录正确成绩并入组"],["<strong>健康排查<\/strong>","全班","哮喘／心脏病／癫痫史、近期伤情、超重、女生生理期，按第八章第1节逐项排查并登记"]]}},{"t":"p","c":"<strong>补测完把成绩发回<\/strong>，我按确认后的数据重算分组、配速与训练量，并更新表格。"}]},{"title":"三、目标设定（可贴在教室后墙）","blocks":[{"t":"p","c":"目标分两层：成绩目标与过程目标。对C组同学而言，<strong>过程目标比成绩目标更重要<\/strong>——先做到\"不停下来\"，成绩自然跟着走。"},{"t":"table","d":{"head":["组别","男 1000米","女 800米","1分钟跳绳","过程目标（更重要）"],"rows":[["<strong>A组<\/strong>","≤4分15秒","≤4分00秒","男≥160／女≥170","全程匀速，最后100米加速冲线"],["<strong>B组<\/strong>","≤4分40秒","≤4分30秒","男≥130／女≥140","中途不停走，呼吸节奏稳定"],["<strong>C组<\/strong>","≤5分10秒","≤5分00秒","≥110","比上次快10秒以上，或\"走\"的次数减少到1次以内"]]}},{"t":"p","c":"对C组同学，建议当面这样讲：\"你的目标不是跑多快，是全程不停下来。今天比昨天少走50米，就是进步。\"教学中最怕的不是成绩差，是学生觉得自己不行所以放弃——给C组的是<strong>能完成的小任务<\/strong>，不是遥遥无期的分数目标。"}]},{"title":"四、两节课的固定结构（每节课按此框架上课）","blocks":[{"t":"p","c":"两节课的环节与时长固定，只有主内容每天不同。上课时先按本框架热身与放松，中间执行当天详案的主内容。"},{"t":"h3","c":"上午 10:10—10:40（30分钟）· 素质＋辅助课"},{"t":"table","d":{"head":["时段","环节","内容"],"rows":[["10:10—10:15（5分钟）","热身","慢跑400米＋动态拉伸6节（正踢腿、侧压腿、弓步转体、踝关节绕环、高抬腿、小步跑），每节1组×20米"],["10:15—10:33（18分钟）","主内容","按当天安排（跳绳技术／柔韧专项／力量／速度／积极恢复）"],["10:33—10:40（7分钟）","放松","静态拉伸：大腿前侧、大腿后侧、小腿、髋部各30秒×2组＋抖腿"]]}},{"t":"h3","c":"下午 17:00—17:40（40分钟）· 耐力主训课"},{"t":"table","d":{"head":["时段","环节","内容"],"rows":[["17:00—17:08（8分钟）","热身","慢跑600米＋动态拉伸6节＋30米加速跑×2（递增强度）"],["17:08—17:33（25分钟）","主内容","按当天安排分组训练（A/B/C三组内容见每日详案）"],["17:33—17:40（7分钟）","放松","慢跑200米过渡＋静态拉伸＋两人一组互相踩腿、揉小腿"]]}},{"t":"p","c":"所有跑类项目结束后<strong>必须慢走1圈再坐下<\/strong>，禁止冲过终点就蹲下或躺下。"}]},{"title":"五、每日训练详案（照着上）","blocks":[{"t":"p","c":"以下按日期逐节展开：每节课先列环节与用时，主内容按 A/B/C 三组分别写明练习内容、组数、间歇和配速要求。"},{"t":"h3","c":"10月16日（周五）第1天：摸底补测＋分组＋有氧打底"},{"t":"p","c":"上午补测、教跳绳发力，下午有氧基础＋核心稳定，把数据拿全、把组分好。"},{"t":"h4","c":"上午 10:10—10:40 · 摸底补测＋跳绳技术"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈；动态拉伸（高抬腿20米、后踢腿20米、弓步走15米、踝关节绕环10次）","各2组","5分钟"],["补测","缺测同学测1分钟跳绳；其余同学原地双人互数跳绳，不空等","1次","10分钟"],["主内容","跳绳技术：手腕摇绳（绳子贴地\"啪\"一声）、前脚掌弹跳（离地2—3厘米）、不憋气、失误后立刻续跳","30秒体验×3组","10分钟"],["放松＋宣布","静态拉伸5个动作各20秒；公布A/B/C分组与小组长","—","5分钟"]]}},{"t":"h4","c":"下午 17:00—17:40 · 分层有氧＋核心稳定"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈（约400米）＋动态拉伸全套＋30米加速跑×2","2组","8分钟"],["A组","400米×4，组间快走1分钟（男每圈1分40秒—1分50秒／女1分55秒—2分00秒）","4组","17分钟"],["B组","400米×3，组间快走1分30秒","3组","17分钟"],["C组","连续慢跑6—8分钟（喘就快走，目标\"不停下来\"）","1组","17分钟"],["核心","平板支撑3组×30秒（休30秒）；仰卧起坐2组×20个；臀桥2组×15个","7组","8分钟"],["放松","慢走1圈＋静态拉伸8个动作（大腿前/后侧、小腿、髋、臀、胸、肩、背）各25秒","—","7分钟"]]}},{"t":"h3","c":"10月19日（周一）第2天：心肺唤醒＋腿部力量"},{"t":"p","c":"上午跳绳耐力并纠正动作，下午间歇跑刺激心肺，补下肢力量。"},{"t":"h4","c":"上午 10:10—10:40 · 跳绳耐力"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈；手腕脚踝绕环；原地小跳","小跳30秒×2组","5分钟"],["主内容","1分钟跳绳，当场记录个数（A组目标150＋／B组120＋／C组80＋；跳绳弱项只求\"不失误\"）","1分钟×3组，组间休45秒","15分钟"],["纠错","小组长一对一带徒弟：手臂是否在抡、脚是否全脚掌落、跳得是否太高","一对一","5分钟"],["放松","小腿、前臂、肩部拉伸","各30秒×2轮","5分钟"]]}},{"t":"h4","c":"下午 17:00—17:40 · 间歇跑＋下肢力量"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈＋动态拉伸＋30米加速跑×2","2组","8分钟"],["A组","200米×6（80%强度），跑200米走100米回起点循环","6组","17分钟"],["B组","200米×4，同上循环","4组","17分钟"],["C组","100米快跑＋100米快走","6轮","17分钟"],["下肢力量","深蹲2组×20个；弓步走2组×15米；提踵2组×20个；原地纵跳2组×10个（落地要\"轻\"、膝不内扣）","8组","10分钟"],["放松","慢走＋腿部静态拉伸8个动作各30秒","—","5分钟"]]}},{"t":"h3","c":"10月20日（周二）第3天：速度感觉＋配速跑"},{"t":"p","c":"上午学摆臂、起跑与加速，下午重点练\"匀速\"（不是快）。"},{"t":"h4","c":"上午 10:10—10:40 · 速度与起跑"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈＋动态拉伸6节","—","5分钟"],["主内容①","原地快摆臂；坐姿摆臂（体会\"前后摆、不左右晃\"）","10秒×4组＋坐姿2组","7分钟"],["主内容②","站姿起跑反应练习（听哨起跑跑10米）；30米加速跑（跑完走回即休息）","4次＋6组","13分钟"],["放松","股四头肌、腘绳肌拉伸","各30秒×2组","5分钟"]]}},{"t":"p","c":"技术口诀：身体前倾不后仰，前脚掌蹬地，手臂前后摆，眼睛看前方10米。"},{"t":"h4","c":"下午 17:00—17:40 · 配速跑＋核心"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈＋动态拉伸＋30米加速跑×2","2组","8分钟"],["A组","1000米（男）／800米（女）全程跑1次，按目标配速（男每圈52—55秒／女60—62秒）","1组","20分钟"],["B组","600米×1＋200米×1（中间慢走3分钟）","2组","20分钟"],["C组","400米×2，中间走2分钟，重点练呼吸：两步一吸、两步一呼","2组","20分钟"],["核心","俄罗斯转体2组×20；平板支撑3组×40秒；死虫式2组×12","7组","8分钟"],["放松","慢走＋全身拉伸","—","4分钟"]]}},{"t":"h3","c":"10月21日（周三）第4天：柔韧抢分＋力量补短板"},{"t":"p","c":"上午专攻坐位体前屈（最容易抢分），下午按性别补力量短板。"},{"t":"h4","c":"上午 10:10—10:40 · 柔韧专项（坐位体前屈）"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈＋动态拉伸（先热再拉，不热硬拉会拉伤）","—","5分钟"],["主内容","①坐姿双腿并拢前屈（够不到用跳绳勾脚辅助）②坐姿分腿前屈（左右各一次）③跨栏步拉伸（左右各一次）④站姿体前屈放松10秒","每动作30秒×3轮","15分钟"],["补充","仰卧单腿拉伸（用跳绳勾脚拉直腿），左右各1组","30秒×2","5分钟"],["放松","统一做一遍完整拉伸；提醒回家睡前再拉2分钟","—","5分钟"]]}},{"t":"h4","c":"下午 17:00—17:40 · 力量课"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈＋动态拉伸＋核心激活（臀桥10个、蚌式开合10个/侧）","—","8分钟"],["男生","引体向上（能做3个以上自己做，做不了用弹力带或斜身引体）3组×尽力；俯卧撑2组×15；蹲跳2组×15","7组","22分钟"],["女生","1分钟仰卧起坐×3组（组间1分钟；手不抱头猛拉、肩胛离垫、肘碰膝）；深蹲2组×20","5组","22分钟"],["弹跳落地","原地纵跳落地缓冲（练立定跳远与跳绳的缓冲能力）","3组×8","6分钟"],["放松","上肢、背部、腿部拉伸","—","4分钟"]]}},{"t":"h3","c":"10月22日（周四）第5天：全流程模拟（80%强度）"},{"t":"p","c":"上午跳绳间歇，下午按体测流程完整走一遍（不用全力），把心里没底的部分补上。"},{"t":"h4","c":"上午 10:10—10:40 · 跳绳间歇"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑2圈＋手腕脚踝活动＋试跳30秒","—","5分钟"],["主内容","30秒快（尽力）＋30秒慢（原地走）循环，中间休息1分钟后加1组","8轮＋1组","17分钟"],["冲刺","30秒极限跳（体会\"最后10秒咬牙\"）","2次","5分钟"],["放松","小腿、跟腱、肩部拉伸","各30秒×2组","3分钟"]]}},{"t":"h4","c":"下午 17:00—17:40 · 体测模拟（80%强度）"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["完整热身","按体测当天流程走一遍：慢跑3分钟→动态拉伸→30米加速跑×2","2组","10分钟"],["模拟测试","女800米／男1000米跑1次（A组按100%×尽力、B组80%、C组走跑结合也计入），体验呼吸节奏与分段配速","1次","20分钟"],["记录反馈","成绩写小黑板；一对一反馈\"前半程快了／后半程掉了／呼吸乱了\"","—","6分钟"],["放松","慢走1圈＋静态拉伸（今天必须拉够）","10分钟","4分钟"]]}},{"t":"p","c":"模拟测的3个观察点：起跑有没有冲太猛（前200米太快后面必掉）、中途有没有\"走\"、最后100米能不能加速。"},{"t":"h3","c":"10月23日（周五）第6天：技术定型＋减量激活（最后一次强度课）"},{"t":"p","c":"上午打磨技术细节，下午轻松跑＋动员会；<strong>从这堂课结束起全班进入减量期<\/strong>。"},{"t":"h4","c":"上午 10:10—10:40 · 技术打磨＋轻跳绳"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑600米＋动态拉伸6节","—","5分钟"],["主内容","起跑姿势、摆臂、呼吸节奏（两步一吸两步一呼）、终点冲刺压线；每人2次30米技术跑，逐个纠正","2次","15分钟"],["轻跳绳","只做70%强度，找手感，不拼个数","1分钟×2组","6分钟"],["放松","全身拉伸","—","4分钟"]]}},{"t":"h4","c":"下午 17:00—17:40 · 减量激活＋体测动员会"},{"t":"table","d":{"head":["环节","内容","组数／强度","用时"],"rows":[["热身","慢跑3圈＋动态拉伸","—","8分钟"],["轻松跑","600—800米，强度\"能一边跑一边对话\"，<strong>绝不冲刺<\/strong>","1组","14分钟"],["动态拉伸","重点拉开大腿后侧、髋、小腿","10分钟","10分钟"],["动员会","体测流程、集合时间、服装要求（运动鞋、宽松衣裤、不戴首饰）；前一晚10点前睡；当天提前1.5小时吃清淡早餐；心态\"把平时练的跑出来就是赢\"","围圈讲","8分钟"]]}},{"t":"h3","c":"10月24日（周六）· 打卡③ 恢复日"},{"t":"p","c":"考前周末只减不加：把模拟测试积累的疲劳排掉，严禁再上强度。"},{"t":"table","d":{"head":["顺序","内容","组数／强度","时长"],"rows":[["①","慢跑或快走（心率低、能唱歌的强度）","1组","15—20分钟"],["②","全身静态拉伸8个动作，腿部和髋部重点拉","各30秒×2组","10分钟"],["③","早睡（22:30前上床，睡够8—9小时）","—","—"]]}},{"t":"p","c":"本日禁止：跳绳跳满1分钟、深蹲跳、全力跑、任何\"出大汗\"的项目。"},{"t":"h3","c":"10月25日（周日）· 打卡④ 完全休息＋睡眠饮食打卡"},{"t":"p","c":"彻底休息、备齐装备、吃足主食、早睡，让身体以最好状态迎接第二天的体测。"},{"t":"table","d":{"head":["顺序","内容","要求"],"rows":[["①","轻度活动（散步／拉伸），或完全不运动","15分钟以内，都算完成"],["②","饮食打卡：多主食（米饭／面／香蕉）、少油腻、不喝冰饮","拍1张餐食照片"],["③","睡眠打卡：目标22:30前上床，睡够8—9小时","填入睡时间"],["④","装备准备：运动鞋（穿惯的旧鞋）、宽松衣裤、水杯、毛巾","提前放好并拍照"]]}},{"t":"h3","c":"10月26日—30日（体测周）· 每天怎么做"},{"t":"p","c":"体测周的原则：<strong>只热身、不上量<\/strong>。测前激活身体，测后排酸放松，保证下一项不受影响。"},{"t":"table","d":{"head":["时段","安排"],"rows":[["<strong>每天上午10:10—10:40<\/strong>","只做15—20分钟激活热身：慢跑2—3分钟→动态拉伸（高抬腿、弓步走、髋部激活）→30米加速跑×2→放松走。不跑长距离、不跳绳跳满、不做深蹲跳、不测极限，做完回教室"],["<strong>体测当天<\/strong>","①集合前脱外套、穿运动鞋、不戴首饰；②按10月22日模拟那套流程热身；③项目之间慢走、小口喝水、穿好外套保暖，不要坐着不动（坐着不动再上场最容易拉伤）；④800/1000米检录前做2次20—30米短加速跑\"点着\"身体；⑤跑完慢走1—2圈（400—800米）再坐下休息、拉伸，<strong>不要冲过终点就蹲下或躺下<\/strong>；⑥测完当天不做任何额外运动"],["<strong>已测完的当天<\/strong>","慢跑800米排酸＋静态拉伸8组＋互相踩腿；回家热水泡脚"],["<strong>不测的时段<\/strong>","正常上课，不安排额外体育训练，避免疲劳累积"]]}}]},{"title":"六、周末打卡作业（4天，可直接发家长群）","blocks":[{"t":"p","c":"<strong>打卡规则<\/strong>：每项做完拍1张照片或10秒小视频发班级群；按模板回复\"学号＋姓名＋完成\"；家长在纸质打卡表上签字；出现疼痛、头晕、胸闷立即停止并告诉家长。不追求快，追求\"做完\"和\"每天做\"。"},{"t":"h3","c":"打卡① ｜ 10月17日（周六）：有氧＋跳绳"},{"t":"table","d":{"head":["序号","内容","量","要求"],"rows":[["1","热身（原地小跳、手腕脚踝绕环、高抬腿）","3—5分钟","身体微微发热才算热身到位"],["2","慢跑／快走","20分钟","强度以\"能一边跑一边说话\"为准；走跑交替也算完成"],["3","1分钟跳绳","3组（组间休1分钟）","记录3组个数，填进打卡表"],["4","全身拉伸","8分钟","大腿前后侧、小腿、臀部、腰背，每个30秒"]]}},{"t":"h3","c":"打卡② ｜ 10月18日（周日）：柔韧＋核心"},{"t":"table","d":{"head":["序号","内容","量","要求"],"rows":[["1","热身（原地小跳＋慢走）","3分钟","先热再拉"],["2","坐位体前屈（并腿前屈／分腿前屈／跨栏步拉伸）","每动作30秒×3轮","慢慢加深、不弹震；能拉多少算多少"],["3","仰卧单腿拉伸（用跳绳勾脚）","左右各30秒×2轮","感觉\"绷\"但不\"疼\""],["4","平板支撑","3组×30—45秒","腰不塌、臀不翘"],["5","仰卧起坐","3组×20个","肩胛离垫、肘碰膝"],["6","臀桥","2组×15个","顶到最高停1秒"]]}},{"t":"h3","c":"打卡③④ ｜ 10月24日、25日：恢复与休息"},{"t":"p","c":"具体内容见上方\"10月24日（周六）·打卡③\"与\"10月25日（周日）·打卡④\"两节。"},{"t":"h3","c":"给C组同学的周末调整（减量版）"},{"t":"p","c":"打卡①的慢跑改为<strong>快走15分钟＋慢跑5分钟<\/strong>；打卡②的仰卧起坐改为<strong>2组×15个<\/strong>；其余照做。重点是\"每天都动一下\"，不要因为做不完就放弃打卡。"},{"t":"h3","c":"周末打卡记录表（打印裁剪，一人一张）"},{"t":"table","d":{"head":["姓名","10/17 有氧＋跳绳","10/18 柔韧＋核心","10/24 恢复日","10/25 休息＋睡眠","家长签字"],"rows":[["","","","","",""],["","","","","",""],["","","","","",""]]}},{"t":"p","c":"填写方式：完成画\"√\"，跳绳个数写数字，未完成写\"×\"并注明原因（生病／事假）；有疼痛、头晕等情况必须在备注栏写明。"}]},{"title":"七、体测前的\"乳酸堆积\"应对（含常见误解纠正）","blocks":[{"t":"p","c":"这一节解释体测前为什么要减量、减量具体怎么做。理解了原理，执行时才不会因为\"感觉没练够\"而临时加课。"},{"t":"h3","c":"1. 先纠正一个常见误解"},{"t":"p","c":"很多同学和老师以为\"跑完第二天腿酸，是乳酸堆在那里了\"。<strong>其实不是。<\/strong>"},{"t":"p","c":"乳酸在运动结束后1—2小时内就会被代谢清除干净，<strong>不会\"堆\"到第二天<\/strong>。第二天、第三天那种\"下楼梯腿软、按着酸疼\"的感觉，医学上叫<strong>延迟性肌肉酸痛（DOMS）<\/strong>，是肌肉纤维轻微损伤的修复反应，<strong>高峰期在运动后24—72小时<\/strong>。"},{"t":"p","c":"这对体测意味着什么？如果体测前1—2天还练了大强度，体测当天正好撞上酸痛高峰——腿是沉的、发力发不出来，成绩比平时还差。所以<strong>真正要防的不是乳酸，而是别让酸痛高峰落在体测那天<\/strong>。"},{"t":"h3","c":"2. 三个时间点，做对三件事"},{"t":"table","d":{"head":["时间点","做什么","为什么"],"rows":[["日常每次课后","慢走5—10分钟＋静态拉伸10分钟（不是马上坐下聊天）","慢走时肌肉持续收缩，帮助血液带走代谢产物，比静止休息清除效率高得多；拉伸能减轻后面的酸痛感"],["10月23日下午起（体测前48—72小时）","停止一切大强度训练，只做低强度有氧加拉伸","肌肉有48—72小时完成修复，才能\"超量恢复\"，体测时反而比训练时更有力（专业队赛前都这么减量）"],["体测当天早上","提前1.5小时清淡早餐→热身15分钟（慢跑3分钟＋动态拉伸＋30米加速跑×2）→项目间慢走补水","热身不足容易拉伤；热身过度（湿透出汗）会提前消耗体力。目标是身体热了、心跳上来了，但不觉得累"]]}},{"t":"h3","c":"3. 如果体测前已经酸痛了，怎么办"},{"t":"table","d":{"head":["类别","具体操作"],"rows":[["<strong>要做的<\/strong>","热敷10—15分钟；轻度活动（慢走、慢跑5—10分钟）；徒手按摩或泡沫轴滚压（每个部位30—60秒，痛点停15秒）；早睡"],["<strong>别做的<\/strong>","完全躺着不动（越不动越僵越酸）；继续大强度训练；用力按压疼得厉害的部位；洗很热的水澡后立刻外出"],["<strong>要报告的<\/strong>","某个点的刺痛、关节痛、按压有明确痛点、肿胀——那不是酸痛，可能是拉伤，立即报告老师并停止训练"]]}}]},{"title":"八、安全底线与课堂管理（建议打印一份放办公室）","blocks":[{"t":"p","c":"10天短周期里，最大的风险不是练得不够，而是练出伤病。本节把开训前排查、课中应急、每日负荷监控一次列清。"},{"t":"h3","c":"1. 必须提前排查的人（10月16日当天完成）"},{"t":"table","d":{"head":["情况","处理方式"],"rows":[["有哮喘、心脏病、癫痫史","单独列出名单，不做极限强度，随身带药，通知校医与家长"],["近期膝、踝、腰有伤或刚痊愈","跳类、跑类减量或改为快走、上肢练习；不做深蹲跳"],["超重／体型明显偏大","减少跳跃与连续跑量（关节负荷大），用快走加慢跑交替替代长跑；不做当众体重讨论"],["免测（原表\"＃\"标记）、请假","按学校规定执行；在场时安排计数、计时、收器材等任务"],["女生生理期","不做跑步、跳跃，改为主持热身、计数、拉伸指导；以学生自己申报为准，不做盘问"]]}},{"t":"h3","c":"2. 出现以下情况，立即停止并送医"},{"t":"p","c":"立即停止的信号：头晕、眼前发黑；胸闷胸痛；面色苍白或发青；恶心呕吐；关节扭伤后不能负重；意识模糊、反应迟钝；大量出汗后突然不出汗（热射病先兆）。"},{"t":"p","c":"<strong>处理口诀<\/strong>：停→扶到阴凉处坐下或平卧→松解开领口→补水→通知校医和家长→需要时拨打120。老师全程陪同，不让学生独自离开。"},{"t":"h3","c":"3. 场地与器材快速检查（每天课前1分钟）"},{"t":"p","c":"跑道有无积水、砂石、坑洼；边界有无障碍物。跳绳长度是否合适（双脚踩绳中间，绳柄到腋下）；绳体有无破损。垫子是否平整、有无滑动；单杠是否稳固（引体向上前必须两人检查）。备好急救箱、冰袋、弹力绷带；广东10月仍偏热，备足饮用水。"},{"t":"h3","c":"4. 教师用的负荷监控表（贴在办公室）"},{"t":"table","d":{"head":["监控项","怎么看","预警信号"],"rows":[["主观疲劳（RPE）","课后问一句\"累不累，1—10分\"","连续2天≥8分"],["睡眠","课上随口问","入睡困难、易醒"],["肌肉酸痛","每天问\"腿还酸吗\"","持续超48小时"],["训练意愿","看集合速度、表情","明显抗拒、躲课"],["成绩表现","看当天练习完成质量","连续3天明显下降"]]}},{"t":"p","c":"<strong>减量原则<\/strong>：出现3项及以上，当天该生减量一半，不要硬顶。10天短周期里，\"不受伤、不生病\"比\"多练一次\"重要得多。"}]},{"title":"九、测试当天注意事项（可发家长群）","blocks":[{"t":"p","c":"1. 穿平时训练穿惯的运动鞋（<strong>不要穿新鞋<\/strong>）、宽松衣裤，不戴首饰；天凉加外套，测完及时穿上。"},{"t":"p","c":"2. 提前上厕所；测试前30分钟做完准备活动，保持身体微热。"},{"t":"p","c":"3. 长跑战术：A组按目标配速匀速领跑；B组跟住前面的人，最后200米冲刺；C组匀速＋走跑结合，坚持不停。"},{"t":"p","c":"4. 跑完不要立刻坐下或喝水，先慢走1—2圈、抖腿、深呼吸。"},{"t":"p","c":"5. 心态：模拟测试已经练过全程，把平时练的跑出来就是赢。"}]},{"title":"十、最后提醒三句话","blocks":[{"t":"p","c":"1. <strong>10月23日下午是终点线<\/strong>——之后谁都不能练大强度，老师也别临时加课。"},{"t":"p","c":"2. <strong>上午课别练到喘不上气<\/strong>——学生回教室还要上两节课，练废了后面全耽误。"},{"t":"p","c":"3. <strong>C组要的是\"完成\"，不是\"成绩\"<\/strong>——10天能让他们从\"不敢跑\"变成\"敢跑完\"，这份价值比多拿2分大得多。"}]},{"title":"附：配套文件","blocks":[{"t":"p","c":"1. <strong>《8年级4班体测训练分组与打卡表.xlsx》<\/strong>：分组名单表（47人，含训练配速、跳绳专项标记）／每日训练记录表（热身、分组练习、组数强度、放松分列）／周末打卡统计表（自动计完成率）／<strong>待补测与待确认清单（逐项打钩）<\/strong>。"},{"t":"p","c":"2. 补测与字迹核对完成后，把确认版名单发回，我按确认数据重算分组、配速与训练量。"}]}]}</script>
+<script id="SEED" type="application/json">{"settings":{"school":"华南师范大学附属陆丰学校","className":"八年级4班","title":"8年级4班 · 体测备考管理工作台","startDate":"2026-10-16","examDate":"2026-10-26","examEnd":"2026-10-30","amTime":"10:10—10:40","pmTime":"17:00—17:40","amMin":30,"pmMin":40,"groups":["男生组","女生组","体质薄弱组"],"groupNote":"体质薄弱组的划分依据是成绩底线，不是主观印象：耐久跑慢于及格线（男 1000 米 5 分 30 秒以上、女 800 米 5 分 50 秒以上）或已申请免测待核的同学。缺测的同学按性别先归入本组并打「待测」标记——训练时动作强度取本组下限，补测完成后请到「学生档案」里把组别改成应有的那一组。"},"warmup":[{"n":"慢跑 2 圈","s":"约 250 米 · 1 分 30 秒","h":"能正常说话的节奏，不抢速度"},{"n":"高抬腿 20 米 + 后踢腿 20 米","s":"各 1 组","h":"大腿抬到腰高；后踢腿脚跟碰臀"},{"n":"弓步走 15 米 + 侧滑步 15 米","s":"各 1 组","h":"弓步下压时膝盖不超过脚尖"},{"n":"关节激活","s":"踝绕环 10 次 ×2 · 膝绕环 10 次 · 髋绕环 10 次 · 肩绕环 10 次","h":"每个关节都绕到位，不敷衍"},{"n":"小步跑接加速跑","s":"10 秒 + 20 米 ×1","h":"最后 20 米加到七成速度，把心率提起来"}],"cooldown":[{"n":"慢走 1 圈","s":"约 120 米","h":"边走边深呼吸，让心率降下来"},{"n":"静态拉伸 8 个部位","s":"每个动作 20—25 秒","h":"大腿前侧 / 大腿后侧 / 小腿 / 髋屈肌 / 臀部 / 胸部 / 肩部 / 背部"},{"n":"拉伸要领","s":"—","h":"拉到\"有牵拉感但不疼\"就停住，自然呼吸，不憋气、不弹震"},{"n":"收尾","s":"深呼吸 3 次","h":"站定，双手上举吸气、放下呼气，把气喘匀再解散"}],"days":[{"iso":"2026-10-16","md":"10月16日","dow":"周五","idx":1,"kind":"train","phase":"基础期","label":"摸底补测 + 建立规范","intro":"把缺测的数据补齐，把热身和拉伸的规范立起来，给后面的训练打地基。","sessions":[{"slot":"am","time":"10:10—10:40","minutes":30,"title":"摸底补测 + 热身流程教学","focus":"摸底补测 + 建立课堂规范","groups":[{"g":"男生组","note":"","items":[{"n":"热身全流程","s":"按固定 5 分钟清单走一遍","h":"今天老师带做，逐节讲清每个动作怎么做、做到什么程度"},{"n":"补测缺项","s":"50 米 / 立定跳远 / 引体向上","h":"缺测的同学逐个测；已测完的同学原地做俯卧撑 8 个 ×2 组，不空等"},{"n":"上肢激活","s":"俯卧撑 8 个 ×2 组","h":"身体一条直线，屁股不塌不翘"}]},{"g":"女生组","note":"","items":[{"n":"热身全流程","s":"按固定 5 分钟清单走一遍","h":"跟着老师做，把动作做对优先于做快"},{"n":"补测缺项","s":"坐位体前屈 / 1 分钟仰卧起坐","h":"测坐位体前屈时膝盖伸直、呼气下压，不弹震"},{"n":"柔韧激活","s":"坐位体前屈静力保持 20 秒 ×3","h":"慢慢往下，不弹、不憋气"}]},{"g":"体质薄弱组","note":"","items":[{"n":"热身全流程","s":"慢速跟做（慢跑改快走）","h":"今天只要求学会动作，不要求强度"},{"n":"摸底轻测","s":"1 分钟跳绳 / 坐位体前屈","h":"测出来就行，不用拼成绩"},{"n":"慢跑适应","s":"快走 2 分钟 + 慢跑 1 分钟","h":"喘了就放慢，能坚持不停就达到目的"}]}],"safety":["补测前必须热身到位，不要一上来就冲——冷身做最大强度最容易拉伤。","今天所有项目都不做 100% 全力，重点是\"测出来 + 学会规范\"。"]},{"slot":"pm","time":"17:00—17:40","minutes":40,"title":"有氧打底 + 核心稳定","focus":"有氧基础 + 核心稳定","groups":[{"g":"男生组","note":"","items":[{"n":"连续慢跑","s":"8 分钟","h":"能正常说话的节奏；中途不停，喘就稍微放慢"},{"n":"平板支撑","s":"30 秒 ×3 组（组间休 30 秒）","h":"腰不要塌，肘在肩膀正下方"},{"n":"臀桥","s":"15 个 ×3 组","h":"顶起时夹紧臀部，慢慢放下"}]},{"g":"女生组","note":"","items":[{"n":"连续慢跑","s":"6 分钟","h":"不追时间，跑完整比跑得快重要"},{"n":"平板支撑","s":"25 秒 ×3 组","h":"腰不要塌"},{"n":"仰卧起坐","s":"15 个 ×3 组","h":"手放耳侧，不抱头拉脖子"}]},{"g":"体质薄弱组","note":"","items":[{"n":"快走 + 慢跑交替","s":"走 3 分钟 + 跑 3 分钟 ×2 轮（共 12 分钟）","h":"全程不要求速度，\"不停下来\"就是满分"},{"n":"平板支撑","s":"15 秒 ×2 组","h":"撑不住就改成跪撑，安全第一"},{"n":"臀桥","s":"10 个 ×2 组","h":"动作放慢，感觉臀部发力"}]}],"safety":["慢跑全程不许冲刺，心率控制在\"还能对话\"的强度。","出现头晕、胸闷、恶心立刻停下并告诉老师。"]}],"homework":null},{"iso":"2026-10-17","md":"10月17日","dow":"周六","kind":"weekend","idx":0,"phase":"基础期","label":"第 1 次周末家庭作业","intro":"在家完成，按自己组别的任务做，做完在下方打卡表打钩。","sessions":[],"homework":1},{"iso":"2026-10-18","md":"10月18日","dow":"周日","kind":"weekend","idx":0,"phase":"基础期","label":"第 1 次周末家庭作业（第 2 天）","intro":"在家完成，量不用大，但要做完、要拉伸。","sessions":[],"homework":1},{"iso":"2026-10-19","md":"10月19日","dow":"周一","idx":2,"kind":"train","phase":"基础期","label":"心肺唤醒 + 下肢力量","intro":"跳绳练心肺和协调，间歇跑练速度耐力，下肢力量是立定跳远的底子。","sessions":[{"slot":"am","time":"10:10—10:40","minutes":30,"title":"跳绳耐力（心肺 + 协调）","focus":"心肺 + 协调","groups":[{"g":"男生组","note":"","items":[{"n":"跳绳计时","s":"30 秒 ×6 组（组间休 30 秒）","h":"手腕摇绳，绳子贴地\"啪\"一声；失误了立刻接着跳，别停在那儿"},{"n":"双人互数","s":"1 分钟 ×1 组","h":"互相数数、互相提醒节奏"}]},{"g":"女生组","note":"","items":[{"n":"跳绳计时","s":"30 秒 ×5 组（组间休 30 秒）","h":"前脚掌弹跳，离地 2—3 厘米，别跳太高"},{"n":"双人互数","s":"1 分钟 ×1 组","h":"同上"}]},{"g":"体质薄弱组","note":"","items":[{"n":"跳绳（可不计时）","s":"20 秒 ×4 组（组间休 40 秒）","h":"先保证能连续跳，跳 5 个失误了就重新来，不拼数量"},{"n":"原地高抬腿","s":"20 次 ×2 组","h":"扶墙做也可以，膝盖抬到腰高"}]}],"safety":["跳绳场地要平整、前后左右留 2 米距离，防止绳子打到人。","穿运动鞋，不要穿拖鞋、板鞋跳绳。"]},{"slot":"pm","time":"17:00—17:40","minutes":40,"title":"间歇跑 + 下肢力量","focus":"速度耐力 + 下肢力量","groups":[{"g":"男生组","note":"","items":[{"n":"200 米间歇跑","s":"×5 组（组间快走 60 秒）","h":"男生每 200 米控制在 52—55 秒，跑完走到下组起点"},{"n":"深蹲","s":"15 个 ×3 组","h":"下蹲到大腿接近水平，膝盖对齐脚尖"},{"n":"弓步蹲","s":"每腿 12 个 ×3 组","h":"上身直立，前膝不超过脚尖"}]},{"g":"女生组","note":"","items":[{"n":"200 米间歇跑","s":"×4 组（组间快走 60 秒）","h":"女生每 200 米控制在 60—62 秒，节奏均匀"},{"n":"深蹲","s":"12 个 ×3 组","h":"同上"},{"n":"弓步蹲","s":"每腿 10 个 ×3 组","h":"同上"}]},{"g":"体质薄弱组","note":"","items":[{"n":"走跑交替","s":"慢跑 100 米 + 快走 100 米 ×4 轮","h":"不追时间，跑的段能跑起来就行"},{"n":"靠墙静蹲","s":"20 秒 ×3 组","h":"背贴墙，膝盖约 90 度，膝盖不超过脚尖"}]}],"safety":["间歇跑前必须做 30 米加速跑 ×2 把腿活动开，防止拉伤。","体质薄弱组今天不安排长距离耐力，避免连续两天高负荷。"]}],"homework":null},{"iso":"2026-10-20","md":"10月20日","dow":"周二","idx":3,"kind":"train","phase":"基础期","label":"速度感觉 + 配速跑","intro":"50 米靠起跑和摆臂，1000/800 米靠匀速——这两个都是技术活，练对了涨分很快。","sessions":[{"slot":"am","time":"10:10—10:40","minutes":30,"title":"速度与起跑（50 米专项）","focus":"速度 + 起跑技术","groups":[{"g":"男生组","note":"","items":[{"n":"起跑姿势练习","s":"8 次","h":"起跑器/站立式都可以，前脚距起跑线一脚半"},{"n":"30 米加速跑","s":"6 组（组间走 40 秒）","h":"做 6 到 8 组里的 6 组即可，每次都要全力"},{"n":"50 米计时","s":"2 次","h":"冲过终点线后再跑 5—8 米不减速 —— 这一条就能快 0.1—0.3 秒"}]},{"g":"女生组","note":"","items":[{"n":"起跑姿势练习","s":"6 次","h":"同上，重心稍高一点更容易发力"},{"n":"30 米加速跑","s":"5 组（组间走 40 秒）","h":"摆臂前后摆，不要左右横摆"},{"n":"50 米计时","s":"2 次","h":"记住\"过线不减速\""}]},{"g":"体质薄弱组","note":"","items":[{"n":"摆臂练习","s":"2 组 ×20 次","h":"前后摆臂，手臂贴近身体"},{"n":"20 米加速跑","s":"4 组","h":"不用全力，体会越跑越快的感觉就好"}]}],"safety":["加速跑要一条道一个人、同一方向，防止相撞。","\"过线不减速\"必须在跑道上练成习惯，测试当天才做得出来。"]},{"slot":"pm","time":"17:00—17:40","minutes":40,"title":"配速跑 + 核心","focus":"配速能力 + 核心","groups":[{"g":"男生组","note":"","items":[{"n":"1000 米配速跑","s":"1 次","h":"目标 5 分 00 秒—5 分 15 秒，全程匀速；前 200 米别冲，最后 200 米再加速"},{"n":"核心三件套","s":"平板支撑 30 秒 / 仰卧两头起 15 个 / 侧平板 20 秒 ×各 2 组","h":"组间休 30 秒"}]},{"g":"女生组","note":"","items":[{"n":"800 米配速跑","s":"1 次","h":"目标 4 分 40 秒—5 分 00 秒，匀速为主"},{"n":"核心三件套","s":"平板支撑 25 秒 / 仰卧起坐 20 个 / 侧平板 20 秒 ×各 2 组","h":"组间休 30 秒"}]},{"g":"体质薄弱组","note":"","items":[{"n":"400 米走跑结合","s":"×2 组（跑 100 米 + 走 100 米，共 400 米）","h":"不追时间，体会\"匀速不喘\"的感觉"},{"n":"平板支撑","s":"15 秒 ×3 组","h":"撑不住改跪撑"}]}],"safety":["配速跑不是测试，不冲不抢；跑完必须慢走 1 圈把心率降下来。","跑中出现\"腿沉、胸闷\"是极点，降速加深呼吸，30—60 秒就过去了，千万别停。"]}],"homework":null},{"iso":"2026-10-21","md":"10月21日","dow":"周三","idx":4,"kind":"train","phase":"强化期","label":"柔韧抢分 + 力量补短板","intro":"坐位体前屈是这十天里最能提分的项目，一天三拉伸就能涨 2—6 厘米；力量课补引体向上和仰卧起坐。","sessions":[{"slot":"am","time":"10:10—10:40","minutes":30,"title":"柔韧专项（坐位体前屈）","focus":"柔韧 + 坐位体前屈","groups":[{"g":"男生组","note":"","items":[{"n":"动态踢腿","s":"正踢 15 米 + 侧踢 15 米 ×3 组","h":"腿伸直、上身不后仰"},{"n":"坐位体前屈静力拉伸","s":"30 秒 ×3 组","h":"呼气下压、吸气略松，慢慢加深；严禁上下弹震"},{"n":"坐位体前屈测试","s":"1 次","h":"膝盖伸直，双手指尖推尺，推到最远停 1 秒"}]},{"g":"女生组","note":"","items":[{"n":"动态踢腿","s":"正踢 15 米 + 侧踢 15 米 ×3 组","h":"同上"},{"n":"坐位体前屈静力拉伸","s":"40 秒 ×3 组","h":"女生柔韧基础好，可以压得更深，但以不疼为界"},{"n":"坐位体前屈测试","s":"1 次","h":"同上"}]},{"g":"体质薄弱组","note":"","items":[{"n":"坐位体前屈静力拉伸","s":"20 秒 ×3 组","h":"幅度小一点，有牵拉感就停，绝不疼"},{"n":"抱膝团身","s":"15 秒 ×3 组","h":"团身放松腰背，缓冲紧张"}]}],"safety":["柔韧拉伸最忌\"弹震式\"——上下猛弹极易拉伤腘绳肌，一拉伤整个体测就废了。","拉完马上测一次，把最好成绩记下来填进\"成绩分析\"。"]},{"slot":"pm","time":"17:00—17:40","minutes":40,"title":"力量课（引体向上 / 仰卧起坐）","focus":"上肢 / 核心力量","groups":[{"g":"男生组","note":"","items":[{"n":"引体向上五级阶梯","s":"① 直臂悬垂 20 秒 ×3 ② 屈臂悬垂 10 秒 ×3 ③ 弹力带辅助 3 组 ④ 慢下放 5 秒 ×5 ⑤ 完整拉 1 次","h":"一级做不动就退一级；从 0 到 1 最难，过了 1 到 5 反而快"},{"n":"俯卧撑","s":"10 个 ×3 组","h":"身体一条直线"}]},{"g":"女生组","note":"","items":[{"n":"1 分钟仰卧起坐","s":"25 个 ×3 组","h":"手放耳侧或胸前，绝对不抱头拉脖子；前 30 秒 22—25 个、后 30 秒 15—18 个"},{"n":"背肌两头起","s":"15 个 ×3 组","h":"起身时呼气，放下时吸气"}]},{"g":"体质薄弱组","note":"","items":[{"n":"弹力带上肢训练","s":"划船 12 个 + 推举 12 个 ×3 组","h":"动作放慢，感受背部与前臂发力"},{"n":"仰卧举腿","s":"10 个 ×3 组","h":"手放身体两侧，用肚子发力；腰疼就改屈膝"}]}],"safety":["引体向上不甩腿、下巴要过杠、下放不要直接松手。","仰卧起坐不抱头、不停下来换气——中途一停就丢 3—5 秒。"]}],"homework":null},{"iso":"2026-10-22","md":"10月22日","dow":"周四","idx":5,"kind":"train","phase":"强化期","label":"立定跳远技术 + 模拟测试①","intro":"上午把立定跳远“往前扑”练成习惯，下午按真实体测流程完整走一遍，成绩记进系统。","sessions":[{"slot":"am","time":"10:10—10:40","minutes":30,"title":"立定跳远技术","focus":"爆发 + 落地技术","groups":[{"g":"男生组","note":"","items":[{"n":"完整立定跳远","s":"8 次","h":"口诀：预摆两三次 → 屈膝下蹲手后摆 → 蹬地手前摆 → 展腹 → 收腹举腿 → 小腿前伸 → 脚跟先落地 → 往前扑不倒"},{"n":"蛙跳","s":"10 米 ×4 组","h":"落地轻、连续跳"},{"n":"立定跳远测试","s":"3 次","h":"取最好一次，记下来"}]},{"g":"女生组","note":"","items":[{"n":"完整立定跳远","s":"6 次","h":"同上，重点在\"落地往前扑\""},{"n":"蛙跳","s":"8 米 ×3 组","h":"同上"},{"n":"立定跳远测试","s":"3 次","h":"取最好一次"}]},{"g":"体质薄弱组","note":"","items":[{"n":"原地摆臂起跳","s":"6 次","h":"只练摆臂和蹬地配合，不起跳也可以"},{"n":"短距离立定跳","s":"5 次","h":"重点不是跳多久，而是\"往前扑、不倒\""}]}],"safety":["成绩按最近落点算——落地往后倒、手往后撑，等于白跳一大截。","跳的场地要平整、无障碍，跳完往前走，不后退。"]},{"slot":"pm","time":"17:00—17:40","minutes":40,"title":"模拟测试①（全项目 · 80% 强度）","focus":"全流程模拟 + 数据采集","groups":[{"g":"男生组","note":"","items":[{"n":"测试顺序","s":"50 米 → 立定跳远 → 坐位体前屈 → 引体向上 → 1000 米","h":"严格按正式体测顺序走，让学生熟悉流程和节奏"},{"n":"强度要求","s":"80% 强度","h":"不是全力测，重点是把流程跑顺、把技术用出来"}]},{"g":"女生组","note":"","items":[{"n":"测试顺序","s":"50 米 → 立定跳远 → 坐位体前屈 → 1 分钟仰卧起坐 → 800 米","h":"同上"},{"n":"强度要求","s":"80% 强度","h":"同上"}]},{"g":"体质薄弱组","note":"","items":[{"n":"测试顺序","s":"同上（耐久跑按各自性别项目）","h":"薄弱组只测 50 米、立定跳远、坐位体前屈、跳绳可选"},{"n":"强度要求","s":"70% 强度，可以不测耐久跑","h":"今天的目标是\"参加完、不害怕\"，成绩其次"}]}],"safety":["耐久跑一定放在最后一项，前面项目之间安排 5 分钟休整。","测完当场记录成绩，晚自习前录入\"成绩分析\"，系统会自动找出薄弱项。"]}],"homework":null},{"iso":"2026-10-23","md":"10月23日","dow":"周五","idx":6,"kind":"train","phase":"减量期","label":"技术定型 + 减量激活","intro":"这是最后一次在校训练。今天开始减量——越接近体测越要减，把身体养足比多练有用。","sessions":[{"slot":"am","time":"10:10—10:40","minutes":30,"title":"技术打磨 + 轻跳绳","focus":"技术定型 + 减量","groups":[{"g":"男生组","note":"","items":[{"n":"技术要点复述","s":"7 项各说 1 遍口诀","h":"让学生自己说，说得出才做得到"},{"n":"轻跳绳","s":"20 秒 ×3 组","h":"只求节奏，不求数量"},{"n":"柔韧拉伸","s":"全套 5 分钟","h":"重点大腿后侧和小腿"}]},{"g":"女生组","note":"","items":[{"n":"技术要点复述","s":"7 项各说 1 遍口诀","h":"同上"},{"n":"轻跳绳","s":"20 秒 ×3 组","h":"同上"},{"n":"柔韧拉伸","s":"全套 5 分钟","h":"同上"}]},{"g":"体质薄弱组","note":"","items":[{"n":"拉伸 + 呼吸","s":"静态拉伸 5 分钟 + 腹式呼吸 10 次","h":"今天薄弱组以放松为主，不做强度"},{"n":"动作过一遍","s":"空手过 3 个动作","h":"起跑、摆臂、立定跳前扑——记住就行"}]}],"safety":["减量不是放假，是让身体\"充满电\"——保持轻量活动但绝不累。","今天不做任何测试，避免留下疲劳。"]},{"slot":"pm","time":"17:00—17:40","minutes":40,"title":"减量激活 + 体测动员","focus":"减量 + 动员","groups":[{"g":"男生组","note":"","items":[{"n":"30 米加速跑","s":"3 组","h":"七成速度，把神经唤醒就行"},{"n":"完整拉伸","s":"8 个部位各 25 秒","h":"认真做，这是最后一天课上的拉伸"}]},{"g":"女生组","note":"","items":[{"n":"30 米加速跑","s":"2 组","h":"七成速度"},{"n":"完整拉伸","s":"8 个部位各 25 秒","h":"同上"}]},{"g":"体质薄弱组","note":"","items":[{"n":"慢跑","s":"2 分钟","h":"极慢，能走就走"},{"n":"完整拉伸","s":"8 个部位各 25 秒","h":"同上"}]}],"safety":["从今天起进入减量期：不再做高强度，测前 48 小时减量是提成绩的关键。","动员会讲三件事：装备（运动服 + 运动鞋）、早餐（测前 2 小时吃完、别吃太饱）、心态（超越昨天的自己）。"]}],"homework":null},{"iso":"2026-10-24","md":"10月24日","dow":"周六","kind":"weekend","idx":0,"phase":"减量期","label":"第 2 次周末家庭作业（恢复为主）","intro":"这两天不练强度，重点是把身体状态调整到最好。","sessions":[],"homework":2},{"iso":"2026-10-25","md":"10月25日","dow":"周日","kind":"weekend","idx":0,"phase":"减量期","label":"第 2 次周末家庭作业（恢复 + 自测）","intro":"在家做一次轻量自测，看看自己练了十天的变化。","sessions":[],"homework":2},{"iso":"2026-10-26","md":"10月26日","dow":"周一","kind":"exam","idx":0,"phase":"体测期","label":"体测开始（10月26日—10月30日）","intro":"正式体测周。以下事项在测前逐条过一遍。","sessions":[],"homework":null}],"students":[{"sid":1,"name":"王元东","sex":"男","grp":"男生组","lv":"A","run":"4'08\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":162,"note":"","injury":"","special":"","alt":""},{"sid":2,"name":"黄佳锐","sex":"男","grp":"男生组","lv":"A","run":"4'09\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":126,"note":"","injury":"","special":"","alt":""},{"sid":3,"name":"曾景昊","sex":"男","grp":"男生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"","note":"原表√；跑步、跳绳均缺测","injury":"","special":"","alt":""},{"sid":4,"name":"张诗琪","sex":"女","grp":"女生组","lv":"A","run":"4'22\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":150,"note":"","injury":"","special":"","alt":""},{"sid":5,"name":"杨其臻","sex":"男","grp":"男生组","lv":"B","run":"4'64\"（末位不清）","s50":"","lj":"","zw":"","yt":"","yw":"","rope":206,"note":"末位待确认","injury":"","special":"","alt":""},{"sid":6,"name":"唐泽铭","sex":"男","grp":"体质薄弱组","lv":"C","run":"5'33\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"待补测","note":"跳绳待补","injury":"","special":"","alt":""},{"sid":7,"name":"林思静","sex":"女","grp":"女生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"待补测","note":"放假，返校后补测","injury":"","special":"","alt":""},{"sid":8,"name":"周依锌","sex":"男","grp":"男生组","lv":"A","run":"3'58\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"待补测","note":"跳绳待补","injury":"","special":"","alt":""},{"sid":10,"name":"陈雅琪","sex":"女","grp":"女生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"","note":"缺测，需补测两项","injury":"","special":"","alt":""},{"sid":12,"name":"陈嘉熹","sex":"女","grp":"体质薄弱组","lv":"C","run":"5'52\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":108,"note":"原表√","injury":"","special":"","alt":""},{"sid":13,"name":"李钰晴","sex":"女","grp":"体质薄弱组","lv":"免测","run":"1'82\"（异常）","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"","note":"原表#；免测待核实","injury":"","special":"","alt":""},{"sid":14,"name":"吴家俊","sex":"男","grp":"体质薄弱组","lv":"C","run":"5'48\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":141,"note":"","injury":"","special":"","alt":""},{"sid":15,"name":"李林鹏","sex":"男","grp":"男生组","lv":"B","run":"4'48\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":160,"note":"","injury":"","special":"","alt":""},{"sid":16,"name":"郑雅晗","sex":"女","grp":"女生组","lv":"B","run":"5'04\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":125,"note":"","injury":"","special":"","alt":""},{"sid":17,"name":"沈键曦","sex":"男","grp":"男生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":120,"note":"放假，返校后补测跑步","injury":"","special":"","alt":""},{"sid":18,"name":"杨子源","sex":"男","grp":"男生组","lv":"B","run":"4'47\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":141,"note":"","injury":"","special":"","alt":""},{"sid":20,"name":"张可儿","sex":"女","grp":"体质薄弱组","lv":"C","run":"6'17\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":92,"note":"跳绳专项加练","injury":"","special":"","alt":""},{"sid":21,"name":"林家妮","sex":"女","grp":"体质薄弱组","lv":"C","run":"6'12\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":105,"note":"跳绳临界，重点观察","injury":"","special":"","alt":""},{"sid":22,"name":"许舒雅","sex":"女","grp":"女生组","lv":"B","run":"4'56\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":108,"note":"","injury":"","special":"","alt":""},{"sid":23,"name":"黄钏铖","sex":"男","grp":"男生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"","note":"原表√；两项均缺测","injury":"","special":"","alt":""},{"sid":24,"name":"黄泽鸿","sex":"男","grp":"男生组","lv":"B","run":"4'50\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":112,"note":"原表√","injury":"","special":"","alt":""},{"sid":25,"name":"庄可茵","sex":"女","grp":"女生组","lv":"B","run":"4'57\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"待补测","note":"跳绳待补","injury":"","special":"","alt":""},{"sid":26,"name":"徐嘉柔","sex":"女","grp":"女生组","lv":"B","run":"4'4x\"（末位不清）","s50":"","lj":"","zw":"","yt":"","yw":"","rope":122,"note":"末位待确认","injury":"","special":"","alt":""},{"sid":27,"name":"周浩宇","sex":"男","grp":"男生组","lv":"A","run":"4'20\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":135,"note":"","injury":"","special":"","alt":""},{"sid":28,"name":"陈国楚","sex":"男","grp":"男生组","lv":"A","run":"4'0x\"（末位不清）","s50":"","lj":"","zw":"","yt":"","yw":"","rope":148,"note":"原表√；末位待确认","injury":"","special":"","alt":""},{"sid":29,"name":"周宇轩","sex":"男","grp":"男生组","lv":"A","run":"4'17\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":153,"note":"","injury":"","special":"","alt":""},{"sid":30,"name":"吴静怡","sex":"女","grp":"体质薄弱组","lv":"C","run":"5'58\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":138,"note":"","injury":"","special":"","alt":""},{"sid":31,"name":"蔡信荣","sex":"男","grp":"体质薄弱组","lv":"C","run":"5'35\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":92,"note":"原表√；跳绳专项加练","injury":"","special":"","alt":""},{"sid":33,"name":"庄娸瑜","sex":"女","grp":"女生组","lv":"B","run":"4'52\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":161,"note":"","injury":"","special":"","alt":""},{"sid":34,"name":"林镀曦","sex":"男","grp":"体质薄弱组","lv":"C","run":"6'02\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"待补测","note":"跳绳待补；性别待核","injury":"","special":"","alt":""},{"sid":35,"name":"陈泽贤","sex":"男","grp":"体质薄弱组","lv":"C","run":"5'48\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":103,"note":"原表√；跳绳临界","injury":"","special":"","alt":""},{"sid":36,"name":"黄圣程","sex":"男","grp":"男生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":116,"note":"原表√；跑步缺测","injury":"","special":"","alt":""},{"sid":37,"name":"许诺诗","sex":"女","grp":"体质薄弱组","lv":"C","run":"6'05\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":120,"note":"原表√","injury":"","special":"","alt":""},{"sid":38,"name":"张学宇","sex":"男","grp":"男生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":118,"note":"原表√；跑步缺测","injury":"","special":"","alt":""},{"sid":39,"name":"黄浩铠","sex":"男","grp":"男生组","lv":"B","run":"5'05\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":128,"note":"原表√","injury":"","special":"","alt":""},{"sid":40,"name":"唐维起","sex":"男","grp":"男生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":111,"note":"原表√；跑步缺测","injury":"","special":"","alt":""},{"sid":41,"name":"陈晓婧","sex":"女","grp":"女生组","lv":"A","run":"4'16\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":141,"note":"","injury":"","special":"","alt":""},{"sid":42,"name":"何雨彤","sex":"女","grp":"体质薄弱组","lv":"C","run":"5'14\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":127,"note":"","injury":"","special":"","alt":""},{"sid":43,"name":"林奕含","sex":"女","grp":"女生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"待补测","note":"放假，返校后补测","injury":"","special":"","alt":""},{"sid":44,"name":"翁哲瀚","sex":"男","grp":"男生组","lv":"A","run":"4'21\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":70,"note":"跳绳专项加练","injury":"","special":"","alt":""},{"sid":45,"name":"康雨柔","sex":"女","grp":"女生组","lv":"A","run":"4'14\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":"待补测","note":"跳绳待补","injury":"","special":"","alt":""},{"sid":46,"name":"李晓雅","sex":"女","grp":"女生组","lv":"B","run":"4'65\"（末位不清）","s50":"","lj":"","zw":"","yt":"","yw":"","rope":102,"note":"末位待确认；跳绳临界","injury":"","special":"","alt":""},{"sid":47,"name":"刘雅婷","sex":"女","grp":"体质薄弱组","lv":"C","run":"5'59\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":127,"note":"","injury":"","special":"","alt":""},{"sid":48,"name":"林烨坤","sex":"男","grp":"男生组","lv":"B","run":"5'01\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":61,"note":"原表√；跳绳专项加练；性别待核","injury":"","special":"","alt":""},{"sid":49,"name":"周琪琪","sex":"女","grp":"女生组","lv":"B","run":"4'50\"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":194,"note":"","injury":"","special":"","alt":""},{"sid":50,"name":"庄晓艺","sex":"女","grp":"女生组","lv":"A","run":"3'4x\"（末位不清）","s50":"","lj":"","zw":"","yt":"","yw":"","rope":176,"note":"末位待确认","injury":"","special":"","alt":""},{"sid":51,"name":"陈芳菲","sex":"女","grp":"女生组","lv":"待测","run":"","s50":"","lj":"","zw":"","yt":"","yw":"","rope":89,"note":"放假；跳绳专项加练","injury":"","special":"","alt":""}],"homework":{"1":{"title":"第 1 次周末家庭作业（10月17日—18日）","intro":"在家或小区完成，按自己组别做。每天做一遍，做完在打卡表打钩。不需要器械，跳绳自备。","groups":[{"g":"男生组","note":"","items":[{"n":"慢跑","s":"15 分钟","h":"轻松跑，能说话的速度，跑完走 2 分钟"},{"n":"跳绳","s":"1 分钟 ×3 组（组间休 1 分钟）","h":"手腕摇绳，失误了立刻续跳"},{"n":"俯卧撑","s":"10 个 ×3 组","h":"身体一条直线，不塌腰"},{"n":"拉伸","s":"8 个部位各 20 秒","h":"大腿前后侧、小腿、髋、臀、胸、肩、背"}]},{"g":"女生组","note":"","items":[{"n":"慢跑","s":"12 分钟","h":"轻松跑，不追速度"},{"n":"跳绳","s":"1 分钟 ×2 组（组间休 1 分钟）","h":"前脚掌弹跳，别跳太高"},{"n":"仰卧起坐","s":"20 个 ×3 组","h":"手放耳侧，绝不抱头"},{"n":"拉伸","s":"8 个部位各 20 秒","h":"重点大腿后侧，为坐位体前屈加分"}]},{"g":"体质薄弱组","note":"","items":[{"n":"快走","s":"20 分钟","h":"不要求速度，走完就行；累了可以中间歇 1 分钟"},{"n":"柔韧拉伸","s":"8 个部位各 20 秒","h":"有牵拉感就停，不要疼"},{"n":"仰卧举腿","s":"8 个 ×2 组","h":"腰疼就改屈膝，安全第一"},{"n":"（可选）跳绳","s":"30 秒 ×2 组","h":"能跳就跳，跳不了不勉强"}]}],"tips":["运动前先活动关节 3 分钟；运动后一定拉伸。","饭后 1 小时内不做剧烈运动；天气热要补水。","有哮喘、关节不适的同学，只做拉伸和走路，其余项目停做并告诉老师。"]},"2":{"title":"第 2 次周末家庭作业（10月24日—25日）· 恢复为主","intro":"体测前一天两天，重点是“养”。这两天不做强度，只做恢复和轻量自测。","groups":[{"g":"男生组","note":"","items":[{"n":"轻松慢跑","s":"10 分钟","h":"极慢，跑完走 2 分钟"},{"n":"坐位体前屈保持","s":"30 秒 ×3 组","h":"慢慢压，保持柔韧，不追新纪录"},{"n":"轻量自测（可选）","s":"坐位体前屈 / 跳绳 / 仰卧起坐","h":"测一下就好，不拼命"},{"n":"拉伸 + 早睡","s":"8 个部位各 20 秒","h":"22:30 前睡觉，睡眠是最重要的恢复"}]},{"g":"女生组","note":"","items":[{"n":"轻松慢跑","s":"10 分钟","h":"极慢，能走就走"},{"n":"坐位体前屈保持","s":"30 秒 ×3 组","h":"同上"},{"n":"轻量自测（可选）","s":"坐位体前屈 / 仰卧起坐 / 跳绳","h":"同上"},{"n":"拉伸 + 早睡","s":"8 个部位各 20 秒","h":"同上"}]},{"g":"体质薄弱组","note":"","items":[{"n":"散步","s":"15 分钟","h":"不跑步也可以，走一走就好"},{"n":"柔韧拉伸","s":"8 个部位各 20 秒","h":"同上"},{"n":"腹式呼吸","s":"10 次","h":"吸气 4 秒、呼气 6 秒，帮助放松"},{"n":"早睡","s":"22:30 前","h":"养足精神迎接体测"}]}],"tips":["体测前 48 小时不做高强度训练和大重量力量训练。","别在测前一天做陌生动作、别试新鞋新袜。","测前两小时吃完饭，别空腹也别吃太饱。"]}},"examNotes":[{"n":"测前一天","s":"装备准备","h":"穿已经穿惯的运动服和运动鞋（不要新鞋）；带水、毛巾、跳绳；长发扎起来"},{"n":"测前一天","s":"饮食与睡眠","h":"晚饭正常吃、别吃太油腻；22:30 前睡觉；不喝功能饮料"},{"n":"测试当天","s":"早餐","h":"测前 2 小时吃完，七分饱：粥/面包/鸡蛋，别吃油炸、别喝牛奶太多"},{"n":"测试当天","s":"热身","h":"先跟老师做完整热身 8—10 分钟，出汗但没喘粗气；冬天要延长到 12 分钟"},{"n":"测试当天","s":"穿着与安全","h":"口袋里不放钥匙手机；鞋带系紧；戴眼镜的系防滑带"},{"n":"测试当天","s":"各项目要点","h":"50 米：过线不减速；立定跳远：往前扑不倒；体前屈：呼气下压不弹震；引体向上：不甩腿、下放不松手；仰卧起坐：不抱头、不停顿；1000/800 米：前段不冲、后段加速、极点不停"},{"n":"测试当天","s":"出现状况","h":"头晕、胸闷、恶心、关节疼——立刻停下告诉老师，不硬撑"},{"n":"测试当天","s":"心态","h":"满分不是标准，超越上一次的自己就是赢"}],"standards":{"caption":"下表为《国家学生体质健康标准》八年级及格线（60 分）/ 良好线（80 分），供现场对照。","rows":[{"item":"50 米跑","male":"9.9″","female":"10.8″","male80":"8.6″","female80":"9.4″","unit":"秒","lower":true},{"item":"1000 米（男）/ 800 米（女）","male":"5′05″","female":"4′50″","male80":"4′35″","female80":"4′20″","unit":"分秒","lower":true},{"item":"坐位体前屈","male":"-1.4","female":"2.9","male80":"7.3","female80":"11.4","unit":"厘米","lower":false},{"item":"立定跳远","male":"170","female":"144","male80":"196","female80":"169","unit":"厘米","lower":false},{"item":"引体向上（男）","male":"5","female":"—","male80":"9","female80":"—","unit":"个","lower":false},{"item":"1 分钟仰卧起坐（女）","male":"—","female":"21","male80":"—","female80":"33","unit":"个","lower":false}]},"strength":{"50 米跑":{"why":"占比最高的两项之一，技术性最强，而且只有一次机会。","plan":["起跑姿势固定下来：前脚距起跑线一脚半，重心稍前压。","每次跑都练“冲过终点线后再跑 5—8 米不减速”——单这一条就能快 0.1—0.3 秒。","摆臂前后摆、不左右横摆；30 米加速跑 6—8 组，隔天做。","测试前做 2 次 30 米加速跑唤醒，但别做多，避免腿酸。"]},"1000 米 / 800 米":{"why":"看着靠体力，其实全在配速和呼吸。多数学生前 200 米跟着冲、后 400 米走，比匀速慢 20—40 秒。","plan":["配速三段论：前 200 米略快不冲 → 中间匀速 → 最后 200—300 米加速。","呼吸三步一吸三步一呼，鼻吸口呼。","遇到极点时降速加深呼吸，不要停，30—60 秒就过去。","找人跟跑，把节奏交给前面的人。","测前 48 小时减量，把腿养足。"]},"坐位体前屈":{"why":"十天里最能提分的项目，每天拉伸就能涨 2—6 厘米。","plan":["每天 3 次拉伸（早读前 / 课间 / 睡前），腘绳肌、小腿、臀、竖脊肌各 30 秒 ×2—3 组。","呼气下压、吸气略松，慢慢加深；严禁上下弹震。","测前先热身，再用 PNF：压 6 秒 → 略松 → 再压更深，能多 2—4 厘米。","短时高频，不要一次压很久。"]},"立定跳远":{"why":"最容易丢分的地方是落地往后倒——成绩按最近落点算。","plan":["口诀练熟：预摆 → 屈膝下蹲手后摆 → 蹬地手前摆 → 展腹 → 收腹举腿 → 小腿前伸 → 脚跟先落 → 往前扑不倒。","专练“跳远 + 前扑”5 次，把往前扑变成肌肉记忆。","蛙跳 10—15 米 ×4 组，隔天做。","落地时向前走，绝不后退。"]},"引体向上":{"why":"七年级到九年级最难提的一项，不少男生 0 个。从 0 到 1 最陡，过了 1 到 5 反而快。","plan":["别一上来就硬拉，走五级阶梯：直臂悬垂 20—30 秒 ×3 → 屈臂悬垂 10—15 秒 ×3 → 弹力带辅助 ×3 → 慢下放 5 秒 ×5（最有效） → 完整 1 次。","课间每天 2—3 组悬垂，累计时间比单次强度重要。","不甩腿、下巴要过杠、下放不要直接松手。"]},"1 分钟仰卧起坐":{"why":"节奏和规范两难：前 30 秒冲太猛后 30 秒没劲，抱头拉脖子还伤颈椎。","plan":["配速：前 30 秒 22—25 个、后 30 秒 15—18 个，匀速比爆发划算。","手放耳侧或胸前，绝对不抱头。","中途不要停下来换气——一停就丢 3—5 秒。","每天 3 组 25 个，隔天做一次计时组。"]}},"altRules":[{"key":"哮喘","label":"哮喘 / 运动性哮喘","advice":"不做持续高强度耐力跑；避免冷空气中长时间跑动。","swap":[{"n":"耐力跑 1000/800 米","s":"改为走跑交替 ×6 轮","h":"跑 100 米 + 走 100 米；能说话的速度，喘了就多走"},{"n":"间歇跑","s":"改为 100 米匀速跑 ×4","h":"组间休息拉长到 2 分钟，心率不能到\"喘不上气\""},{"n":"跳绳","s":"改为 20 秒 ×3 组","h":"间隔休息 1 分钟，避免憋气"},{"n":"必须做到","s":"随身带药、结伴、老师视线内","h":"出现咳嗽不停/胸闷/喘鸣立刻停止并用药，立即告知老师"}]},{"key":"膝伤","label":"膝关节损伤 / 疼痛","advice":"避免跳跃、急停急转、深蹲过深等加重膝关节负担的动作。","swap":[{"n":"立定跳远","s":"改为原地摆臂 + 站立式起跳（不起跳也可）","h":"只练动作模式，不追求远度"},{"n":"蛙跳 / 深蹲 / 弓步蹲","s":"改为直腿抬高 12 个 ×3 + 靠墙静蹲 20 秒 ×3","h":"靠墙静蹲膝盖不超过脚尖，有痛感立即停"},{"n":"1000/800 米","s":"改为匀速走 + 慢跑交替","h":"平路、软地面优先，避免下坡"},{"n":"必须做到","s":"训练前告知老师、佩戴护膝","h":"关节肿胀或疼痛加重立即停训并就医"}]},{"key":"踝伤","label":"踝关节损伤 / 习惯性崴脚","advice":"避免弹跳落地、变向跑；重点做踝关节稳定性训练。","swap":[{"n":"跳绳","s":"改为原地提踵 15 个 ×3","h":"慢起慢落，感受踝关节控制"},{"n":"立定跳远 / 蛙跳","s":"停做","h":"改为坐姿腿屈伸，保护踝关节"},{"n":"跑步","s":"限定平直跑道、匀速慢跑","h":"不跑弯道、不做加速跑"},{"n":"必须做到","s":"佩戴护踝、训练前充分活动踝关节","h":"落地不稳或疼痛立即停"}]},{"key":"腰伤","label":"腰部损伤 / 腰疼","advice":"避免仰卧起坐、坐位体前屈过深、负重前屈。","swap":[{"n":"仰卧起坐","s":"改为平板支撑 20 秒 ×3 + 臀桥 12 个 ×3","h":"腰不要塌；有痛感立刻改成跪撑"},{"n":"坐位体前屈","s":"改为屈膝小幅拉伸","h":"膝关节可微屈，幅度小、不疼为准"},{"n":"两头起 / 举腿","s":"停做","h":"改为侧平板 15 秒 ×2"},{"n":"必须做到","s":"训练前告知老师、避免久坐","h":"出现放射痛（腿麻）立即停训并就医"}]},{"key":"心脏","label":"心脏疾病 / 医嘱限制剧烈运动","advice":"必须持医嘱；一般应申请免测或仅参加走步等极轻活动。","swap":[{"n":"全部跑跳项目","s":"停做","h":"仅参加热身中的慢走与静态拉伸"},{"n":"替代活动","s":"散步 10 分钟 + 上肢轻弹力带","h":"全程有人陪同，老师视线内"},{"n":"必须做到","s":"凭医院证明向学校申请免测/缓测","h":"任何不适立即停止，绝不硬撑"}]},{"key":"其他","label":"其他（感冒发烧、女生生理期、术后恢复等）","advice":"按实际情况降负荷，宁可少练不可硬练。","swap":[{"n":"当天高强度项目","s":"全部降为轻量或停做","h":"以\"走 + 拉伸\"为主"},{"n":"可做内容","s":"静态拉伸 + 呼吸练习 + 技术讲解","h":"参与课堂但不下场拼强度"},{"n":"必须做到","s":"提前告诉老师、课中可随时举手","h":"恢复正常后再逐步加量，不着急"}]}],"checkinItems":["第 1 天完成","第 2 天完成","拉伸有做","家长确认"],"todos":[{"id":1,"cat":"跑步缺测","sid":3,"name":"曾景昊","cur":"跑步未测／跳绳未测","todo":"补测耐久跑＋1分钟跳绳，测后并入相应组"},{"id":2,"cat":"跑步缺测","sid":23,"name":"黄钏铖","cur":"跑步未测／跳绳未测","todo":"补测耐久跑＋1分钟跳绳，测后并入相应组"},{"id":3,"cat":"跑步缺测","sid":36,"name":"黄圣程","cur":"跑步未测（跳绳116）","todo":"补测耐久跑，测后并入相应组"},{"id":4,"cat":"跑步缺测","sid":38,"name":"张学宇","cur":"跑步未测（跳绳118）","todo":"补测耐久跑，测后并入相应组"},{"id":5,"cat":"跑步缺测","sid":40,"name":"唐维起","cur":"跑步未测（跳绳111）","todo":"补测耐久跑，测后并入相应组"},{"id":6,"cat":"跑步缺测","sid":17,"name":"沈键曦","cur":"放假（跳绳120）","todo":"返校后补测耐久跑"},{"id":7,"cat":"跑步缺测","sid":7,"name":"林思静","cur":"放假","todo":"返校后补测耐久跑＋跳绳"},{"id":8,"cat":"跑步缺测","sid":10,"name":"陈雅琪","cur":"两项均缺测","todo":"补测耐久跑＋1分钟跳绳"},{"id":9,"cat":"跑步缺测","sid":43,"name":"林奕含","cur":"放假","todo":"返校后补测耐久跑＋跳绳"},{"id":10,"cat":"跑步缺测","sid":51,"name":"陈芳菲","cur":"放假（跳绳89）","todo":"返校后补测耐久跑；跳绳列入专项加练"},{"id":11,"cat":"跳绳缺测","sid":6,"name":"唐泽铭","cur":"跳绳待补测","todo":"补测1分钟跳绳，测后更新跳绳专项名单"},{"id":12,"cat":"跳绳缺测","sid":8,"name":"周依锌","cur":"跳绳待补测","todo":"补测1分钟跳绳"},{"id":13,"cat":"跳绳缺测","sid":25,"name":"庄可茵","cur":"跳绳待补测","todo":"补测1分钟跳绳"},{"id":14,"cat":"跳绳缺测","sid":34,"name":"林镀曦","cur":"跳绳待补测","todo":"补测1分钟跳绳"},{"id":15,"cat":"跳绳缺测","sid":45,"name":"康雨柔","cur":"跳绳待补测","todo":"补测1分钟跳绳"},{"id":16,"cat":"字迹待确认","sid":28,"name":"陈国楚","cur":"4'0x\" 末位不清","todo":"对照原表确认末位；看不清按补测成绩定档"},{"id":17,"cat":"字迹待确认","sid":50,"name":"庄晓艺","cur":"3'4x\" 末位不清","todo":"对照原表确认末位"},{"id":18,"cat":"字迹待确认","sid":26,"name":"徐嘉柔","cur":"4'4x\" 末位不清","todo":"对照原表确认末位"},{"id":19,"cat":"字迹待确认","sid":5,"name":"杨其臻","cur":"4'64\"（末位不清）","todo":"确认是4'04\"还是4'64\"（后者不可能，疑为4'04\"或4'04）"},{"id":20,"cat":"字迹待确认","sid":46,"name":"李晓雅","cur":"4'65\"（末位不清）","todo":"确认末位（疑为4'05\"左右）"},{"id":21,"cat":"免测待核","sid":13,"name":"李钰晴","cur":"原表#；记为1'82\"（异常）","todo":"核实是否免测；若为漏读请补录正确成绩"},{"id":22,"cat":"性别待核","sid":34,"name":"林镀曦","cur":"按姓名判为男","todo":"以学籍为准核对性别，影响分组"},{"id":23,"cat":"性别待核","sid":48,"name":"林烨坤","cur":"按姓名判为男","todo":"以学籍为准核对性别，影响分组"},{"id":24,"cat":"健康排查","sid":"全班","name":"—","cur":"—","todo":"哮喘／心脏病／癫痫史、近期伤情、超重、女生生理期，逐项排查并登记"}]}</script>
 <script>
 /* ============================================================
-   8年级4班 · 体测冲刺工作台  —— 单文件离线版
-   数据来源：整合版训练方案 + 体测训练分组与打卡表
+   8年级4班 · 体测备考管理工作台 —— 单文件离线版
+   广东省初中体测抽测：50米跑、立定跳远、坐位体前屈、
+   引体向上（男）、1分钟仰卧起坐（女）、800米（女）、1000米（男）
    ============================================================ */
 
-/* ---------- 0. 静态数据（内嵌 seed，不随保存变化） ---------- */
+/* ---------- 0. 静态数据 ---------- */
 var SEED = JSON.parse(document.getElementById('SEED').textContent);
-var CH = SEED.chapters || [];
-var STU = SEED.students || [];
-var DAILY = SEED.daily || [];
-var PLAN = SEED.plan || [];
-var PLANHEAD = SEED.planHead || [];
-var TODOS = SEED.todos || [];
-var CKITEMS = SEED.checkinItems || [];
 var SSET = SEED.settings || {};
+var WARMUP = SEED.warmup || [];
+var COOLDOWN = SEED.cooldown || [];
+var DAYS = SEED.days || [];
+var STU = SEED.students || [];
+var HOMEWORK = SEED.homework || {};
+var EXAMNOTES = SEED.examNotes || [];
+var STANDARDS = SEED.standards || { rows: [] };
+var STRENGTH = SEED.strength || {};
+var ALTRULES = SEED.altRules || [];
+var CKITEMS = SEED.checkinItems || [];
+var TODOS = SEED.todos || [];
 
-var LSKEY = 'pe_tc_wb_v1';
+var LSKEY = 'pe_tc_cal_v1';
+var GRPS = SSET.groups || ['男生组', '女生组', '体质薄弱组'];
+
+/* 7 个计分项目（rope 为参考项，不计分） */
+var ITEMS = [
+  { k: 'run', n: '耐久跑', full: '1000 米（男）/ 800 米（女）', kind: 'run', std: { m: 305, f: 290 }, lower: true },
+  { k: 's50', n: '50 米跑', full: '50 米跑', kind: 'num', std: { m: 9.9, f: 10.8 }, lower: true },
+  { k: 'lj', n: '立定跳远', full: '立定跳远', kind: 'num', std: { m: 170, f: 144 }, lower: false },
+  { k: 'zw', n: '坐位体前屈', full: '坐位体前屈', kind: 'num', std: { m: -1.4, f: 2.9 }, lower: false },
+  { k: 'yt', n: '引体向上', full: '引体向上（男）', kind: 'num', std: { m: 5 }, lower: false, sex: '男' },
+  { k: 'yw', n: '仰卧起坐', full: '1 分钟仰卧起坐（女）', kind: 'num', std: { f: 21 }, lower: false, sex: '女' },
+  { k: 'rope', n: '1 分钟跳绳', full: '1 分钟跳绳（训练参考项，不计分）', kind: 'num', std: {}, lower: false, ref: true }
+];
+var ITEMKEYS = ['run', 's50', 'lj', 'zw', 'yt', 'yw', 'rope'];
+
 var ATT_MARKS = [
   { v: '出', cls: 'on-ok', t: '到' },
   { v: '缺', cls: 'on-bad', t: '缺' },
   { v: '病', cls: 'on-warn', t: '病' },
   { v: '事', cls: 'on-info', t: '事' }
 ];
-var GROUP_ORDER = ['男A', '男B', '男C', '女A', '女B', '女C', '待测', '免测待核'];
+var EXKEYS = ['warm', 'm', 'f', 'w', 'cool'];
+var EXLABEL = ['热身（固定 5 分钟）', '男生组训练任务', '女生组训练任务', '体质薄弱组训练任务', '放松拉伸'];
 
 /* ---------- 1. 工具函数 ---------- */
 function $(id){ return document.getElementById(id); }
@@ -270,72 +330,67 @@ function parseISO(s){
   var p = String(s).split('-');
   return new Date(parseInt(p[0], 10), parseInt(p[1], 10) - 1, parseInt(p[2], 10));
 }
-function diffDays(a, b){
-  return Math.round((parseISO(b) - parseISO(a)) / 86400000);
-}
-function monthDay(s){
-  var d = parseISO(s);
-  return (d.getMonth() + 1) + '月' + d.getDate() + '日';
-}
-function dowCN(s){
-  var w = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-  return w[parseISO(s).getDay()];
-}
+function diffDays(a, b){ return Math.round((parseISO(b) - parseISO(a)) / 86400000); }
+function monthDay(s){ var d = parseISO(s); return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+function dowCN(s){ return ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][parseISO(s).getDay()]; }
 function nz(v){ return (v === null || v === undefined) ? '' : String(v).trim(); }
-function uniq(arr){
-  var o = [], seen = {};
-  for (var i = 0; i < arr.length; i++){
-    var k = String(arr[i]);
-    if (!seen[k]){ seen[k] = 1; o.push(arr[i]); }
-  }
-  return o;
-}
-function grpCls(g){
+/* 组别 → 颜色类 */
+function gcls(g){
   var s = String(g);
-  if (s.indexOf('A') >= 0) return 'p-a';
-  if (s.indexOf('B') >= 0) return 'p-b';
-  if (s.indexOf('C') >= 0) return 'p-c';
-  if (s.indexOf('免测') >= 0) return 'p-x';
-  if (s.indexOf('待测') >= 0) return 'p-d';
-  return 'p-w';
+  if (s.indexOf('薄弱') >= 0) return 'w';
+  if (s.indexOf('女') >= 0) return 'f';
+  if (s.indexOf('男') >= 0) return 'm';
+  return 'n';
 }
-function grpSort(a, b){
-  var ia = GROUP_ORDER.indexOf(a), ib = GROUP_ORDER.indexOf(b);
-  if (ia < 0) ia = 99;
-  if (ib < 0) ib = 99;
-  return ia - ib || String(a).localeCompare(String(b));
+function gpill(g){
+  var c = gcls(g);
+  var m = { m: 'p-b', f: 'p-f', w: 'p-c', n: 'p-w' };
+  return '<span class="pill ' + m[c] + '">' + esc(g) + '</span>';
 }
 
 /* ---------- 2. 运行时数据层 ---------- */
 var D = null;
-var UI = { page: 'home', attendDate: '', attendSlot: '上午', rosterFilter: '', rosterKey: '', ckFilter: 'all', docCh: 0 };
-var ATTDATES = [];
+var UI = {
+  page: 'calendar', calDay: '', execDay: '', execSlot: 'am',
+  rosterKey: '', rosterGrp: '', ckFilter: 'all',
+  attDate: '', attSlot: '上午',
+  anaScope: 'class', anaGrp: '', anaSid: '',
+  ckWk: '1', printWk: '1', safetySid: '', tipsCh: 0
+};
 
 function blankData(){
   return {
     settings: {
       className: SSET.className || '8年级4班',
       school: SSET.school || '',
-      examStart: SSET.examStart || '2026-10-26',
-      trainStart: SSET.trainStart || '2026-10-16'
+      examDate: SSET.examDate || '2026-10-26',
+      startDate: SSET.startDate || '2026-10-16',
+      examEnd: SSET.examEnd || '2026-10-30',
+      amTime: SSET.amTime || '',
+      pmTime: SSET.pmTime || '',
+      amMin: SSET.amMin || 30,
+      pmMin: SSET.pmMin || 40
     },
-    attendance: {},   /* 'date|slot' -> { sid: '出'|'缺'|'病'|'事' } */
-    attNote: {},      /* 'date|slot' -> '备注' */
-    checkin: {},      /* sid -> [0/1,0/1,0/1,0/1] */
-    scores: {},       /* sid -> {run, rope, sit, jump, note} */
-    todoDone: {},     /* id -> true */
-    todoResult: {},   /* id -> '处理结果' */
+    stu: {},          /* sid -> { grp, s50, lj, zw, yt, yw, run, rope, injury, special, alt } */
+    sims: [],         /* [{ id, date, label, res: { sid: {k:v} } }] */
+    attendance: {},   /* 'date|slot' -> { sid: mark } */
+    attNote: {},      /* 'date|slot' -> note */
+    exec: {},         /* 'date|slot' -> { warm,m,f,w,cool : 1, note } */
+    checkin: {},      /* wk -> { sid: [0,1,0,1] } */
+    todoDone: {}, todoResult: {},
     meta: { updated: '' }
   };
 }
 function ensureFields(){
-  if (!D.settings) D.settings = blankData().settings;
-  var d = blankData().settings, k;
-  for (k in d){ if (D.settings[k] === undefined) D.settings[k] = d[k]; }
+  var b = blankData(), k;
+  if (!D.settings || typeof D.settings !== 'object') D.settings = b.settings;
+  for (k in b.settings){ if (D.settings[k] === undefined) D.settings[k] = b.settings[k]; }
+  if (!D.stu || typeof D.stu !== 'object') D.stu = {};
+  if (!(D.sims instanceof Array)) D.sims = [];
   if (!D.attendance) D.attendance = {};
   if (!D.attNote) D.attNote = {};
+  if (!D.exec) D.exec = {};
   if (!D.checkin) D.checkin = {};
-  if (!D.scores) D.scores = {};
   if (!D.todoDone) D.todoDone = {};
   if (!D.todoResult) D.todoResult = {};
   if (!D.meta) D.meta = { updated: '' };
@@ -343,9 +398,7 @@ function ensureFields(){
 function load(){
   var raw = null;
   try { raw = localStorage.getItem(LSKEY); } catch (e){ raw = null; }
-  if (raw){
-    try { D = JSON.parse(raw); } catch (e){ D = null; }
-  }
+  if (raw){ try { D = JSON.parse(raw); } catch (e){ D = null; } }
   if (!D || typeof D !== 'object') D = blankData();
   ensureFields();
 }
@@ -356,14 +409,122 @@ function save(){
 }
 
 /* ---------- 3. 计算核心 ---------- */
+/* 学生运行时档案（只读访问不写盘） */
+function stuD(sid){
+  var o = D.stu[sid];
+  if (!o){ o = {}; D.stu[sid] = o; }
+  return o;
+}
+function stuDro(sid){ return D.stu[sid] || {}; }
+function stuBase(sid){
+  for (var i = 0; i < STU.length; i++){ if (String(STU[i].sid) === String(sid)) return STU[i]; }
+  return null;
+}
+/* 组别：运行时优先，其次 seed 初值 */
+function grpOf(sid){
+  var o = stuDro(sid).grp;
+  if (o) return o;
+  var b = stuBase(sid);
+  return b ? nz(b.grp) : '';
+}
+function sexOf(sid){
+  var b = stuBase(sid);
+  return b ? nz(b.sex) : '';
+}
+function nameOf(sid){ var b = stuBase(sid); return b ? nz(b.name) : ''; }
+function lvOf(sid){ var b = stuBase(sid); return b ? nz(b.lv) : ''; }
+function noteOf(sid){ var b = stuBase(sid); return b ? nz(b.note) : ''; }
+
+/* 成绩数值：初始成绩取运行时（可录入），其次 seed 摸底值 */
+function valOf(sid, k){
+  var o = stuDro(sid);
+  if (o[k] !== undefined && o[k] !== null && String(o[k]).trim() !== '') return String(o[k]).trim();
+  var b = stuBase(sid);
+  if (b && b[k] !== undefined && String(b[k]).trim() !== '') return String(b[k]).trim();
+  return '';
+}
+/* 某一列（初始 / 某次模拟）的原始值 */
+function valIn(sid, colId, k){
+  if (colId === 'base') return valOf(sid, k);
+  var s = simById(colId);
+  if (!s) return '';
+  var r = (s.res || {})[sid];
+  if (!r) return '';
+  return nz(r[k]);
+}
+function simById(id){
+  for (var i = 0; i < D.sims.length; i++){ if (String(D.sims[i].id) === String(id)) return D.sims[i]; }
+  return null;
+}
+function simColumns(){
+  var c = [{ id: 'base', label: '初始成绩' }];
+  for (var i = 0; i < D.sims.length; i++){
+    c.push({ id: String(D.sims[i].id), label: nz(D.sims[i].label) || ('第 ' + (i + 1) + ' 次模拟') });
+  }
+  return c;
+}
+/* 数值解析
+   设计原则：宁可返回 null（不确定），也不要猜错 —— 手写成绩单上有字迹不清的
+   分数（如 4′0x″），一旦被解析成 4′00″ 就会误判为「达标」，把真实的薄弱项盖掉。 */
+function stripNote(s){
+  /* 去掉括号里的说明，如「4′64″（末位不清）」 */
+  return nz(s).replace(/[（(][^）)]*[）)]/g, '').trim();
+}
+function parseRun(v){
+  var s = stripNote(v);
+  if (!s) return null;
+  var m = s.match(/^(\d+)\s*[分'’′]\s*(\d+)\s*[秒″"”]?$/);
+  if (m){
+    var sec = parseInt(m[2], 10);
+    if (sec >= 60) return null;   /* 秒数超过 59 属记错或字迹不清，不判 */
+    return parseInt(m[1], 10) * 60 + sec;
+  }
+  m = s.match(/^(\d+)\s*[分'’′]\s*[秒″"”]?$/);
+  if (m) return parseInt(m[1], 10) * 60;
+  m = s.match(/^(\d+(?:\.\d+)?)\s*[秒″"”]?$/);
+  if (m) return parseFloat(m[1]);
+  return null;
+}
+function parseNum(v){
+  var s = stripNote(v);
+  if (!s) return null;
+  var m = s.match(/^(-?\d+(?:\.\d+)?)/);
+  if (!m) return null;
+  var rest = s.slice(m[0].length).replace(/[\s\u2033\u201d"'\u2032\u00b0%]/g, '');
+  if (rest && !/^[秒厘米个次分公斤名mlkgc]{0,4}$/i.test(rest)) return null;
+  var n = parseFloat(m[1]);
+  return isNaN(n) ? null : n;
+}
+function numOf(v, kind){ return kind === 'run' ? parseRun(v) : parseNum(v); }
+/* 该项目对该生是否适用 */
+function itemApplies(item, sex){
+  if (item.sex && item.sex !== sex) return false;
+  if (item.std.m === undefined && item.std.f === undefined) return false;
+  return true;
+}
+/* 是否达标：返回 true / false / null（无法判断） */
+function isPass(item, sex, v){
+  var lim = item.std[sex === '男' ? 'm' : 'f'];
+  if (lim === undefined) return null;
+  var n = numOf(v, item.kind);
+  if (n === null) return null;
+  return item.lower ? (n <= lim) : (n >= lim);
+}
+/* 某生的薄弱项目列表 */
+function weakOf(sid){
+  var sex = sexOf(sid), o = [];
+  for (var i = 0; i < ITEMS.length; i++){
+    var it = ITEMS[i];
+    if (it.ref || !itemApplies(it, sex)) continue;
+    if (isPass(it, sex, valIn(sid, 'base', it.k)) === false) o.push(it);
+  }
+  return o;
+}
+/* 出勤键 */
 function attKey(dt, slot){ return dt + '|' + slot; }
-/* ro=true 为只读：渲染页面时不得往数据里塞空容器（否则备份文件被垃圾撑大） */
 function getAtt(dt, slot, ro){
   var k = attKey(dt, slot);
-  if (!D.attendance[k]){
-    if (ro) return {};
-    D.attendance[k] = {};
-  }
+  if (!D.attendance[k]){ if (ro) return {}; D.attendance[k] = {}; }
   return D.attendance[k];
 }
 function attStat(dt, slot){
@@ -374,638 +535,1133 @@ function attStat(dt, slot){
   }
   return c;
 }
-function checkRow(sid, ro){
-  var r = D.checkin[sid];
+/* 出勤率（该生在所有已标记节次中的出勤占比） */
+function attRate(sid){
+  var tot = 0, ok = 0, k;
+  for (k in D.attendance){
+    var a = D.attendance[k]; if (!a) continue;
+    var v = a[sid]; if (!v) continue;
+    tot++; if (v === '出') ok++;
+  }
+  return tot ? (ok / tot) : null;
+}
+function attCount(sid){
+  var tot = 0, ok = 0, ab = 0, k;
+  for (k in D.attendance){
+    var a = D.attendance[k]; if (!a) continue;
+    var v = a[sid]; if (!v) continue;
+    tot++; if (v === '出') ok++; else ab++;
+  }
+  return { tot: tot, ok: ok, ab: ab };
+}
+/* 执行勾选 */
+function execRec(dt, slot, ro){
+  var k = attKey(dt, slot);
+  if (!D.exec[k]){ if (ro) return { note: '' }; D.exec[k] = { note: '' }; }
+  return D.exec[k];
+}
+function execDone(dt, slot){
+  var r = execRec(dt, slot, true), n = 0;
+  for (var i = 0; i < EXKEYS.length; i++){ if (r[EXKEYS[i]]) n++; }
+  return { n: n, total: EXKEYS.length, rate: n / EXKEYS.length };
+}
+/* 打卡 */
+function ckRow(wk, sid, ro){
+  if (!D.checkin[wk]){ if (ro) return emptyRow(); D.checkin[wk] = {}; }
+  var r = D.checkin[wk][sid];
   if (!(r instanceof Array)){
-    if (ro){
-      var t = [];
-      for (var z = 0; z < CKITEMS.length; z++) t.push(0);
-      return t;
-    }
-    r = [];
-    D.checkin[sid] = r;
+    if (ro) return emptyRow();
+    r = emptyRow(); D.checkin[wk][sid] = r;
   }
   while (r.length < CKITEMS.length) r.push(0);
   return r;
 }
-function checkCount(sid){
-  var r = checkRow(sid, true), n = 0;
+function emptyRow(){ var t = [], i; for (i = 0; i < CKITEMS.length; i++) t.push(0); return t; }
+function ckCount(wk, sid){
+  var r = ckRow(wk, sid, true), n = 0;
   for (var i = 0; i < CKITEMS.length; i++){ if (r[i]) n++; }
   return n;
 }
-function checkRate(sid){
-  var t = CKITEMS.length || 1;
-  return checkCount(sid) / t;
-}
-function checkTotals(){
-  var full = 0, part = 0, zero = 0, sum = 0;
-  for (var i = 0; i < STU.length; i++){
-    var n = checkCount(STU[i].sid);
+function ckRate(wk, sid){ return ckCount(wk, sid) / (CKITEMS.length || 1); }
+function ckTotals(wk, list){
+  var full = 0, part = 0, zero = 0, sum = 0, arr = list || STU;
+  for (var i = 0; i < arr.length; i++){
+    var n = ckCount(wk, arr[i].sid);
     sum += n;
     if (n === CKITEMS.length) full++; else if (n === 0) zero++; else part++;
   }
-  var max = STU.length * (CKITEMS.length || 1);
-  return { full: full, part: part, zero: zero,
-    avgRate: max ? (sum / max) : 0, total: sum, max: max };
+  var max = arr.length * (CKITEMS.length || 1);
+  return { full: full, part: part, zero: zero, avg: max ? sum / max : 0, total: arr.length };
 }
+/* 待办 */
 function todoStat(){
   var done = 0;
-  for (var i = 0; i < TODOS.length; i++){ if (D.todoDone[TODOS[i].id]) done++; }
-  return { done: done, total: TODOS.length,
-    rate: TODOS.length ? done / TODOS.length : 0 };
+  for (var i = 0; i < TODOS.length; i++){ if (D.todoDone[todoId(TODOS[i], i)]) done++; }
+  return { done: done, total: TODOS.length, rate: TODOS.length ? done / TODOS.length : 0 };
 }
-function catOfTodos(){
-  var o = [], m = {};
-  for (var i = 0; i < TODOS.length; i++){
-    var c = nz(TODOS[i].cat) || '其他';
-    if (!m[c]){ m[c] = []; o.push(c); }
-    m[c].push(TODOS[i]);
-  }
-  return { order: o, map: m };
-}
-function buildAttDates(){
-  var ds = [], seen = {};
-  for (var i = 0; i < PLAN.length; i++){
-    var d = nz(PLAN[i]['日期']);
-    if (d && !seen[d]){ seen[d] = 1; ds.push(d); }
-  }
-  if (!ds.length){
-    for (var j = 0; j < DAILY.length; j++){
-      if (DAILY[j].sessions && DAILY[j].sessions.length) ds.push(DAILY[j].iso);
-    }
-  }
-  return ds;
-}
-function dailyByDate(dt){
-  for (var i = 0; i < DAILY.length; i++){ if (DAILY[i].iso === dt) return DAILY[i]; }
+function todoId(o, i){ return String(o.id !== undefined ? o.id : ('t' + i)); }
+/* 日历 */
+function dayByISO(s){
+  for (var i = 0; i < DAYS.length; i++){ if (DAYS[i].iso === s) return DAYS[i]; }
   return null;
 }
-function dowOfDate(dt){
-  for (var i = 0; i < PLAN.length; i++){ if (nz(PLAN[i]['日期']) === dt) return nz(PLAN[i]['星期']); }
-  for (var j = 0; j < DAILY.length; j++){
-    if (nz(DAILY[j].date).indexOf(dt) === 0 && DAILY[j].iso) return dowCN(DAILY[j].iso);
-  }
-  return '';
+function trainDays(){
+  var o = [];
+  for (var i = 0; i < DAYS.length; i++){ if (DAYS[i].kind === 'train') o.push(DAYS[i]); }
+  return o;
 }
-function todayDaily(){
-  var t = todayISO(), d = dailyByDate(t);
+function todayDay(){
+  var t = todayISO(), d = dayByISO(t);
   if (d) return d;
-  for (var i = 0; i < DAILY.length; i++){
-    if (DAILY[i].iso >= t && DAILY[i].sessions && DAILY[i].sessions.length) return DAILY[i];
-  }
-  return DAILY.length ? DAILY[0] : null;
+  for (var i = 0; i < DAYS.length; i++){ if (DAYS[i].iso >= t) return DAYS[i]; }
+  return DAYS.length ? DAYS[0] : null;
 }
 function countdownInfo(){
-  var t = todayISO();
-  var s = D.settings.trainStart, e = D.settings.examStart;
-  var toExam = diffDays(t, e);
-  return { today: t, toExam: toExam, inRange: (t >= s && t <= e) };
+  var t = todayISO(), e = D.settings.examDate;
+  return { today: t, toExam: diffDays(t, e), inRange: (t >= D.settings.startDate && t <= e) };
+}
+/* 阶段自动调整：越靠近 10/26，完整模拟频次越高 */
+function phaseInfo(){
+  var left = countdownInfo().toExam;
+  if (left > 6) return { n: '基础期', tip: '还剩 ' + left + ' 天：打基础，把动作规范和数据补齐。本阶段不安排完整模拟，只做分项小测。', sim: '本周建议：0 次完整模拟' };
+  if (left > 3) return { n: '强化期', tip: '还剩 ' + left + ' 天：专项强化，薄弱项优先。每 2—3 天安排一次半程模拟（3—4 个项目）。', sim: '建议：每 2—3 天一次半程模拟' };
+  if (left > 0) return { n: '模拟期 / 减量期', tip: '还剩 ' + left + ' 天：安排完整模拟，按正式流程走；同时开始减量——测前 48 小时不做高强度。', sim: '建议：安排 1 次完整模拟，之后减量' };
+  if (left === 0) return { n: '体测期', tip: '就是今天：保持轻量活动，充分热身，按「体测当天注意事项」一条条过。', sim: '不再安排模拟' };
+  return { n: '体测期', tip: '体测周已开始：保状态、保睡眠，不新增训练量。', sim: '不再安排模拟' };
+}
+/* 全班薄弱项排行 */
+function weakRank(scopeList){
+  var arr = scopeList || STU, cnt = {}, i, j;
+  for (i = 0; i < ITEMS.length; i++){ if (!ITEMS[i].ref) cnt[ITEMS[i].k] = 0; }
+  var per = [];
+  for (i = 0; i < arr.length; i++){
+    var w = weakOf(arr[i].sid);
+    var names = [];
+    for (j = 0; j < w.length; j++){ cnt[w[j].k]++; names.push(w[j].n); }
+    per.push({ sid: arr[i].sid, name: nameOf(arr[i].sid), grp: grpOf(arr[i].sid), weak: names });
+  }
+  var rank = [];
+  for (i = 0; i < ITEMS.length; i++){
+    if (ITEMS[i].ref) continue;
+    rank.push({ k: ITEMS[i].k, n: ITEMS[i].n, c: cnt[ITEMS[i].k] || 0 });
+  }
+  rank.sort(function(a, b){ return b.c - a.c; });
+  return { rank: rank, per: per, total: arr.length };
+}
+function scopeList(){
+  if (UI.anaScope === 'grp' && UI.anaGrp){
+    return STU.filter(function(s){ return grpOf(s.sid) === UI.anaGrp; });
+  }
+  if (UI.anaScope === 'one' && UI.anaSid){
+    return STU.filter(function(s){ return String(s.sid) === String(UI.anaSid); });
+  }
+  return STU;
+}
+function grpList(){
+  var o = [], i;
+  for (i = 0; i < GRPS.length; i++){ o.push({ g: GRPS[i], list: [] }); }
+  for (i = 0; i < STU.length; i++){
+    var g = grpOf(STU[i].sid);
+    for (var j = 0; j < o.length; j++){ if (o[j].g === g){ o[j].list.push(STU[i]); break; } }
+  }
+  return o;
+}
+function altRuleOf(key){
+  for (var i = 0; i < ALTRULES.length; i++){ if (ALTRULES[i].key === key) return ALTRULES[i]; }
+  return null;
 }
 
 /* ---------- 4. 通用渲染 ---------- */
-var H = [];
-function P(s){ H.push(s); }
 function tblHtml(d){
   if (!d) return '';
-  P('<div class="tw rt-wrap"><table class="rt">');
+  var out = [];
+  out.push('<div class="tw rt-wrap"><table class="rt">');
   if (d.head && d.head.length){
-    P('<thead><tr>');
-    for (var i = 0; i < d.head.length; i++) P('<th>' + nz(d.head[i]) + '</th>');
-    P('</tr></thead>');
+    out.push('<thead><tr>');
+    for (var i = 0; i < d.head.length; i++) out.push('<th>' + esc(d.head[i]) + '</th>');
+    out.push('</tr></thead>');
   }
-  P('<tbody>');
+  out.push('<tbody>');
   for (var r = 0; r < d.rows.length; r++){
-    P('<tr>');
+    out.push('<tr>');
     var row = d.rows[r];
     for (var c = 0; c < row.length; c++){
       var lab = (d.head && d.head[c]) ? String(d.head[c]).replace(/["<>]/g, '') : '';
-      P('<td data-l="' + lab + '">' + nz(row[c]) + '</td>');
+      out.push('<td data-l="' + esc(lab) + '">' + esc(row[c]) + '</td>');
     }
-    P('</tr>');
+    out.push('</tr>');
   }
-  P('</tbody></table></div>');
-}
-function blocksHtml(blocks){
-  if (!blocks) return '';
-  H = [];
-  for (var i = 0; i < blocks.length; i++){
-    var b = blocks[i];
-    if (b.t === 'h3') P('<h3 class="bt">' + nz(b.c) + '</h3>');
-    else if (b.t === 'h4') P('<h4 class="st">' + nz(b.c) + '</h4>');
-    else if (b.t === 'p') P('<p>' + nz(b.c) + '</p>');
-    else if (b.t === 'table') tblHtml(b.d);
-    else if (b.t === 'ul'){
-      P('<ul class="li">');
-      for (var j = 0; j < b.items.length; j++) P('<li>' + nz(b.items[j]) + '</li>');
-      P('</ul>');
-    }
-  }
-  return H.join('');
+  out.push('</tbody></table></div>');
+  return out.join('');
 }
 function statBox(v, t){ return '<div class="stat"><b>' + v + '</b><span>' + t + '</span></div>'; }
 function tip(cls, icon, title, body){
   return '<div class="tip ' + cls + '"><b>' + icon + ' ' + title + '</b><br>' + body + '</div>';
 }
-
-/* ---------- 5. 各页面 ---------- */
-function pgHome(){
-  var cd = countdownInfo();
-  var day = todayDaily();
+function itemsHtml(items){
+  var h = ['<div class="tw rt-wrap"><table class="rt">'];
+  h.push('<thead><tr><th>内容</th><th>组数 / 强度</th><th>做法要点</th></tr></thead><tbody>');
+  for (var i = 0; i < items.length; i++){
+    h.push('<tr><td data-l="内容"><b>' + esc(items[i].n) + '</b></td>'
+      + '<td data-l="组数 / 强度" class="c">' + esc(items[i].s) + '</td>'
+      + '<td data-l="做法要点">' + esc(items[i].h) + '</td></tr>');
+  }
+  h.push('</tbody></table></div>');
+  return h.join('');
+}
+/* 三组任务卡 */
+function gtaskHtml(groups){
+  var h = ['<div class="grid g3">'];
+  for (var i = 0; i < groups.length; i++){
+    var g = groups[i], c = gcls(g.g);
+    h.push('<div class="gcard gt-' + c + '">');
+    h.push('<div class="ghead">' + esc(g.g) + '</div>');
+    if (g.note) h.push('<div class="gnote">' + esc(g.note) + '</div>');
+    h.push('<table><tbody>');
+    for (var j = 0; j < g.items.length; j++){
+      h.push('<tr><td class="gn">' + esc(g.items[j].n) + '</td><td class="gs">' + esc(g.items[j].s) + '</td></tr>');
+      h.push('<tr class="gtr"><td colspan="2">' + esc(g.items[j].h) + '</td></tr>');
+    }
+    h.push('</tbody></table></div>');
+  }
+  h.push('</div>');
+  return h.join('');
+}
+function safetyHtml(list){
+  if (!list || !list.length) return '';
+  var h = ['<div class="tip warn"><b>⚠️ 安全提醒</b>'];
+  for (var i = 0; i < list.length; i++) h.push('<br>· ' + esc(list[i]));
+  h.push('</div>');
+  return h.join('');
+}
+/* 节次卡（上午 / 下午） */
+function sessionHtml(se){
   var h = [];
+  h.push('<div class="card">');
+  h.push('<div class="ct"><span class="n">' + (se.slot === 'am' ? '上午' : '下午') + '</span>'
+    + esc(se.title) + '<span class="s">' + esc(se.time) + ' · ' + se.minutes + ' 分钟</span></div>');
+  if (se.focus) h.push('<div class="muted" style="margin:-4px 0 8px">本节课重点：' + esc(se.focus) + '</div>');
+  h.push('<h4 class="st">① 热身（固定 5 分钟·全班统一）</h4>');
+  h.push(itemsHtml(WARMUP));
+  h.push('<h4 class="st">② 分小组训练任务</h4>');
+  h.push(gtaskHtml(se.groups));
+  h.push('<h4 class="st">③ 放松拉伸（' + (se.slot === 'am' ? '3' : '5') + ' 分钟·全班统一）</h4>');
+  h.push(itemsHtml(COOLDOWN));
+  h.push(safetyHtml(se.safety));
+  h.push('</div>');
+  return h.join('');
+}
+/* ---------- 5. 页面：日程总览面板 ---------- */
+function pgCalendar(){
+  var cd = countdownInfo(), ph = phaseInfo();
+  var td = todayDay();
+  var cur = UI.calDay || (td ? td.iso : (DAYS.length ? DAYS[0].iso : ''));
+  var h = [];
+
+  /* 倒计时 */
   h.push('<div class="countdown">');
   if (cd.toExam > 0){
     h.push('<div class="big">' + cd.toExam + '<small>天</small></div>');
-    h.push('<div class="txt"><b>距广东省初中体测（' + monthDay(D.settings.examStart) + ' 开测）还有 ' + cd.toExam + ' 天</b><br>'
-      + '今天是 ' + monthDay(cd.today) + '（' + dowCN(cd.today) + '）'
-      + (cd.inRange ? '，在冲刺期内' : '，已超出冲刺期，请核对日期') + '</div>');
+    h.push('<div class="txt"><b>距体测还有 ' + cd.toExam + ' 天</b><br>'
+      + '今天 ' + monthDay(cd.today) + '（' + dowCN(cd.today) + '）· 备考截止 ' + monthDay(D.settings.examDate)
+      + '（' + dowCN(D.settings.examDate) + '）<br>当前阶段：<b>' + ph.n + '</b></div>');
   } else if (cd.toExam === 0){
-    h.push('<div class="big">今天<small>开测</small></div>');
-    h.push('<div class="txt"><b>体测今天开始！</b><br>' + monthDay(cd.today) + '（' + dowCN(cd.today) + '）</div>');
+    h.push('<div class="big">今天<small>体测</small></div>');
+    h.push('<div class="txt"><b>今天就是体测日</b><br>'
+      + '按「体测当天注意事项」一条条过。<br>当前阶段：<b>' + ph.n + '</b></div>');
   } else {
-    h.push('<div class="big">已开测</div>');
-    h.push('<div class="txt"><b>体测周进行中 / 已结束</b><br>体测日为 ' + monthDay(D.settings.examStart) + ' — ' + monthDay(SSET.examEnd || D.settings.examStart) + '</div>');
+    h.push('<div class="big">进行中</div>');
+    h.push('<div class="txt"><b>体测周已开始</b><br>'
+      + '今天 ' + monthDay(cd.today) + '（' + dowCN(cd.today) + '）<br>当前阶段：<b>' + ph.n + '</b></div>');
   }
   h.push('</div>');
 
-  /* 今日训练 */
-  h.push('<div class="card"><h2><span class="n">今日</span>' + (day ? nz(day.date) : '暂无安排') + '</h2>');
-  if (day){
-    if (day.intro) h.push('<div class="ch-note">' + nz(day.intro) + '</div>');
-    if (day.sessions && day.sessions.length){
-      for (var i = 0; i < day.sessions.length; i++){
-        var s = day.sessions[i];
-        h.push('<div class="slot"><div class="sh"><span class="tag">第' + (i + 1) + '节</span>' + nz(s.slot) + '</div><div class="sb">');
-        h.push(blocksHtml(s.blocks));
-        h.push('</div></div>');
-      }
-    } else {
-      h.push('<div class="muted">这一天没有分节详案，看下方说明即可：</div>');
-    }
+  h.push(tip('info', '🧭', '阶段自动调整', esc(ph.tip) + '<br><b>模拟测试频次：</b>' + esc(ph.sim)));
+
+  /* 日期带 */
+  h.push('<div class="card tight">');
+  h.push('<div class="ct">📅 训练日历<span class="s">点任意一天看当天安排</span></div>');
+  h.push('<div class="dstrip">');
+  for (var i = 0; i < DAYS.length; i++){
+    var d = DAYS[i];
+    var kk = d.kind === 'weekend' ? '周末' : (d.kind === 'exam' ? '体测' : '训练');
+    var cls = 'dchip k-' + d.kind + (d.iso === cur ? ' on' : '') + (d.iso === cd.today ? ' today' : '');
+    h.push('<button class="' + cls + '" data-act="calDay" data-v="' + d.iso + '">'
+      + '<div class="m">' + (parseISO(d.iso).getMonth() + 1) + '/' + parseISO(d.iso).getDate() + '</div>'
+      + '<div class="w">' + esc(d.dow) + '</div>'
+      + '<div class="k">' + kk + '</div></button>');
+  }
+  h.push('</div>');
+  h.push('<div class="muted">共 ' + DAYS.length + ' 天：训练日 ' + trainDays().length
+    + ' 天（每 2 节课）· 周末 ' + (DAYS.length - trainDays().length - 1) + ' 个 · 体测周自 ' + monthDay(D.settings.examDate) + ' 起</div>');
+  h.push('</div>');
+
+  /* 当天详情 */
+  var day = dayByISO(cur);
+  if (!day){ h.push('<div class="card"><div class="muted">请选择日期</div></div>'); return h.join(''); }
+
+  h.push('<div class="card">');
+  h.push('<div class="ct">' + esc(day.md) + '（' + esc(day.dow) + '） · ' + esc(day.label)
+    + '<span class="s">' + esc(day.phase) + '</span></div>');
+  if (day.intro) h.push('<p>' + esc(day.intro) + '</p>');
+
+  if (day.kind === 'train'){
+    h.push('<div class="muted" style="margin-top:4px">当天两节课的固定结构：<b>热身 5 分钟 → 分小组训练 → 放松拉伸</b>（每节课都必须包含热身与拉伸）</div>');
+  }
+  h.push('</div>');
+
+  if (day.kind === 'train'){
+    for (var s = 0; s < day.sessions.length; s++) h.push(sessionHtml(day.sessions[s]));
+  } else if (day.kind === 'weekend'){
+    h.push(hwCard(day.homework, true));
   } else {
-    h.push('<div class="muted">今天不在冲刺训练期内，去「全程计划」看整体安排。</div>');
-  }
-  h.push('<div class="row no-print" style="margin-top:6px">');
-  h.push('<button class="btn s" data-act="go" data-v="attend">📝 去点名</button>');
-  h.push('<button class="btn s g" data-act="go" data-v="checkin">📌 看打卡</button>');
-  h.push('<button class="btn s g" data-act="go" data-v="todo">📋 补测待办</button>');
-  h.push('<button class="btn s g" data-act="go" data-v="safety">🛡 现场速查</button>');
-  h.push('</div>');
-  h.push('</div>');
-
-  /* 今日点名概览 */
-  var dm = monthDay(cd.today);
-  var a1 = attStat(dm, '上午'), a2 = attStat(dm, '下午');
-  h.push('<div class="card"><h2>今日点名情况</h2>');
-  h.push('<div class="grid g3">');
-  h.push(statBox(a1['出'] + '/' + STU.length, '上午已到'));
-  h.push(statBox(a2['出'] + '/' + STU.length, '下午已到'));
-  h.push(statBox(a1['未'], '上午未点'));
-  h.push('</div>');
-  h.push('<div class="tip info" style="margin-top:11px"><b>💡 推荐操作顺序</b><br>'
-    + '① 上课前：打开「名单分组」扫一眼今天的组别；<br>'
-    + '② 下课后：进「点名记录」顺手点完出勤（30 秒搞定）；<br>'
-    + '③ 周末后：进「周末打卡」收学生交的打卡表；<br>'
-    + '④ 每次补测完：进「成绩录入」把成绩补上，再去「补测待办」打钩。</div>');
-  h.push('</div>');
-
-  /* 全局概览 */
-  var ck = checkTotals(), td = todoStat();
-  h.push('<div class="card"><h2>总体进度</h2><div class="grid g3">');
-  h.push(statBox(STU.length, '全班人数'));
-  h.push(statBox(Math.round(ck.avgRate * 100) + '%', '周末打卡平均完成率'));
-  h.push(statBox(td.done + '/' + td.total, '补测待办已处理'));
-  h.push(statBox(ck.zero, '一次都没打卡的人'));
-  h.push('</div>');
-  if (ck.zero > 0){
-    h.push('<div class="tip warn" style="margin-top:11px"><b>⚠️ 注意</b><br>有 ' + ck.zero
-      + ' 位同学一次都没打卡 —— 去「周末打卡」点开筛选项选「未打卡」，名单一目了然，方便催。</div>');
-  }
-  h.push('</div>');
-
-  if (D.meta.updated){
-    h.push('<div class="muted" style="text-align:center;padding:2px 0 10px">数据最后保存：' + esc(D.meta.updated)
-      + ' · 存在本机浏览器，换电脑或清缓存会丢，记得定期点右上角「备份」</div>');
+    h.push('<div class="card"><div class="ct">📋 体测当天注意事项</div>');
+    h.push(examNoteTable());
+    h.push(tip('bad', '🚨', '出现这些情况立刻停下告诉老师', '头晕、胸闷、恶心、关节疼、喘不上气 —— 不硬撑。身体是第一位的，缓测、补测都可以安排。'));
+    h.push('</div>');
   }
   return h.join('');
 }
 
-function pgPlan(){
-  var h = [];
-  h.push('<div class="card"><h2><span class="n">总览</span>10 天怎么练（每天两节）<span class="s">照着上，不用再想</span></h2>');
-  h.push('<div class="tip good"><b>✅ 用法</b><br>下面是一行一节课的总表。要看每节课的完整环节、组数、配速，去「今日作战」或「方案全文 → 五、每日训练详案」。</div>');
-  if (PLAN.length){
-    h.push('<div class="tw"><table><thead><tr>');
-    h.push('<th>日期</th><th>星期</th><th>时段</th><th>热身</th><th>分组练习（A/B/C）</th><th>组数与强度</th><th>放松</th>');
-    h.push('</tr></thead><tbody>');
-    for (var i = 0; i < PLAN.length; i++){
-      var r = PLAN[i];
-      h.push('<tr><td>' + nz(r['日期']) + '</td><td class="c">' + nz(r['星期']) + '</td><td>' + nz(r['时段'])
-        + '</td><td>' + nz(r['热身内容']) + '</td><td>' + nz(r['分组练习内容（A/B/C组）'])
-        + '</td><td>' + nz(r['组数与强度']) + '</td><td>' + nz(r['放松内容']) + '</td></tr>');
-    }
-    h.push('</tbody></table></div>');
-  } else {
-    h.push('<div class="muted">暂无总表数据，请查看「方案全文」第五章。</div>');
+/* 周末作业卡 */
+function hwCard(wk, brief){
+  var H2 = HOMEWORK[wk];
+  if (!H2) return '<div class="card"><div class="muted">暂无作业</div></div>';
+  var h = ['<div class="card">'];
+  h.push('<div class="ct">🏠 ' + esc(H2.title) + '</div>');
+  if (!brief) h.push('<p>' + esc(H2.intro) + '</p>');
+  h.push(gtaskHtml(H2.groups));
+  h.push('<h4 class="st">打卡说明</h4>');
+  h.push('<div class="tw rt-wrap"><table class="rt"><thead><tr><th>打卡项</th><th>说明</th></tr></thead><tbody>');
+  for (var i = 0; i < CKITEMS.length; i++){
+    h.push('<tr><td data-l="打卡项"><b>' + esc(CKITEMS[i]) + '</b></td><td data-l="说明">' + esc(CKDESC[i] || '') + '</td></tr>');
   }
+  h.push('</tbody></table></div>');
+  if (H2.tips && H2.tips.length){
+    h.push('<div class="tip warn"><b>⚠️ 安全提醒</b>');
+    for (var j = 0; j < H2.tips.length; j++) h.push('<br>· ' + esc(H2.tips[j]));
+    h.push('</div>');
+  }
+  h.push('<div class="no-print" style="margin-top:8px">'
+    + '<button class="btn g s" data-act="go" data-v="checkin">去打卡登记 →</button> '
+    + '<button class="btn g s" data-act="copyHw" data-v="' + wk + '">复制本组作业发群</button></div>');
   h.push('</div>');
-
-  /* 两节课固定结构 + 目标设定：从章节里挑 */
-  for (var c = 0; c < CH.length; c++){
-    var t = nz(CH[c].title);
-    if (t.indexOf('两节课的固定结构') >= 0 || t.indexOf('目标设定') >= 0 || t.indexOf('总体思路') >= 0){
-      h.push('<div class="card"><h2>' + t + '</h2>' + blocksHtml(CH[c].blocks) + '</div>');
-    }
-  }
   return h.join('');
 }
+function examNoteTable(){
+  var rows = [], i;
+  for (i = 0; i < EXAMNOTES.length; i++){
+    rows.push([EXAMNOTES[i].n, EXAMNOTES[i].s, EXAMNOTES[i].h]);
+  }
+  return tblHtml({ head: ['阶段', '事项', '具体要求'], rows: rows });
+}
 
-function pgRoster(){
-  var groups = uniq(STU.map(function(s){ return nz(s.grp) || '未分组'; })).sort(grpSort);
+/* ---------- 6. 页面：每日执行工作台 ---------- */
+function pgExec(){
+  var days = trainDays();
+  if (!days.length) return '<div class="card"><div class="muted">没有训练日</div></div>';
+  var cur = UI.execDay, i;
+  if (!cur){
+    var td = todayDay();
+    cur = (td && td.kind === 'train') ? td.iso : days[0].iso;
+  }
+  var idx = 0;
+  for (i = 0; i < days.length; i++){ if (days[i].iso === cur) idx = i; }
+  var day = days[idx];
+  var slot = UI.execSlot === 'pm' ? 'pm' : 'am';
+  var se = null;
+  for (i = 0; i < day.sessions.length; i++){ if (day.sessions[i].slot === slot) se = day.sessions[i]; }
+  if (!se) se = day.sessions[0];
+
   var h = [];
-  h.push('<div class="card"><h2><span class="n">名单</span>全班 ' + STU.length + ' 人<span class="s">按组筛选或搜姓名</span></h2>');
+  h.push('<div class="card tight">');
   h.push('<div class="toolbar no-print">');
-  h.push('<input class="f" id="rosterKey" placeholder="搜姓名 / 学号" value="' + esc(UI.rosterKey) + '" style="min-width:150px">');
-  h.push('<div class="sp"></div>');
-  h.push('<button class="btn s g" data-act="print">🖨 打印本页</button>');
-  h.push('<button class="btn s g" data-act="exportRoster">⬇ 导出名单 CSV</button>');
+  h.push('<button class="btn g s" data-act="exPrev"' + (idx <= 0 ? ' disabled' : '') + '>← 上一节</button>');
+  h.push('<span class="muted">第 ' + (idx + 1) + ' / ' + days.length + ' 个训练日</span>');
+  h.push('<button class="btn g s" data-act="exNext"' + (idx >= days.length - 1 ? ' disabled' : '') + '>下一节 →</button>');
+  h.push('<span class="sp"></span>');
+  h.push('<span class="seg">');
+  h.push('<button class="' + (slot === 'am' ? 'on' : '') + '" data-act="exSlot" data-v="am">上午 ' + esc(D.settings.amTime) + '</button>');
+  h.push('<button class="' + (slot === 'pm' ? 'on' : '') + '" data-act="exSlot" data-v="pm">下午 ' + esc(D.settings.pmTime) + '</button>');
+  h.push('</span>');
+  h.push('<button class="btn s" data-act="print">🖨 打印本节</button>');
+  h.push('</div>');
+  h.push('<div class="ct">' + esc(day.md) + '（' + esc(day.dow) + '）· ' + esc(day.label) + '<span class="s">' + esc(day.phase) + '</span></div>');
+  h.push('<div class="print-only">' + esc(D.settings.className) + ' · 每日执行工作台 · ' + esc(day.md) + '（' + esc(day.dow) + '）· ' + (slot === 'am' ? '上午' : '下午') + ' · 打印时间 ' + esc(new Date().toLocaleString('zh-CN')) + '</div>');
+  h.push('</div>');
+
+  /* ① 热身 */
+  h.push('<div class="card">');
+  h.push('<div class="ct"><span class="n">①</span>热身区<span class="s">固定 5 分钟 · 全班统一 · 每节课必做</span></div>');
+  h.push(itemsHtml(WARMUP));
+  h.push('</div>');
+
+  /* ② 分组任务 */
+  h.push('<div class="card">');
+  h.push('<div class="ct"><span class="n">②</span>分小组训练任务区<span class="s">' + esc(se.title) + ' · ' + esc(se.time) + '（' + se.minutes + ' 分钟）</span></div>');
+  h.push(gtaskHtml(se.groups));
+  h.push(safetyHtml(se.safety));
+  if (uidOfGrp('男生组') && uidOfGrp('女生组')){
+    var pend = [];
+    for (i = 0; i < STU.length; i++){ if (lvOf(STU[i].sid) === '待测') pend.push(STU[i].name); }
+    if (pend.length){
+      h.push(tip('info', 'ℹ️', '有 ' + pend.length + ' 位同学成绩待测', '他们暂时跟本组一起练，动作强度取本组下限：' + esc(pend.join('、')) + '。补测完成后请到「学生档案」把组别改成应有的那一组。'));
+    }
+  }
+  h.push('</div>');
+
+  /* ③ 放松 */
+  h.push('<div class="card">');
+  h.push('<div class="ct"><span class="n">③</span>放松拉伸区<span class="s">5 分钟 · 全班统一 · 不下课就拉伸</span></div>');
+  h.push(itemsHtml(COOLDOWN));
+  h.push('</div>');
+
+  /* ④ 完成勾选 + 备注 */
+  var rec = execRec(day.iso, slot, true);
+  h.push('<div class="card">');
+  h.push('<div class="ct"><span class="n">④</span>当日完成情况<span class="s">做完一项点一下</span></div>');
+  for (i = 0; i < EXKEYS.length; i++){
+    var on = rec[EXKEYS[i]] ? true : false;
+    h.push('<div class="exrow' + (on ? ' on' : '') + '">'
+      + '<button class="ck big' + (on ? ' on' : '') + '" data-act="exChk" data-k="' + EXKEYS[i] + '">' + (on ? '✓ 已完成' : '未完成') + '</button>'
+      + '<div class="lb">' + esc(EXLABEL[i]) + '</div></div>');
+  }
+  var dn = execDone(day.iso, slot);
+  h.push('<div class="bar" style="margin-top:10px"><i style="width:' + Math.round(dn.rate * 100) + '%"></i></div>');
+  h.push('<div class="muted">今日完成度 <b>' + Math.round(dn.rate * 100) + '%</b>（' + dn.n + '/' + dn.total + ' 项）</div>');
+  h.push('<h4 class="st">教师备注</h4>');
+  h.push('<input class="f" id="exNote" data-act="exNote" style="width:100%" placeholder="如：下雨改室内 / 半数人参加合唱排练 / 张×× 膝伤改上肢" value="' + esc(nz(rec.note)) + '">');
+  h.push('</div>');
+  return h.join('');
+}
+function uidOfGrp(g){
+  for (var i = 0; i < STU.length; i++){ if (grpOf(STU[i].sid) === g) return true; }
+  return false;
+}
+
+/* ---------- 7. 页面：学生档案 ---------- */
+function pgRoster(){
+  var h = [], i, j;
+  var gh = grpList();
+  var weakN = 0, pendN = 0;
+  for (i = 0; i < STU.length; i++){
+    if (weakOf(STU[i].sid).length) weakN++;
+    if (lvOf(STU[i].sid) === '待测') pendN++;
+  }
+  h.push('<div class="grid g4">');
+  h.push(statBox(STU.length, '全班人数'));
+  for (i = 0; i < gh.length; i++) h.push(statBox(gh[i].list.length, gh[i].g));
+  h.push(statBox(weakN, '有薄弱项的同学'));
+  h.push('</div>');
+
+  h.push(tip('info', '📌', '分组说明', esc(SSET.groupNote || '')));
+
+  h.push('<div class="card">');
+  h.push('<div class="ct">👥 学生档案<span class="s">成绩和组别可以直接在表里改，自动保存</span></div>');
+  h.push('<div class="toolbar no-print">');
+  h.push('<input class="f sm" id="rosterKey" data-act="rosterKey" placeholder="搜姓名或学号" value="' + esc(UI.rosterKey) + '" style="width:150px">');
+  h.push('<span class="sp"></span>');
+  h.push('<button class="btn g s" data-act="attOpen">📋 点名登记</button>');
+  h.push('<button class="btn g s" data-act="printAtt">🖨 空白点名表</button>');
+  h.push('<button class="btn g s" data-act="expRoster">⬇ 导出名单</button>');
   h.push('</div>');
   h.push('<div class="chips no-print">');
-  h.push('<button class="' + (UI.rosterFilter === '' ? 'on' : '') + '" data-act="rosterFilter" data-v="">全部</button>');
-  for (var g = 0; g < groups.length; g++){
-    var cnt = 0;
-    for (var q = 0; q < STU.length; q++){ if ((nz(STU[q].grp) || '未分组') === groups[g]) cnt++; }
-    h.push('<button class="' + (UI.rosterFilter === groups[g] ? 'on' : '') + '" data-act="rosterFilter" data-v="'
-      + esc(groups[g]) + '">' + esc(groups[g]) + ' (' + cnt + ')</button>');
+  h.push('<button class="' + (UI.rosterGrp === '' ? 'on' : '') + '" data-act="rosterGrp" data-v="">全部（' + STU.length + '）</button>');
+  for (i = 0; i < gh.length; i++){
+    h.push('<button class="' + (UI.rosterGrp === gh[i].g ? 'on' : '') + '" data-act="rosterGrp" data-v="' + esc(gh[i].g) + '">'
+      + esc(gh[i].g) + '（' + gh[i].list.length + '）</button>');
   }
   h.push('</div>');
+  h.push('<div id="rosterCount" class="muted" style="margin-bottom:7px">当前显示 ' + STU.length + ' 人</div>');
+  h.push('<div class="print-only">' + esc(D.settings.className) + ' · 学生档案 · 打印时间 ' + esc(new Date().toLocaleString('zh-CN')) + '</div>');
 
-  var key = UI.rosterKey.trim().toLowerCase();
-  var list = STU.filter(function(s){
-    if (UI.rosterFilter && (nz(s.grp) || '未分组') !== UI.rosterFilter) return false;
-    if (!key) return true;
-    return (nz(s.name).toLowerCase().indexOf(key) >= 0) || (String(s.sid).indexOf(key) >= 0);
-  });
-  h.push('<div class="print-only">' + esc(D.settings.className) + ' · 分组名单 · 打印时间 ' + esc(new Date().toLocaleString('zh-CN')) + '</div>');
-  h.push('<div class="muted" style="margin-bottom:6px" id="rosterCount">当前显示 ' + list.length + ' 人</div>');
-  h.push('<div class="tw"><table><thead><tr>'
-    + '<th>学号</th><th>姓名</th><th>性别</th><th>组别</th><th>耐久跑摸底</th><th>一分钟跳绳</th><th>训练配速（每200米）</th><th>跳绳加练</th><th>备注</th>'
-    + '</tr></thead><tbody>');
-  for (var i = 0; i < list.length; i++){
-    var s = list[i];
-    h.push('<tr><td class="c">' + esc(s.sid) + '</td><td><b>' + esc(s.name) + '</b></td><td class="c">' + esc(s.sex)
-      + '</td><td class="c"><span class="pill ' + grpCls(s.grp) + '">' + esc(nz(s.grp) || '—') + '</span></td>'
-      + '<td class="c">' + (nz(s.run) ? esc(s.run) : '<span class="muted">未测</span>') + '</td>'
-      + '<td class="c">' + (nz(s.rope) ? esc(s.rope) : '<span class="muted">未测</span>') + '</td>'
-      + '<td>' + esc(nz(s.pace) || '—') + '</td>'
-      + '<td>' + esc(nz(s.rs) || '') + '</td>'
-      + '<td>' + esc(nz(s.note) || '') + '</td></tr>');
-  }
+  h.push('<div class="tw"><table id="rosterTbl"><thead><tr>');
+  var heads = ['学号', '姓名', '性别', '组别', '耐久跑', '50 米', '立定跳远', '体前屈', '引体 / 仰卧', '跳绳', '薄弱项', '出勤', '档案'];
+  for (i = 0; i < heads.length; i++) h.push('<th>' + heads[i] + '</th>');
+  h.push('</tr></thead><tbody>');
+  h.push(rosterRows(STU));
   h.push('</tbody></table></div>');
-  h.push(tip('warn', '⚠️', '名单来源要说清楚',
-    '这份名单是按「另一个 AI 识别的手写成绩单」定稿的（共 ' + STU.length + ' 人）。手写单字迹不清的地方（如 4′0x″ 这类）还没法百分百确认，'
-    + '开训第一天请照「补测待办」逐项核实。'));
+  h.push('<div class="muted">提示：成绩栏留着空白就表示「还没测」；耐久跑按 <b>4′08″</b> 这样填，其他项填数字即可。</div>');
   h.push('</div>');
-
-  /* 分组统计 */
-  h.push('<div class="card"><h2>分组人数一览</h2><div class="grid g3">');
-  for (var k = 0; k < groups.length; k++){
-    var cn = 0;
-    for (var m = 0; m < STU.length; m++){ if (nz(STU[m].grp) === groups[k]) cn++; }
-    h.push('<div class="stat"><b>' + cn + '</b><span>' + esc(groups[k]) + '</span></div>');
-  }
-  h.push('</div></div>');
   return h.join('');
 }
-
-function pgAttend(){
-  if (!ATTDATES.length){ return '<div class="card"><div class="muted">暂无训练日期数据。</div></div>'; }
-  if (!UI.attendDate) UI.attendDate = ATTDATES[0];
-  var idx = ATTDATES.indexOf(UI.attendDate);
-  if (idx < 0) idx = 0;
-  var dt = ATTDATES[idx];
-  var slot = UI.attendSlot;
-  var a = getAtt(dt, slot, true);
-  var st = attStat(dt, slot);
-  var k = attKey(dt, slot);
-  var h = [];
-  h.push('<div class="card"><h2><span class="n">点名</span>出勤登记<span class="s">点一下即可，自动保存</span></h2>');
-
-  h.push('<div class="daynav no-print">');
-  h.push('<button class="btn s g" data-act="attPrev"' + (idx <= 0 ? ' disabled' : '') + '>◀ 前一天</button>');
-  h.push('<div class="ttl">' + esc(dt) + '（' + esc(dowOfDate(dt)) + '）· ' + esc(slot) + '</div>');
-  h.push('<button class="btn s g" data-act="attNext"' + (idx >= ATTDATES.length - 1 ? ' disabled' : '') + '>后一天 ▶</button>');
-  h.push('</div>');
-  h.push('<div class="row no-print" style="margin-bottom:10px">');
-  h.push('<div class="seg">');
-  h.push('<button class="' + (slot === '上午' ? 'on' : '') + '" data-act="attSlot" data-v="上午">上午 10:10—10:40</button>');
-  h.push('<button class="' + (slot === '下午' ? 'on' : '') + '" data-act="attSlot" data-v="下午">下午 17:00—17:40</button>');
-  h.push('</div>');
-  h.push('<div class="sp" style="flex:1"></div>');
-  h.push('<button class="btn s" data-act="attAll" data-v="出">全部到</button>');
-  h.push('<button class="btn s g" data-act="attClear">清空本节</button>');
-  h.push('<button class="btn s g" data-act="exportAtt">⬇ 导出 CSV</button>');
-  h.push('<button class="btn s g" data-act="print">🖨 打印</button>');
-  h.push('</div>');
-
-  h.push('<div class="grid g3 no-print" id="attStat">');
-  h.push(statBox(st['出'], '出勤'));
-  h.push(statBox(st['缺'], '缺勤'));
-  h.push(statBox(st['病'], '病假'));
-  h.push(statBox(st['事'], '事假'));
-  h.push(statBox(st['未'], '未标记'));
-  h.push(statBox(STU.length, '总人数'));
-  h.push('</div>');
-
-  h.push('<div class="tip good no-print" style="margin-top:11px"><b>✅ 更快的方法</b><br>'
-    + '默认大家都是「到」，所以先点「全部到」，再把没来的几个人改成「缺 / 病 / 事」——比一个个点快得多。</div>');
-
-  h.push('<div class="print-only">' + esc(D.settings.className) + ' · ' + esc(dt) + ' ' + esc(slot) + ' 点名表 · 打印时间 ' + esc(new Date().toLocaleString('zh-CN')) + '</div>');
-  h.push('<div class="tw"><table><thead><tr><th style="width:46px">学号</th><th style="width:80px">姓名</th>'
-    + '<th style="width:60px">组别</th><th>出勤（打印时空着，现场手写）</th></tr></thead><tbody>');
-  for (var i = 0; i < STU.length; i++){
-    var s = STU[i];
-    var v = a[s.sid] || '';
-    h.push('<tr><td class="c">' + esc(s.sid) + '</td><td><b>' + esc(s.name) + '</b></td>'
-      + '<td class="c"><span class="pill ' + grpCls(s.grp) + '">' + esc(nz(s.grp) || '—') + '</span></td>');
-    h.push('<td id="attrow_' + s.sid + '"><span class="no-print">');
-    for (var m = 0; m < ATT_MARKS.length; m++){
-      var mk = ATT_MARKS[m];
-      h.push('<button class="ab' + (v === mk.v ? ' ' + mk.cls : '') + '" data-act="att" data-sid="' + esc(s.sid)
-        + '" data-v="' + mk.v + '">' + mk.v + '</button>');
+function rosterRows(list){
+  var out = [], i, j;
+  for (i = 0; i < list.length; i++){
+    var s = list[i], sid = s.sid, sex = nz(s.sex);
+    var w = weakOf(sid);
+    var ar = attRate(sid);
+    out.push('<tr>');
+    out.push('<td class="c">' + esc(sid) + '</td>');
+    out.push('<td><b>' + esc(s.name) + '</b>' + (lvOf(sid) === '待测' ? '<span class="weakbadge">待测</span>' : '') + '</td>');
+    out.push('<td class="c">' + esc(sex) + '</td>');
+    out.push('<td class="c"><select class="cellin" data-act="stuGrp" data-sid="' + esc(sid) + '">' + grpOpts(grpOf(sid)) + '</select></td>');
+    for (j = 0; j < 6; j++){
+      var it = ITEMS[j];
+      if (it.sex && it.sex !== sex){
+        out.push('<td class="c empty">—</td>');
+        continue;
+      }
+      var v = valOf(sid, it.k);
+      var ps = isPass(it, sex, v);
+      var cls2 = (ps === true) ? ' ok' : (ps === false ? ' weak' : '');
+      out.push('<td class="c"><input class="cellin' + cls2 + '" data-act="sc" data-sid="' + esc(sid) + '" data-k="' + it.k + '" value="' + esc(v) + '" placeholder="未测"></td>');
     }
-    h.push('</span><span class="print-only">☐ 到　☐ 缺　☐ 病　☐ 事</span></td></tr>');
+    out.push('<td class="c"><input class="cellin" data-act="sc" data-sid="' + esc(sid) + '" data-k="rope" value="' + esc(valOf(sid, 'rope')) + '" placeholder="未测"></td>');
+    out.push('<td>' + weakCellHtml(sid) + '</td>');
+    out.push('<td class="c">' + (ar === null ? '<span class="empty">—</span>' : Math.round(ar * 100) + '%') + '</td>');
+    out.push('<td class="c"><button class="btn g s" data-act="stuOpen" data-sid="' + esc(sid) + '">档案</button></td>');
+    out.push('</tr>');
+  }
+  return out.join('');
+}
+/* 薄弱项单元格：区分「未达标」「还没测」「全部达标」三种情况 */
+function weakCellHtml(sid){
+  var sex = sexOf(sid), w = weakOf(sid), appl = 0, tested = 0, i;
+  for (i = 0; i < ITEMS.length; i++){
+    var it = ITEMS[i];
+    if (it.ref || !itemApplies(it, sex)) continue;
+    appl++;
+    if (valOf(sid, it.k)) tested++;
+  }
+  if (w.length){
+    var names = [];
+    for (i = 0; i < w.length; i++) names.push(w[i].n);
+    return '<span class="pill p-d">' + w.length + ' 项未达标</span> <span class="muted">' + esc(names.join('、')) + '</span>';
+  }
+  if (tested < appl) return '<span class="pill p-w">还没测（' + (appl - tested) + ' 项）</span>';
+  return '<span class="pill p-a">全部达标</span>';
+}
+function grpOpts(cur){
+  var o = ['<option value="">—</option>'];
+  for (var i = 0; i < GRPS.length; i++){
+    o.push('<option value="' + esc(GRPS[i]) + '"' + (cur === GRPS[i] ? ' selected' : '') + '>' + esc(GRPS[i]) + '</option>');
+  }
+  return o.join('');
+}
+/* 学生档案弹窗 */
+function stuModal(sid){
+  var s = stuBase(sid) || {}, sex = nz(s.sex), o = stuDro(sid);
+  var h = [];
+  h.push('<div class="kv" style="margin-bottom:11px">');
+  h.push('<b>学号</b><span>' + esc(sid) + '</span>');
+  h.push('<b>姓名</b><span><b>' + esc(nameOf(sid)) + '</b>（' + esc(sex) + '）</span>');
+  h.push('<b>组别</b><span>' + gpill(grpOf(sid)) + '</span>');
+  h.push('<b>初始摸底</b><span>' + esc(nz(s.run) || '未测') + ' · 跳绳 ' + esc(nz(s.rope) || '未测') + '</span>');
+  if (noteOf(sid)) h.push('<b>原始备注</b><span>' + esc(noteOf(sid)) + '</span>');
+  h.push('</div>');
+
+  h.push('<h4 class="st">成绩录入（初始成绩）</h4>');
+  h.push('<div class="tw rt-wrap"><table class="rt"><thead><tr><th>项目</th><th>成绩</th><th>对照</th></tr></thead><tbody>');
+  for (var i = 0; i < ITEMS.length; i++){
+    var it = ITEMS[i];
+    if (it.sex && it.sex !== sex){ continue; }
+    var v = valOf(sid, it.k), ps = isPass(it, sex, v);
+    h.push('<tr><td data-l="项目">' + esc(it.full) + '</td>'
+      + '<td data-l="成绩"><input class="cellin" data-act="sc" data-sid="' + esc(sid) + '" data-k="' + it.k + '" value="' + esc(v) + '" placeholder="未测" style="text-align:left"></td>'
+      + '<td data-l="对照">' + (ps === null ? '<span class="muted">待测</span>' : (ps ? '<span class="okbadge">达标</span>' : '<span class="weakbadge">未达标</span>')) + '</td></tr>');
   }
   h.push('</tbody></table></div>');
 
-  h.push('<div class="no-print" style="margin-top:6px"><label class="muted">本节课备注：</label><br>'
-    + '<input class="f" id="attNote" style="width:100%;margin-top:5px" placeholder="如：下雨改室内 / 半数人参加合唱排练"'
-    + ' value="' + esc(D.attNote[k] || '') + '"></div>');
+  h.push('<h4 class="st">伤病备注</h4>');
+  h.push('<input class="f" data-act="stuField" data-sid="' + esc(sid) + '" data-k="injury" style="width:100%" placeholder="如：左膝旧伤，跳跃类需减量" value="' + esc(nz(o.injury)) + '">');
+
+  h.push('<h4 class="st">特殊情况</h4>');
+  h.push('<select class="f" data-act="stuField" data-sid="' + esc(sid) + '" data-k="special" style="width:100%">');
+  h.push('<option value="">无</option>');
+  for (var j = 0; j < ALTRULES.length; j++){
+    h.push('<option value="' + esc(ALTRULES[j].key) + '"' + (nz(o.special) === ALTRULES[j].key ? ' selected' : '') + '>' + esc(ALTRULES[j].label) + '</option>');
+  }
+  h.push('</select>');
+
+  h.push('<h4 class="st">替代训练方案</h4>');
+  h.push('<div class="muted" style="margin-bottom:7px">选好上面的「特殊情况」后，点下面的按钮自动生成。</div>');
+  h.push('<button class="btn s no-print" data-act="genAlt" data-sid="' + esc(sid) + '">⚡ 自动生成替代方案</button>');
+  var alt = nz(o.alt);
+  h.push('<div class="tip info" style="margin-top:9px">' + (alt ? esc(alt).replace(/\n/g, '<br>') : '<span class="muted">还没有生成替代方案</span>') + '</div>');
+
+  h.push('<h4 class="st">出勤记录</h4>');
+  var ac = attCount(sid);
+  h.push('<div class="muted">已登记 ' + ac.tot + ' 节 · 出勤 ' + ac.ok + ' 节 · 缺勤/病事假 ' + ac.ab + ' 节'
+    + (ac.tot ? ' · 出勤率 ' + Math.round(ac.ok / ac.tot * 100) + '%' : '') + '</div>');
+
+  openModal('学生档案 · ' + esc(nameOf(sid)), h.join(''),
+    '<button class="btn g" data-act="closeModal">关闭</button>');
+}
+/* 点名面板 */
+function attPanel(){
+  var dates = [];
+  for (var i = 0; i < DAYS.length; i++){ if (DAYS[i].kind === 'train') dates.push(DAYS[i].iso); }
+  if (!UI.attDate) UI.attDate = dates.length ? dates[0] : '';
+  var h = [];
+  h.push('<div class="toolbar">');
+  h.push('<select class="f sm" data-act="attDate">');
+  for (var j = 0; j < dates.length; j++){
+    h.push('<option value="' + dates[j] + '"' + (UI.attDate === dates[j] ? ' selected' : '') + '>'
+      + monthDay(dates[j]) + '（' + dowCN(dates[j]) + '）</option>');
+  }
+  h.push('</select>');
+  h.push('<span class="seg">');
+  h.push('<button class="' + (UI.attSlot === '上午' ? 'on' : '') + '" data-act="attSlot" data-v="上午">上午</button>');
+  h.push('<button class="' + (UI.attSlot === '下午' ? 'on' : '') + '" data-act="attSlot" data-v="下午">下午</button>');
+  h.push('</span>');
+  h.push('<span class="sp"></span>');
+  h.push('<button class="btn g s" data-act="attAll">全部到</button>');
+  h.push('<button class="btn d s" data-act="attClear">清空</button>');
   h.push('</div>');
+  var st = attStat(UI.attDate, UI.attSlot);
+  h.push('<div class="grid g4" id="attStat">');
+  h.push(statBox(st['出'], '出勤') + statBox(st['缺'], '缺勤') + statBox(st['病'], '病假') + statBox(st['事'], '事假') + statBox(st['未'], '未标记'));
+  h.push('</div>');
+  h.push('<div class="tw" style="margin-top:10px"><table><thead><tr><th>学号</th><th>姓名</th><th>组别</th><th>标记</th></tr></thead><tbody>');
+  for (var k = 0; k < STU.length; k++){
+    h.push('<tr><td class="c">' + esc(STU[k].sid) + '</td><td><b>' + esc(STU[k].name) + '</b></td>'
+      + '<td class="c">' + gpill(grpOf(STU[k].sid)) + '</td>'
+      + '<td id="attrow_' + esc(STU[k].sid) + '">' + attBtns(STU[k].sid) + '</td></tr>');
+  }
+  h.push('</tbody></table></div>');
+  h.push('<h4 class="st">本节课备注</h4>');
+  h.push('<input class="f" id="attNoteBox" data-act="attNote" style="width:100%" placeholder="如：下雨改室内" value="' + esc(nz(D.attNote[attKey(UI.attDate, UI.attSlot)])) + '">');
+  openModal('📋 点名登记', h.join(''), '<button class="btn g" data-act="closeModal">关闭</button>');
+}
+function attBtns(sid){
+  var a = getAtt(UI.attDate, UI.attSlot, true), v = a[sid] || '';
+  var h = [];
+  for (var i = 0; i < ATT_MARKS.length; i++){
+    var m = ATT_MARKS[i];
+    h.push('<button class="ab' + (v === m.v ? ' ' + m.cls : '') + '" data-act="att" data-sid="' + esc(sid) + '" data-v="' + m.v + '">' + m.v + '</button>');
+  }
   return h.join('');
 }
+
+/* ---------- 8. 页面：成绩分析 ---------- */
+function pgAnalysis(){
+  var h = [], i, j;
+  var cols = simColumns();
+  var list = scopeList();
+
+  h.push('<div class="card tight">');
+  h.push('<div class="ct">📈 成绩分析<span class="s">自动对比历次成绩、高亮薄弱项目</span></div>');
+  h.push('<div class="chips no-print">');
+  h.push('<button class="' + (UI.anaScope === 'class' ? 'on' : '') + '" data-act="anaScope" data-v="class">全班</button>');
+  h.push('<button class="' + (UI.anaScope === 'grp' ? 'on' : '') + '" data-act="anaScope" data-v="grp">按组</button>');
+  h.push('<button class="' + (UI.anaScope === 'one' ? 'on' : '') + '" data-act="anaScope" data-v="one">看个人</button>');
+  h.push('</div>');
+  if (UI.anaScope === 'grp'){
+    h.push('<div class="toolbar"><select class="f sm" data-act="anaGrp">');
+    h.push('<option value="">— 选择组别 —</option>');
+    for (i = 0; i < GRPS.length; i++){
+      h.push('<option value="' + esc(GRPS[i]) + '"' + (UI.anaGrp === GRPS[i] ? ' selected' : '') + '>' + esc(GRPS[i]) + '</option>');
+    }
+    h.push('</select></div>');
+  }
+  if (UI.anaScope === 'one'){
+    h.push('<div class="toolbar"><select class="f sm" data-act="anaSid" style="max-width:220px">');
+    h.push('<option value="">— 选择学生 —</option>');
+    for (i = 0; i < STU.length; i++){
+      h.push('<option value="' + esc(STU[i].sid) + '"' + (String(UI.anaSid) === String(STU[i].sid) ? ' selected' : '') + '>'
+        + esc(STU[i].sid) + ' ' + esc(STU[i].name) + '（' + esc(grpOf(STU[i].sid)) + '）</option>');
+    }
+    h.push('</select></div>');
+  }
+  h.push('<div class="toolbar no-print">');
+  h.push('<button class="btn s" data-act="simAdd">＋ 新建一次模拟测试</button>');
+  if (D.sims.length) h.push('<button class="btn g s" data-act="simDel">删除最近一次</button>');
+  h.push('</div>');
+  h.push('</div>');
+
+  if (!list.length){
+    h.push('<div class="card"><div class="muted">这个范围里还没有学生，先在上面选一下。</div></div>');
+    return h.join('');
+  }
+
+  /* 概览 */
+  var wr = weakRank(list);
+  var allOk = 0, sumWeak = 0;
+  for (i = 0; i < wr.per.length; i++){ sumWeak += wr.per[i].weak.length; if (!wr.per[i].weak.length) allOk++; }
+  h.push('<div class="grid g4">');
+  h.push(statBox(list.length, '统计人数'));
+  h.push(statBox(allOk, '目前全部达标'));
+  h.push(statBox((sumWeak / list.length).toFixed(1), '人均薄弱项'));
+  h.push(statBox(D.sims.length, '已录模拟次数'));
+  h.push('</div>');
+
+  /* 薄弱项排行 */
+  h.push('<div class="card">');
+  h.push('<div class="ct">🔥 薄弱项目排行<span class="s">按未达标人数从多到少</span></div>');
+  var maxc = 1;
+  for (i = 0; i < wr.rank.length; i++){ if (wr.rank[i].c > maxc) maxc = wr.rank[i].c; }
+  h.push('<div class="tw" style="border:none"><table><thead><tr><th style="width:130px">项目</th><th>未达标人数</th><th style="width:56px">占比</th></tr></thead><tbody>');
+  for (i = 0; i < wr.rank.length; i++){
+    var r0 = wr.rank[i];
+    var pct = Math.round(r0.c / wr.total * 100);
+    h.push('<tr' + (r0.c ? ' class="weakrow"' : '') + '><td><b>' + esc(r0.n) + '</b></td>'
+      + '<td><div class="bar" style="margin:0"><i style="width:' + Math.round(r0.c / maxc * 100) + '%"></i></div>'
+      + '<span class="muted">' + r0.c + ' 人</span></td>'
+      + '<td class="c">' + pct + '%</td></tr>');
+  }
+  h.push('</tbody></table></div>');
+  h.push('</div>');
+
+  /* 自动推送补强方案 */
+  var push = [];
+  for (i = 0; i < wr.rank.length; i++){
+    if (wr.rank[i].c > 0 && STRENGTH[wr.rank[i].n]) push.push(wr.rank[i]);
+  }
+  h.push('<div class="card">');
+  h.push('<div class="ct">💡 针对性补强方案<span class="s">按上面的薄弱排行自动推送</span></div>');
+  if (!push.length){
+    h.push(tip('good', '✅', '目前没有需要补强的项目', '这个范围里所有已测项目都达标了。继续保持，注意别掉档。'));
+  } else {
+    for (i = 0; i < push.length; i++){
+      var st = STRENGTH[push[i].n];
+      h.push('<h4 class="st">' + (i + 1) + '. ' + esc(push[i].n) + '（' + push[i].c + ' 人未达标）</h4>');
+      h.push('<div class="muted" style="margin-bottom:6px">' + esc(st.why) + '</div>');
+      h.push('<ul class="li">');
+      for (j = 0; j < st.plan.length; j++) h.push('<li>' + esc(st.plan[j]) + '</li>');
+      h.push('</ul>');
+    }
+  }
+  h.push('</div>');
+
+  /* 历次对比 */
+  if (cols.length > 1 || UI.anaScope === 'one'){
+    h.push('<div class="card">');
+    h.push('<div class="ct">📊 历次成绩对比<span class="s">' + cols.length + ' 个时间点 · 红底 = 未达标，绿底 = 达标</span></div>');
+    h.push('<div class="tw rt-wrap"><table class="rt"><thead><tr><th>项目</th>');
+    for (i = 0; i < cols.length; i++) h.push('<th class="c">' + esc(cols[i].label) + '</th>');
+    h.push('<th class="c">变化</th></tr></thead><tbody>');
+    for (i = 0; i < ITEMS.length; i++){
+      var it = ITEMS[i];
+      if (it.ref) continue;
+      if (it.sex && UI.anaScope === 'one' && it.sex !== sexOf(UI.anaSid)) continue;
+      h.push('<tr><td data-l="项目"><b>' + esc(it.full) + '</b></td>');
+      var prev = null, first = null;
+      for (j = 0; j < cols.length; j++){
+        var vv = (cols[j].id === 'base') ? valOf(list[0].sid, it.k) : valIn(list[0].sid, cols[j].id, it.k);
+        var nv = numOf(vv, it.kind);
+        var ps = isPass(it, sexOf(list[0].sid), vv);
+        h.push('<td data-l="' + esc(cols[j].label) + '" class="c">' + (vv ? esc(vv) : '<span class="empty">—</span>')
+          + (ps === false ? ' <span class="weakbadge">未达标</span>' : '') + '</td>');
+        if (j === 0) first = nv;
+        prev = nv;
+      }
+      h.push('<td data-l="变化" class="c">' + trendHtml(first, prev, it.lower) + '</td></tr>');
+    }
+    h.push('</tbody></table></div>');
+    if (UI.anaScope !== 'one'){
+      h.push(tip('info', 'ℹ️', '表格显示的是「' + esc(list[0].name) + '」的成绩', '想看某个人，把上面的范围切到「看个人」。'));
+    }
+    h.push('</div>');
+  }
+
+  /* 逐人薄弱清单 */
+  if (UI.anaScope !== 'one'){
+    h.push('<div class="card">');
+    h.push('<div class="ct">📋 逐人薄弱清单<span class="s">' + esc(list.length) + ' 人</span></div>');
+    h.push('<div class="tw"><table><thead><tr><th>学号</th><th>姓名</th><th>组别</th><th>薄弱项目</th><th>处理建议</th></tr></thead><tbody>');
+    for (i = 0; i < wr.per.length; i++){
+      var p = wr.per[i];
+      if (!p.weak.length) continue;
+      h.push('<tr class="weakrow"><td class="c">' + esc(p.sid) + '</td><td><b>' + esc(p.name) + '</b></td>'
+        + '<td class="c">' + gpill(p.grp) + '</td>'
+        + '<td>' + esc(p.weak.join('、')) + '</td>'
+        + '<td class="muted">按上面「' + esc(p.weak[0]) + '」的补强方案练</td></tr>');
+    }
+    h.push('</tbody></table></div>');
+    h.push('<div class="muted">只列出有薄弱项的同学。</div>');
+    h.push('</div>');
+  }
+  h.push('<div class="no-print" style="margin-bottom:14px">'
+    + '<button class="btn g s" data-act="expScore">⬇ 导出全部成绩（CSV）</button> '
+    + '<button class="btn g s" data-act="print">🖨 打印本页</button></div>');
+  return h.join('');
+}
+function trendHtml(first, last, lower){
+  if (first === null || last === null) return '<span class="trend flat">—</span>';
+  var d = last - first;
+  if (Math.abs(d) < 0.0001) return '<span class="trend flat">持平</span>';
+  var better = lower ? (d < 0) : (d > 0);
+  var arrow = d > 0 ? '↑' : '↓';
+  return '<span class="trend ' + (better ? 'up' : 'down') + '">' + arrow + Math.abs(Math.round(d * 100) / 100) + '</span>';
+}
+
+/* ---------- 9. 页面：周末打卡 ---------- */
+var CKDESC = ['当天把本组任务完整做一遍', '第二天再做一遍（量可以减半）', '运动后拉伸 8 个部位各 20 秒', '让家长知道你今天练了，签个字'];
+var WKS = [{ id: '1', t: '第 1 次（10月17日—18日）' }, { id: '2', t: '第 2 次（10月24日—25日）' }];
 
 function pgCheckin(){
-  var tot = checkTotals();
-  var h = [];
-  h.push('<div class="card"><h2><span class="n">打卡</span>周末打卡统计<span class="s">共 ' + CKITEMS.length + ' 次</span></h2>');
-  h.push('<div class="grid g3" id="ckHeadStat">');
-  h.push(statBox(Math.round(tot.avgRate * 100) + '%', '平均完成率'));
-  h.push(statBox(tot.full, '全部完成（' + CKITEMS.length + '/' + CKITEMS.length + '）'));
+  var h = [], i, j;
+  var wk = UI.ckWk || '1';
+  var H2 = HOMEWORK[wk];
+  h.push('<div class="card tight">');
+  h.push('<div class="ct">📌 周末打卡<span class="s">按三组分别布置，可导出清单发给学生</span></div>');
+  h.push('<div class="seg">');
+  for (i = 0; i < WKS.length; i++){
+    h.push('<button class="' + (wk === WKS[i].id ? 'on' : '') + '" data-act="ckWk" data-v="' + WKS[i].id + '">' + esc(WKS[i].t) + '</button>');
+  }
+  h.push('</span>');
+  h.push('</div>');
+
+  if (H2) h.push(hwCard(wk, false));
+
+  var tot = ckTotals(wk);
+  h.push('<div class="card">');
+  h.push('<div class="ct">✅ 打卡登记</div>');
+  h.push('<div class="grid g4" id="ckHeadStat">');
+  h.push(statBox(Math.round(tot.avg * 100) + '%', '平均完成率'));
+  h.push(statBox(tot.full, '全部完成'));
   h.push(statBox(tot.part, '部分完成'));
   h.push(statBox(tot.zero, '一次未交'));
   h.push('</div>');
-  h.push('<div class="bar" id="ckBar" style="margin-top:12px"><i style="width:' + Math.round(tot.avgRate * 100) + '%"></i></div>');
   h.push('<div class="toolbar no-print" style="margin-top:11px">');
-  h.push('<div class="seg">');
+  h.push('<span class="seg">');
   h.push('<button class="' + (UI.ckFilter === 'all' ? 'on' : '') + '" data-act="ckFilter" data-v="all">全部</button>');
-  h.push('<button class="' + (UI.ckFilter === 'zero' ? 'on' : '') + '" data-act="ckFilter" data-v="zero">未交的人</button>');
-  h.push('<button class="' + (UI.ckFilter === 'part' ? 'on' : '') + '" data-act="ckFilter" data-v="part">没交齐的人</button>');
+  h.push('<button class="' + (UI.ckFilter === 'notyet' ? 'on' : '') + '" data-act="ckFilter" data-v="notyet">还没交的</button>');
+  h.push('<button class="' + (UI.ckFilter === 'done' ? 'on' : '') + '" data-act="ckFilter" data-v="done">已完成的</button>');
+  h.push('</span>');
+  h.push('<span class="sp"></span>');
+  h.push('<button class="btn g s" data-act="expCheck">⬇ 打卡统计 CSV</button>');
+  h.push('<button class="btn g s" data-act="copyCheck" data-v="' + wk + '">📋 复制打卡清单发群</button>');
+  h.push('<button class="btn g s" data-act="printCheck" data-v="' + wk + '">🖨 打印打卡清单</button>');
   h.push('</div>');
-  h.push('<div class="sp" style="flex:1"></div>');
-  h.push('<button class="btn s g" data-act="exportCheck">⬇ 导出 CSV</button>');
-  h.push('<button class="btn s g" data-act="print">🖨 打印</button>');
-  h.push('</div>');
-  h.push(tip('good', '✅', '怎么用',
-    '学生交回打卡表，你就在对应格子点一下：勾上变绿。完成次数和完成率会自动算，不用自己数。'
-    + '<br>「未交的人」这个筛选项最好用 —— 点开直接看到谁没交，方便催家长群。'));
-
-  var list = STU.filter(function(s){
-    var n = checkCount(s.sid);
-    if (UI.ckFilter === 'zero') return n === 0;
-    if (UI.ckFilter === 'part') return n > 0 && n < CKITEMS.length;
-    return true;
-  });
-
-  h.push('<div class="print-only">' + esc(D.settings.className) + ' · 周末打卡统计 · 打印时间 ' + esc(new Date().toLocaleString('zh-CN')) + '</div>');
-  h.push('<div class="muted" style="margin-bottom:6px">当前显示 ' + list.length + ' 人</div>');
-  h.push('<div class="tw"><table><thead><tr><th>序号</th><th>姓名</th><th>组别</th>');
-  for (var i = 0; i < CKITEMS.length; i++) h.push('<th>' + esc(CKITEMS[i]) + '</th>');
-  h.push('<th>完成次数</th><th>完成率</th></tr></thead><tbody>');
-  for (var r = 0; r < list.length; r++){
-    var s = list[r];
-    var row = checkRow(s.sid, true);
-    var n = checkCount(s.sid);
-    var rate = Math.round(checkRate(s.sid) * 100);
-    h.push('<tr><td class="c">' + esc(s.sid) + '</td><td><b>' + esc(s.name) + '</b></td>'
-      + '<td class="c"><span class="pill ' + grpCls(s.grp) + '">' + esc(nz(s.grp) || '—') + '</span></td>');
-    for (var c = 0; c < CKITEMS.length; c++){
-      h.push('<td class="c"><button class="ck' + (row[c] ? ' on' : '') + '" data-act="ck" data-sid="' + esc(s.sid)
-        + '" data-i="' + c + '">' + (row[c] ? '✓' : '') + '</button></td>');
+  h.push('<div class="bar"><i style="width:' + Math.round(tot.avg * 100) + '%"></i></div>');
+  h.push('<div class="tw"><table><thead><tr><th>学号</th><th>姓名</th><th>组别</th>');
+  for (i = 0; i < CKITEMS.length; i++) h.push('<th class="c">' + esc(CKITEMS[i]) + '</th>');
+  h.push('<th class="c">完成</th><th class="c">完成率</th></tr></thead><tbody>');
+  for (i = 0; i < STU.length; i++){
+    var sid = STU[i].sid, n = ckCount(wk, sid);
+    if (UI.ckFilter === 'notyet' && n === CKITEMS.length) continue;
+    if (UI.ckFilter === 'done' && n !== CKITEMS.length) continue;
+    var row = ckRow(wk, sid, true);
+    h.push('<tr><td class="c">' + esc(sid) + '</td><td><b>' + esc(STU[i].name) + '</b></td><td class="c">' + gpill(grpOf(sid)) + '</td>');
+    for (j = 0; j < CKITEMS.length; j++){
+      h.push('<td class="c"><button class="ck' + (row[j] ? ' on' : '') + '" data-act="ck" data-wk="' + wk + '" data-sid="' + esc(sid) + '" data-i="' + j + '">' + (row[j] ? '✓' : '') + '</button></td>');
     }
-    h.push('<td class="c" id="ckn_' + s.sid + '"><b>' + n + '</b>/' + CKITEMS.length + '</td>');
-    h.push('<td class="c" id="ckr_' + s.sid + '">' + rate + '%</td></tr>');
-  }
-  h.push('</tbody></table></div>');
-  h.push(tip('warn', '⚠️', '第二周末只减不加',
-    '10/24、10/25 这两次是「恢复日 / 完全休息」，学生只要在打卡表上勾「已完成休息」，就算完成，不要让他们补做大强度。'));
-  h.push('</div>');
-  return h.join('');
-}
-
-function pgScore(){
-  var h = [];
-  h.push('<div class="card"><h2><span class="n">成绩</span>体测成绩录入<span class="s">补测完随手填，随时可导出</span></h2>');
-  h.push(tip('info', '💡', '填什么、怎么填',
-    '耐久跑填时间（如 4′08″），跳绳填个数，坐位体前屈填厘米，立定跳远填厘米。'
-    + '不确定的格子就空着，别瞎填 —— 空着比填错强。'));
-  h.push('<div class="toolbar no-print">');
-  h.push('<button class="btn s g" data-act="exportScore">⬇ 导出成绩 CSV</button>');
-  h.push('<button class="btn s g" data-act="print">🖨 打印录入表</button>');
-  h.push('</div>');
-  h.push('<div class="print-only">' + esc(D.settings.className) + ' · 体测成绩录入表 · 打印时间 ' + esc(new Date().toLocaleString('zh-CN')) + '</div>');
-  h.push('<div class="tw"><table><thead><tr><th>学号</th><th>姓名</th><th>组别</th>'
-    + '<th>耐久跑（摸底）</th><th>耐久跑（实测）</th><th>跳绳（摸底）</th><th>跳绳（实测）</th>'
-    + '<th>坐位体前屈</th><th>立定跳远</th><th>备注</th></tr></thead><tbody>');
-  for (var i = 0; i < STU.length; i++){
-    var s = STU[i];
-    var sc = D.scores[s.sid] || {};
-    h.push('<tr><td class="c">' + esc(s.sid) + '</td><td><b>' + esc(s.name) + '</b></td>'
-      + '<td class="c"><span class="pill ' + grpCls(s.grp) + '">' + esc(nz(s.grp) || '—') + '</span></td>');
-    h.push('<td class="c muted">' + (nz(s.run) ? esc(s.run) : '未测') + '</td>');
-    h.push('<td class="c"><input class="f sm" style="width:82px;text-align:center" data-act="sc" data-sid="' + esc(s.sid)
-      + '" data-k="run" value="' + esc(nz(sc.run)) + '" placeholder="—"></td>');
-    h.push('<td class="c muted">' + (nz(s.rope) ? esc(s.rope) : '未测') + '</td>');
-    h.push('<td class="c"><input class="f sm" style="width:70px;text-align:center" data-act="sc" data-sid="' + esc(s.sid)
-      + '" data-k="rope" value="' + esc(nz(sc.rope)) + '" placeholder="—"></td>');
-    h.push('<td class="c"><input class="f sm" style="width:70px;text-align:center" data-act="sc" data-sid="' + esc(s.sid)
-      + '" data-k="sit" value="' + esc(nz(sc.sit)) + '" placeholder="—"></td>');
-    h.push('<td class="c"><input class="f sm" style="width:70px;text-align:center" data-act="sc" data-sid="' + esc(s.sid)
-      + '" data-k="jump" value="' + esc(nz(sc.jump)) + '" placeholder="—"></td>');
-    h.push('<td><input class="f sm" style="width:100%" data-act="sc" data-sid="' + esc(s.sid)
-      + '" data-k="note" value="' + esc(nz(sc.note)) + '" placeholder="犯规/改期/免测等"></td>');
+    h.push('<td class="c" id="ckn_' + esc(sid) + '"><b>' + n + '</b>/' + CKITEMS.length + '</td>');
+    h.push('<td class="c" id="ckr_' + esc(sid) + '">' + Math.round(ckRate(wk, sid) * 100) + '%</td>');
     h.push('</tr>');
   }
   h.push('</tbody></table></div>');
-  h.push('<div class="tip warn"><b>⚠️ 别把摸底当实测</b><br>'
-    + '「摸底」两列是 10 月 7 日、10 月 12 日学生自己测写下来的，只能作参考；「实测」列才是体测当天/补测的真实成绩。两边分开填，不要覆盖。</div>');
+  h.push('<div class="muted">点格子打钩，自动算完成率。切到「还没交的」就能一眼看出谁没交。</div>');
   h.push('</div>');
   return h.join('');
 }
 
-function pgTodo(){
-  var t = todoStat(), ct = catOfTodos();
-  var h = [];
-  h.push('<div class="card"><h2><span class="n">待办</span>补测与数据核实清单<span class="s">共 ' + t.total + ' 项</span></h2>');
-  h.push('<div class="grid g3">');
-  h.push(statBox(t.done + '/' + t.total, '已处理'));
-  h.push(statBox(Math.round(t.rate * 100) + '%', '完成进度'));
-  h.push(statBox(t.total - t.done, '还剩'));
-  h.push('</div>');
-  h.push('<div class="bar" style="margin-top:12px"><i style="width:' + Math.round(t.rate * 100) + '%"></i></div>');
-  h.push(tip('good', '✅', '这份清单干什么用',
-    '手写成绩单上有一批「看不清楚」和「根本没测」的项。开训第一天，照着这张清单一项一项处理，处理完打钩、把结果填在右边。'
-    + '<br><b>全部处理完，把这页打印出来夹在教案本里，就是你的工作留痕。</b>'));
-  h.push('<div class="toolbar no-print"><button class="btn s g" data-act="print">🖨 打印清单</button>'
-    + '<button class="btn s g" data-act="exportTodo">⬇ 导出 CSV</button></div>');
-
-  if (!TODOS.length){
-    h.push('<div class="muted">暂无待办数据。</div></div>');
-    return h.join('');
+/* ---------- 10. 页面：安全预警 ---------- */
+function pgSafety(){
+  var h = [], i, j;
+  var rec = [];
+  for (i = 0; i < STU.length; i++){
+    var o = stuDro(STU[i].sid);
+    if (nz(o.special) || nz(o.injury)) rec.push({ sid: STU[i].sid, name: STU[i].name, grp: grpOf(STU[i].sid), special: nz(o.special), injury: nz(o.injury), alt: nz(o.alt) });
   }
-  h.push('<div class="print-only">' + esc(D.settings.className) + ' · 补测与数据核实清单 · 打印时间 ' + esc(new Date().toLocaleString('zh-CN')) + '</div>');
+  h.push('<div class="card">');
+  h.push('<div class="ct">🛡 安全预警<span class="s">录入特殊情况，自动生成替代训练方案</span></div>');
+  h.push(tip('bad', '🚨', '安全第一，这条必须守住', '有哮喘、心脏问题、关节损伤、术后恢复、女生生理期等情况的同学，一律降负荷或停做相应项目，绝不硬撑。凭医院证明该申请免测的就申请，别为了分数冒险。'));
+  h.push('<div class="toolbar no-print">');
+  h.push('<select class="f sm" data-act="safetySid" style="max-width:220px">');
+  h.push('<option value="">— 选择学生 —</option>');
+  for (i = 0; i < STU.length; i++){
+    h.push('<option value="' + esc(STU[i].sid) + '"' + (String(UI.safetySid) === String(STU[i].sid) ? ' selected' : '') + '>'
+      + esc(STU[i].sid) + ' ' + esc(STU[i].name) + '（' + esc(grpOf(STU[i].sid)) + '）</option>');
+  }
+  h.push('</select>');
+  h.push('<button class="btn s" data-act="safetyOpen"' + (UI.safetySid ? '' : ' disabled') + '>填写特殊情况</button>');
+  h.push('<button class="btn g s" data-act="print">🖨 打印本页</button>');
+  h.push('</div>');
+  h.push('</div>');
 
-  for (var g = 0; g < ct.order.length; g++){
-    var cat = ct.order[g], arr = ct.map[cat];
-    var dn = 0;
-    for (var x = 0; x < arr.length; x++){ if (D.todoDone[arr[x].id]) dn++; }
-    h.push('<h3 class="bt">' + esc(cat) + ' （' + dn + '/' + arr.length + '）</h3>');
-    for (var i = 0; i < arr.length; i++){
-      var o = arr[i], on = !!D.todoDone[o.id];
-      h.push('<div class="to-do' + (on ? ' done' : '') + '">');
-      h.push('<button class="cbx' + (on ? ' on' : '') + '" data-act="todoChk" data-id="' + esc(o.id) + '">' + (on ? '✓' : '') + '</button>');
-      h.push('<div class="bd"><div class="t1">' + esc(o.name) + '（学号 ' + esc(o.sid) + '）</div>');
-      h.push('<div class="t2">现状：' + esc(nz(o.cur) || '—') + '<br>要做：' + esc(nz(o.todo) || '—') + '</div>');
-      h.push('<input class="f sm no-print" style="width:100%;margin-top:7px" placeholder="处理结果（如：补测 4′25″，编入男B组）" '
-        + 'data-act="todoRes" data-id="' + esc(o.id) + '" value="' + esc(nz(D.todoResult[o.id])) + '">');
-      if (nz(D.todoResult[o.id])) h.push('<div class="print-only">处理结果：' + esc(D.todoResult[o.id]) + '</div>');
+  h.push('<div class="card">');
+  h.push('<div class="ct">📋 已登记的特殊情况<span class="s">' + rec.length + ' 人</span></div>');
+  if (!rec.length){
+    h.push('<div class="muted">还没有登记。班里有哮喘、关节旧伤等情况的同学，在这里录进去，系统会给替代训练方案。</div>');
+  } else {
+    for (i = 0; i < rec.length; i++){
+      var r1 = rec[i], rule = altRuleOf(r1.special);
+      h.push('<div class="to-do"><div class="bd">');
+      h.push('<div class="t1">' + esc(r1.name) + ' ' + gpill(r1.grp) + (rule ? ' <span class="pill p-d">' + esc(rule.label) + '</span>' : '') + '</div>');
+      if (r1.injury) h.push('<div class="t2">伤病备注：' + esc(r1.injury) + '</div>');
+      if (r1.alt) h.push('<div class="t2" style="white-space:pre-wrap;margin-top:5px">' + esc(r1.alt) + '</div>');
+      else h.push('<div class="t2">还没有生成替代方案</div>');
+      h.push('<div class="no-print" style="margin-top:7px">'
+        + '<button class="btn g s" data-act="stuOpen" data-sid="' + esc(r1.sid) + '">编辑 / 生成方案</button> '
+        + '<button class="btn d s" data-act="safetyDel" data-sid="' + esc(r1.sid) + '">清除</button></div>');
       h.push('</div></div>');
     }
   }
   h.push('</div>');
-  return h.join('');
-}
 
-function pgDoc(){
-  var h = [];
-  h.push('<div class="card no-print"><h2><span class="n">全文</span>方案全文<span class="s">共 ' + CH.length + ' 章</span></h2>');
-  h.push('<div class="chips">');
-  for (var i = 0; i < CH.length; i++){
-    h.push('<button class="' + (UI.docCh === i ? 'on' : '') + '" data-act="docCh" data-v="' + i + '">'
-      + esc(nz(CH[i].title).replace(/^[一二三四五六七八九十]+、/, '').slice(0, 12)) + '</button>');
-  }
-  h.push('</div>');
-  h.push('<div class="row"><button class="btn s g" data-act="docAll">显示全部章节</button>'
-    + '<button class="btn s g" data-act="print">🖨 打印</button></div>');
-  h.push(tip('info', '💡', '建议', '平时用左边按钮单章看，快；要打印或通读就点「显示全部章节」。'));
-  h.push('</div>');
-
-  var show = (UI.docCh === -1) ? CH.map(function(_, i){ return i; }) : [UI.docCh];
-  for (var k = 0; k < show.length; k++){
-    var c = CH[show[k]];
-    if (!c) continue;
-    h.push('<section class="card pb"><h2>' + nz(c.title) + '</h2>' + blocksHtml(c.blocks) + '</section>');
-  }
-  return h.join('');
-}
-
-function pgSafety(){
-  var h = [];
-  h.push('<div class="card"><h2><span class="n">速查</span>现场速查卡<span class="s">操场上出状况就翻这页</span></h2>');
-  h.push(tip('warn', '🚨', '出现以下情况，立即停训并送医',
-    '<b>胸闷胸痛 · 眼前发黑 · 冒冷汗面色苍白 · 意识模糊 · 剧烈头痛 · 恶心呕吐 · 关节突然剧痛 · 呼吸异常困难</b><br>'
-    + '不要让他「再坚持一下」。先停下来、坐下或平躺、保暖、陪护，同时叫校医 / 打 120。'));
-  h.push(tip('good', '🛡', '课前 1 分钟必查',
-    '① 场地有没有积水、碎石、坑洼；② 跳绳绳长是否合适、有无断裂；③ 跑道分道线是否清晰；④ 学生鞋带是否系紧、有无戴手表手链。'));
-  h.push('<div class="row no-print" style="margin:4px 0 2px">'
-    + '<button class="btn s g" data-act="print">🖨 打印本页贴办公室</button></div>');
-  h.push('</div>');
-
-  for (var i = 0; i < CH.length; i++){
-    var t = nz(CH[i].title);
-    if (t.indexOf('乳酸') >= 0 || t.indexOf('安全底线') >= 0 || t.indexOf('测试当天') >= 0){
-      h.push('<section class="card pb"><h2>' + t + '</h2>' + blocksHtml(CH[i].blocks) + '</section>');
+  h.push('<div class="card">');
+  h.push('<div class="ct">📖 替代训练方案对照表<span class="s">按情况查怎么换动作</span></div>');
+  for (i = 0; i < ALTRULES.length; i++){
+    var R = ALTRULES[i];
+    h.push('<h4 class="st">' + esc(R.label) + '</h4>');
+    h.push('<div class="muted" style="margin-bottom:6px">' + esc(R.advice) + '</div>');
+    h.push('<div class="tw rt-wrap"><table class="rt"><thead><tr><th>原项目</th><th>替代做法</th><th>要点</th></tr></thead><tbody>');
+    for (j = 0; j < R.swap.length; j++){
+      h.push('<tr><td data-l="原项目"><b>' + esc(R.swap[j].n) + '</b></td><td data-l="替代做法">' + esc(R.swap[j].s) + '</td><td data-l="要点">' + esc(R.swap[j].h) + '</td></tr>');
     }
+    h.push('</tbody></table></div>');
+  }
+  h.push('</div>');
+
+  h.push('<div class="card">');
+  h.push('<div class="ct">🛡 安全底线（每次课都适用）</div>');
+  h.push('<ul class="li">');
+  var lines = ['每节课必做热身 5 分钟与放松拉伸，任何情况下不跳过热身。',
+    '耐力跑不连续两天安排高强度：今天是长跑，明天就换成速度或柔韧。',
+    '体质薄弱组降低负荷、优先动作标准，不强行冲刺耐力。',
+    '出现头晕、胸闷、恶心、关节疼，立即停下并报告老师。',
+    '不超量：本方案对八年级学生已经足够，练完不该出现第二天走不动路的情况。',
+    '免测、缓测、生理期等情况一律以学生身体状况为准，不催不逼。'];
+  for (i = 0; i < lines.length; i++) h.push('<li>' + esc(lines[i]) + '</li>');
+  h.push('</ul>');
+  h.push('</div>');
+  return h.join('');
+}
+
+/* ---------- 11. 页面：训练要点 ---------- */
+function pgTips(){
+  var h = [], i, j;
+  h.push('<div class="card tight">');
+  h.push('<div class="ct">📖 训练要点速查<span class="s">7 个项目的重难点与提升方法</span></div>');
+  h.push('<div class="chips no-print">');
+  h.push('<button class="' + (UI.tipsCh === 0 ? 'on' : '') + '" data-act="tipsCh" data-v="0">7 项要点</button>');
+  h.push('<button class="' + (UI.tipsCh === 1 ? 'on' : '') + '" data-act="tipsCh" data-v="1">达标线</button>');
+  h.push('<button class="' + (UI.tipsCh === 2 ? 'on' : '') + '" data-act="tipsCh" data-v="2">热身与拉伸</button>');
+  h.push('<button class="' + (UI.tipsCh === 3 ? 'on' : '') + '" data-act="tipsCh" data-v="3">体测当天</button>');
+  h.push('</div>');
+  h.push('<div class="toolbar no-print"><span class="sp"></span><button class="btn g s" data-act="print">🖨 打印本页</button></div>');
+  h.push('</div>');
+
+  if (UI.tipsCh === 0){
+    var order = ['50 米跑', '1000 米 / 800 米', '坐位体前屈', '立定跳远', '引体向上', '1 分钟仰卧起坐'];
+    for (i = 0; i < order.length; i++){
+      var st = STRENGTH[order[i]];
+      if (!st) continue;
+      h.push('<div class="card">');
+      h.push('<div class="ct"><span class="n">' + (i + 1) + '</span>' + esc(order[i]) + '</div>');
+      h.push('<p><b>难点在哪：</b>' + esc(st.why) + '</p>');
+      h.push('<h4 class="st">怎么练</h4>');
+      h.push('<ul class="li">');
+      for (j = 0; j < st.plan.length; j++) h.push('<li>' + esc(st.plan[j]) + '</li>');
+      h.push('</ul></div>');
+    }
+  } else if (UI.tipsCh === 1){
+    h.push('<div class="card">');
+    h.push('<div class="ct">📏 八年级达标线速查</div>');
+    h.push('<p class="muted">' + esc(STANDARDS.caption || '') + '</p>');
+    h.push('<div class="tw rt-wrap"><table class="rt"><thead><tr><th>项目</th><th class="c">男生及格</th><th class="c">女生及格</th><th class="c">男生良好</th><th class="c">女生良好</th></tr></thead><tbody>');
+    for (i = 0; i < STANDARDS.rows.length; i++){
+      var r = STANDARDS.rows[i];
+      h.push('<tr><td data-l="项目"><b>' + esc(r.item) + '</b></td>'
+        + '<td data-l="男生及格" class="c">' + esc(r.male) + '</td>'
+        + '<td data-l="女生及格" class="c">' + esc(r.female) + '</td>'
+        + '<td data-l="男生良好" class="c">' + esc(r.male80) + '</td>'
+        + '<td data-l="女生良好" class="c">' + esc(r.female80) + '</td></tr>');
+    }
+    h.push('</tbody></table></div>');
+    h.push(tip('info', 'ℹ️', '关于跳绳', '1 分钟跳绳是小学 1—6 年级的测试项目，不在初中抽测的计分项里。在咱们班它作为训练手段保留（练心肺和脚踝弹性），成绩可以录，但不参与达标判定。'));
+    h.push('</div>');
+  } else if (UI.tipsCh === 2){
+    h.push('<div class="card">');
+    h.push('<div class="ct">🔥 固定热身（5 分钟 · 每节课必做）</div>');
+    h.push(itemsHtml(WARMUP));
+    h.push('</div>');
+    h.push('<div class="card">');
+    h.push('<div class="ct">🧘 固定放松拉伸（5 分钟 · 每节课必做）</div>');
+    h.push(itemsHtml(COOLDOWN));
+    h.push('</div>');
+  } else {
+    h.push('<div class="card">');
+    h.push('<div class="ct">📋 体测当天注意事项</div>');
+    h.push(examNoteTable());
+    h.push('</div>');
   }
   return h.join('');
 }
 
+/* ---------- 12. 页面：备份打印 ---------- */
 function pgData(){
   var h = [];
-  h.push('<div class="card"><h2><span class="n">数据</span>备份、导出与打印</h2>');
-  h.push(tip('warn', '⚠️', '最重要的一句话',
-    '你录入的点名、打卡、成绩，<b>只存在这台电脑的这个浏览器里</b>。换电脑、换浏览器、清理浏览器缓存，都会丢。'
-    + '所以——<b>每周点一次「下载备份」</b>，把文件存到 D 盘或网盘，就万无一失了。'));
-  h.push('<div class="row" style="margin-top:6px">');
+  var cd = countdownInfo();
+  h.push('<div class="card">');
+  h.push('<div class="ct">💾 数据备份<span class="s">最重要的一页，建议每周来一次</span></div>');
+  h.push(tip('warn', '⚠️', '数据只存在这台设备里', '你录的点名、成绩、打卡都保存在本机浏览器中，换电脑、清缓存、换浏览器都会没有。<b>请定期点下面的「下载备份」存到 D 盘或网盘。</b>'));
+  h.push('<div class="toolbar">');
   h.push('<button class="btn" data-act="backup">💾 下载备份（.json）</button>');
   h.push('<button class="btn g" data-act="restore">📂 恢复备份</button>');
+  h.push('<span class="sp"></span>');
+  h.push('<button class="btn d" data-act="clearAll">🗑 清空录入数据</button>');
   h.push('</div>');
-  h.push('<div class="muted" style="margin-top:9px">最后一次保存：' + esc(D.meta.updated || '（还没有保存过）') + '</div>');
-  h.push('</div>');
-
-  h.push('<div class="card"><h2>导出成表格（给 Excel / Word 用）</h2>');
-  h.push('<div class="row">');
-  h.push('<button class="btn s g" data-act="exportRoster">⬇ 分组名单 CSV</button>');
-  h.push('<button class="btn s g" data-act="exportAtt">⬇ 点名记录 CSV</button>');
-  h.push('<button class="btn s g" data-act="exportCheck">⬇ 周末打卡 CSV</button>');
-  h.push('<button class="btn s g" data-act="exportScore">⬇ 体测成绩 CSV</button>');
-  h.push('<button class="btn s g" data-act="exportTodo">⬇ 补测待办 CSV</button>');
-  h.push('</div>');
-  h.push('<div class="row" style="margin-top:8px">');
-  h.push('<button class="btn s b" data-act="copyRoster">📋 复制全班名单（直接粘到微信 / Word）</button>');
-  h.push('</div>');
-  h.push('<div class="tip info" style="margin-top:11px"><b>💡 复制名单有什么用</b><br>'
-    + '点一下，47 人名单就整整齐齐复制到剪贴板了。打开微信家长群或 Word 直接粘贴，'
-    + '自动变成表格 —— 比截图清楚，比手打快。</div>');
+  h.push('<div class="muted">上次保存：' + esc(nz(D.meta.updated) || '还没有保存过') + '</div>');
   h.push('</div>');
 
-  h.push('<div class="card"><h2>打印</h2>');
-  h.push('<div class="row">');
-  h.push('<button class="btn s g" data-act="printPage" data-v="roster">🖨 分组名单</button>');
-  h.push('<button class="btn s g" data-act="printPage" data-v="attend">🖨 点名表</button>');
-  h.push('<button class="btn s g" data-act="printPage" data-v="checkin">🖨 打卡统计</button>');
-  h.push('<button class="btn s g" data-act="printPage" data-v="score">🖨 成绩录入表</button>');
-  h.push('<button class="btn s g" data-act="printPage" data-v="todo">🖨 补测清单</button>');
+  h.push('<div class="card">');
+  h.push('<div class="ct">📤 导出表格（Excel 可直接打开）</div>');
+  h.push('<div class="toolbar">');
+  h.push('<button class="btn g s" data-act="expRoster">⬇ 学生档案 + 成绩</button>');
+  h.push('<button class="btn g s" data-act="expScore">⬇ 成绩总表（含历次模拟）</button>');
+  h.push('<button class="btn g s" data-act="expAtt">⬇ 出勤记录</button>');
+  h.push('<button class="btn g s" data-act="expCheck">⬇ 打卡统计</button>');
+  h.push('<button class="btn g s" data-act="expTodo">⬇ 待补测清单</button>');
+  h.push('<button class="btn g s" data-act="expSafety">⬇ 特殊情况名单</button>');
   h.push('</div>');
-  h.push('<div class="tip good" style="margin-top:11px"><b>✅ 打印小技巧</b><br>'
-    + '打印对话框里把「页边距」选「窄」、「缩放」选「适应页面宽度」，表格就不会被切掉。'
-    + '点名表打印出来是空白的（现场手写用），页面上那些按钮不会印出来。</div>');
+  h.push('<div class="muted">导出的 CSV 已加「防乱码」标记，Excel 双击就能打开，中文不会乱码。</div>');
   h.push('</div>');
 
-  h.push('<div class="card"><h2>危险操作</h2>');
-  h.push('<div class="row"><button class="btn d" data-act="clearAll">🗑 清空全部录入数据</button></div>');
-  h.push('<div class="muted" style="margin-top:8px">只清空你录入的点名、打卡、成绩和待办勾选；'
-    + '方案内容、名单这些「底稿数据」不会动。清空前会二次确认。</div>');
+  h.push('<div class="card">');
+  h.push('<div class="ct">🖨 打印</div>');
+  h.push('<div class="toolbar">');
+  h.push('<button class="btn g s" data-act="printPage" data-v="calendar">日程总览</button>');
+  h.push('<button class="btn g s" data-act="printPage" data-v="exec">每日执行（当天）</button>');
+  h.push('<button class="btn g s" data-act="printAtt">空白点名表</button>');
+  h.push('<button class="btn g s" data-act="printTrunk">全部训练日详案</button>');
+  h.push('<button class="btn g s" data-act="printPage" data-v="roster">学生档案</button>');
+  h.push('<button class="btn g s" data-act="printPage" data-v="analysis">成绩分析</button>');
+  h.push('<button class="btn g s" data-act="printCheck" data-v="1">打卡清单</button>');
+  h.push('</div>');
+  h.push('<div class="muted">打印时工具栏、菜单会自动隐藏，点名表的勾选框留空，方便现场手写。</div>');
+  h.push('</div>');
+
+  h.push('<div class="card">');
+  h.push('<div class="ct">📋 待补测与待确认<span class="s">逐项打钩，处理结果可填</span></div>');
+  var ts = todoStat();
+  h.push('<div class="grid g4">');
+  h.push(statBox(ts.done, '已处理') + statBox(ts.total - ts.done, '待处理') + statBox(Math.round(ts.rate * 100) + '%', '完成度'));
+  h.push('</div>');
+  h.push('<div class="bar" style="margin-top:11px"><i style="width:' + Math.round(ts.rate * 100) + '%"></i></div>');
+  for (var i = 0; i < TODOS.length; i++){
+    var o = TODOS[i], id = todoId(o, i), dn = D.todoDone[id] ? true : false;
+    h.push('<div class="to-do' + (dn ? ' done' : '') + '">');
+    h.push('<button class="cbx' + (dn ? ' on' : '') + '" data-act="todoChk" data-id="' + esc(id) + '">' + (dn ? '✓' : '') + '</button>');
+    h.push('<div class="bd"><div class="t1">' + esc(nz(o.t) || nz(o.todo) || '待确认项') + '</div>');
+    if (nz(o.cur)) h.push('<div class="t2">现有记录：' + esc(o.cur) + '</div>');
+    if (nz(o.name)) h.push('<div class="t2">涉及：' + esc(o.name) + '</div>');
+    h.push('<input class="f sm no-print" data-act="todoRes" data-id="' + esc(id) + '" style="width:100%;margin-top:6px" placeholder="处理结果，如：已补测 4′35″" value="' + esc(nz(D.todoResult[id])) + '">');
+    h.push('</div></div>');
+  }
+  h.push('</div>');
+
+  h.push('<div class="card">');
+  h.push('<div class="ct">ℹ️ 这份工作台</div>');
+  h.push('<div class="kv">');
+  h.push('<b>班级</b><span>' + esc(D.settings.className) + ' · ' + esc(STU.length) + ' 人</span>');
+  h.push('<b>学校</b><span>' + esc(D.settings.school) + '</span>');
+  h.push('<b>备考区间</b><span>' + esc(D.settings.startDate) + ' → ' + esc(D.settings.examDate) + '（体测周至 ' + esc(D.settings.examEnd) + '）</span>');
+  h.push('<b>训练时间</b><span>上午 ' + esc(D.settings.amTime) + '（' + D.settings.amMin + ' 分钟）· 下午 ' + esc(D.settings.pmTime) + '（' + D.settings.pmMin + ' 分钟）</span>');
+  h.push('<b>距体测</b><span>' + (cd.toExam > 0 ? cd.toExam + ' 天' : (cd.toExam === 0 ? '就是今天' : '已进入体测周')) + '</span>');
+  h.push('</div>');
+  h.push('<div class="muted" style="margin-top:10px">单文件离线工作台 · 不联网也能用 · 数据不上传</div>');
   h.push('</div>');
   return h.join('');
 }
 
-/* ---------- 6. 路由与导航 ---------- */
+/* ---------- 13. 页面：打印专用 ---------- */
+function pgPrintAtt(){
+  var h = [];
+  h.push('<div class="card pb">');
+  h.push('<div class="print-only">' + esc(D.settings.className) + ' · 点名表 · 打印时间 ' + esc(new Date().toLocaleString('zh-CN')) + '</div>');
+  h.push('<div class="ct">📋 点名表<span class="s">' + esc(D.settings.className) + ' · 共 ' + STU.length + ' 人 · 每节一张</span></div>');
+  h.push('<div class="muted" style="margin-bottom:8px">日期：__________　时段：上午 / 下午　　带训教师：__________</div>');
+  h.push('<div class="tw"><table><thead><tr><th style="width:52px">学号</th><th style="width:84px">姓名</th><th style="width:88px">组别</th><th>出勤（打钩）</th><th style="width:150px">备注</th></tr></thead><tbody>');
+  for (var i = 0; i < STU.length; i++){
+    h.push('<tr><td class="c">' + esc(STU[i].sid) + '</td><td><b>' + esc(STU[i].name) + '</b></td>'
+      + '<td class="c">' + esc(grpOf(STU[i].sid)) + '</td>'
+      + '<td>☐ 到　☐ 缺　☐ 病　☐ 事</td><td></td></tr>');
+  }
+  h.push('</tbody></table></div>');
+  h.push('<div class="muted">出勤合计：到 ____ 人　缺 ____ 人　病 ____ 人　事 ____ 人</div>');
+  h.push('</div>');
+  h.push('<div class="no-print" style="margin-bottom:14px">'
+    + '<button class="btn" data-act="print">🖨 打印</button> '
+    + '<button class="btn g" data-act="go" data-v="roster">返回学生档案</button></div>');
+  return h.join('');
+}
+function pgPrintCheck(){
+  var wk = UI.printWk || '1';
+  var H2 = HOMEWORK[wk];
+  var h = [];
+  if (!H2) return '<div class="card"><div class="muted">没有这个周末的作业</div></div>';
+  h.push('<div class="no-print" style="margin-bottom:12px">'
+    + '<button class="btn" data-act="print">🖨 打印</button> '
+    + '<button class="btn g" data-act="go" data-v="checkin">返回打卡</button></div>');
+  h.push('<div class="card"><div class="ct">🏠 ' + esc(H2.title) + ' · 学生打卡清单</div>');
+  h.push('<p>' + esc(H2.intro) + '</p>');
+  h.push('<div class="muted">姓名：____________　　组别：____________　　班级：' + esc(D.settings.className) + '</div>');
+  h.push('</div>');
+  for (var g = 0; g < H2.groups.length; g++){
+    var grp = H2.groups[g];
+    h.push('<div class="card pb">');
+    h.push('<div class="ct">' + esc(grp.g) + ' 的任务</div>');
+    h.push('<div class="tw"><table><thead><tr><th style="width:30%">内容</th><th style="width:24%">量</th><th>做法</th><th class="c" style="width:64px">第1天</th><th class="c" style="width:64px">第2天</th></tr></thead><tbody>');
+    for (var j = 0; j < grp.items.length; j++){
+      h.push('<tr><td><b>' + esc(grp.items[j].n) + '</b></td><td>' + esc(grp.items[j].s) + '</td>'
+        + '<td class="muted">' + esc(grp.items[j].h) + '</td><td class="c">☐</td><td class="c">☐</td></tr>');
+    }
+    h.push('</tbody></table></div>');
+    h.push('<div class="muted">家长签字：______________　　完成日期：__________</div>');
+    h.push('</div>');
+  }
+  if (H2.tips && H2.tips.length){
+    h.push('<div class="card"><div class="ct">⚠️ 安全提醒</div><ul class="li">');
+    for (var k = 0; k < H2.tips.length; k++) h.push('<li>' + esc(H2.tips[k]) + '</li>');
+    h.push('</ul></div>');
+  }
+  return h.join('');
+}
+function pgPrintTrunk(){
+  var h = [];
+  h.push('<div class="no-print" style="margin-bottom:12px">'
+    + '<button class="btn" data-act="print">🖨 打印</button> '
+    + '<button class="btn g" data-act="go" data-v="data">返回</button></div>');
+  var days = trainDays();
+  for (var i = 0; i < days.length; i++){
+    var d = days[i];
+    h.push('<div class="card' + (i < days.length - 1 ? ' pb' : '') + '">');
+    h.push('<div class="ct">' + esc(d.md) + '（' + esc(d.dow) + '）· ' + esc(d.label) + '<span class="s">' + esc(d.phase) + '</span></div>');
+    if (d.intro) h.push('<p>' + esc(d.intro) + '</p>');
+    for (var s = 0; s < d.sessions.length; s++){
+      var se = d.sessions[s];
+      h.push('<h3 class="bt">' + (se.slot === 'am' ? '上午' : '下午') + ' ' + esc(se.time) + ' · ' + esc(se.title) + '</h3>');
+      h.push('<h4 class="st">热身（固定 5 分钟）</h4>');
+      h.push(itemsHtml(WARMUP));
+      h.push('<h4 class="st">分小组训练任务</h4>');
+      h.push(gtaskHtml(se.groups));
+      h.push('<h4 class="st">放松拉伸</h4>');
+      h.push(itemsHtml(COOLDOWN));
+      h.push(safetyHtml(se.safety));
+    }
+    h.push('</div>');
+  }
+  return h.join('');
+}
+
+/* ---------- 14. 路由与导航 ---------- */
 var ROUTES = {
-  home: pgHome, plan: pgPlan, roster: pgRoster, attend: pgAttend,
-  checkin: pgCheckin, score: pgScore, todo: pgTodo,
-  doc: pgDoc, safety: pgSafety, data: pgData
+  calendar: pgCalendar, exec: pgExec, roster: pgRoster, analysis: pgAnalysis,
+  checkin: pgCheckin, safety: pgSafety, tips: pgTips, data: pgData,
+  printatt: pgPrintAtt, printcheck: pgPrintCheck, printtrunk: pgPrintTrunk
 };
 var NAVGROUPS = [
   { g: 'g1', label: '作战', items: [
-    { k: 'home', t: '🎯 今日作战' },
-    { k: 'plan', t: '🗓 全程计划' }
+    { k: 'calendar', t: '📅 日程总览' },
+    { k: 'exec', t: '🏃 每日执行' }
   ] },
-  { g: 'g2', label: '班级', items: [
-    { k: 'roster', t: '👥 名单分组' },
-    { k: 'attend', t: '✅ 点名记录' },
+  { g: 'g2', label: '学生', items: [
+    { k: 'roster', t: '👥 学生档案' },
+    { k: 'analysis', t: '📈 成绩分析' },
     { k: 'checkin', t: '📌 周末打卡' },
-    { k: 'score', t: '📊 成绩录入' },
-    { k: 'todo', t: '📋 补测待办' }
+    { k: 'safety', t: '🛡 安全预警' }
   ] },
   { g: 'g3', label: '资料', items: [
-    { k: 'doc', t: '📖 方案全文' },
-    { k: 'safety', t: '🛡 现场速查' }
+    { k: 'tips', t: '📖 训练要点' }
   ] },
   { g: 'g4', label: '系统', items: [
     { k: 'data', t: '⚙️ 备份打印' }
   ] }
 ];
-
 function renderNav(){
   var h = [], i, j;
   for (i = 0; i < NAVGROUPS.length; i++){
@@ -1018,16 +1674,18 @@ function renderNav(){
       }
     }
   }
+  /* 打印页没有导航高亮时，至少给个返回入口 */
+  if (!h.length) h.push('<button class="on" data-act="go" data-v="calendar">📅 返回日程总览</button>');
   $('mainNav').innerHTML = h.join('');
 }
 function renderApp(){
   renderNav();
-  var fn = ROUTES[UI.page] || ROUTES.home;
+  var fn = ROUTES[UI.page] || ROUTES.calendar;
   var html = '';
   try { html = fn(); }
   catch (e){
     html = '<div class="card"><h2>页面出错了</h2><div class="tip warn">' + esc(e.message)
-      + '<br><br>别慌，你的数据没丢。点上面其他页面还能用，或者「恢复备份」。</div></div>';
+      + '<br><br>别慌，你的数据没丢。点上面其他页面还能用，或者到「备份打印」恢复备份。</div></div>';
   }
   var app = $('app');
   var act = document.activeElement;
@@ -1042,67 +1700,78 @@ function renderApp(){
       try { el.setSelectionRange(keepPos, keepPos); } catch (e){}
     }
   }
-  var sub = $('subNav');
-  sub.style.display = 'none';
   $('footNote').innerHTML = esc(D.settings.school) + ' · ' + esc(D.settings.className)
-    + ' 体测冲刺工作台 · 数据存本机浏览器，请定期备份';
+    + ' 体测备考管理工作台 · 数据存本机浏览器，请定期备份';
 }
 function go(k){
-  if (!ROUTES[k]) k = 'home';
+  if (!ROUTES[k]) k = 'calendar';
   UI.page = k;
   renderApp();
   window.scrollTo(0, 0);
 }
 
-/* ---------- 7. 交互 ---------- */
+/* ---------- 15. 局部刷新 ---------- */
 function refreshAttStat(){
-  var dt = UI.attendDate, slot = UI.attendSlot;
-  var st = attStat(dt, slot);
+  var st = attStat(UI.attDate, UI.attSlot);
   var box = $('attStat');
   if (!box) return;
   box.innerHTML = statBox(st['出'], '出勤') + statBox(st['缺'], '缺勤')
-    + statBox(st['病'], '病假') + statBox(st['事'], '事假')
-    + statBox(st['未'], '未标记') + statBox(STU.length, '总人数');
+    + statBox(st['病'], '病假') + statBox(st['事'], '事假') + statBox(st['未'], '未标记');
 }
 function refreshAttRow(sid){
-  var dt = UI.attendDate, slot = UI.attendSlot;
-  var a = getAtt(dt, slot, true), v = a[sid] || '';
   var box = $('attrow_' + sid);
-  if (!box) return;
-  var h = '<span class="no-print">';
-  for (var m = 0; m < ATT_MARKS.length; m++){
-    var mk = ATT_MARKS[m];
-    h += '<button class="ab' + (v === mk.v ? ' ' + mk.cls : '') + '" data-act="att" data-sid="' + esc(sid)
-      + '" data-v="' + mk.v + '">' + mk.v + '</button>';
-  }
-  h += '</span><span class="print-only">☐ 到　☐ 缺　☐ 病　☐ 事</span>';
-  box.innerHTML = h;
+  if (box) box.innerHTML = attBtns(sid);
 }
 function refreshCkRow(sid){
-  var n = checkCount(sid), rate = Math.round(checkRate(sid) * 100);
+  var wk = UI.ckWk || '1';
+  var n = ckCount(wk, sid), rate = Math.round(ckRate(wk, sid) * 100);
   var a = $('ckn_' + sid), b = $('ckr_' + sid);
   if (a) a.innerHTML = '<b>' + n + '</b>/' + CKITEMS.length;
   if (b) b.textContent = rate + '%';
 }
 function refreshCkHead(){
-  var tot = checkTotals();
+  var wk = UI.ckWk || '1';
+  var tot = ckTotals(wk);
   var cards = document.querySelectorAll('#ckHeadStat .stat b');
   if (cards.length >= 4){
-    cards[0].textContent = Math.round(tot.avgRate * 100) + '%';
+    cards[0].textContent = Math.round(tot.avg * 100) + '%';
     cards[1].textContent = tot.full;
     cards[2].textContent = tot.part;
     cards[3].textContent = tot.zero;
   }
-  var bar = document.querySelector('#ckBar i');
-  if (bar) bar.style.width = Math.round(tot.avgRate * 100) + '%';
+  var bar = document.querySelector('#app .bar i');
+  if (bar) bar.style.width = Math.round(tot.avg * 100) + '%';
+}
+/* 学生档案行就地更新（不整页重渲染，避免输入焦点丢失） */
+function refreshRosterRow(sid){
+  var sel = document.querySelector('#rosterTbl tr td select[data-sid="' + sid + '"]');
+  var tr = sel ? sel.parentNode.parentNode : null;
+  if (!tr) return;
+  var sex = sexOf(sid), i;
+  var tds = tr.querySelectorAll('td');
+  /* 第 5—11 列是成绩（索引 4—10，其中 10 为跳绳） */
+  var ins = tr.querySelectorAll('input.cellin');
+  for (i = 0; i < ins.length; i++){
+    var k = ins[i].getAttribute('data-k');
+    var it = itemOf(k);
+    if (!it) continue;
+    var ps = isPass(it, sex, ins[i].value);
+    ins[i].className = 'cellin' + (ps === true ? ' ok' : (ps === false ? ' weak' : ''));
+  }
+  /* 列序：0 学号 1 姓名 2 性别 3 组别 4-9 成绩 10 薄弱项 11 出勤 12 档案 */
+  if (tds && tds[10]) tds[10].innerHTML = weakCellHtml(sid);
+}
+function itemOf(k){
+  for (var i = 0; i < ITEMS.length; i++){ if (ITEMS[i].k === k) return ITEMS[i]; }
+  return null;
 }
 
-/* ---------- 8. 导出 / 备份 ---------- */
+/* ---------- 16. 导出 / 备份 ---------- */
 function csvText(rows){
-  var out = [];
-  for (var i = 0; i < rows.length; i++){
+  var out = [], i, c;
+  for (i = 0; i < rows.length; i++){
     var line = [];
-    for (var c = 0; c < rows[i].length; c++){
+    for (c = 0; c < rows[i].length; c++){
       var s = (rows[i][c] === null || rows[i][c] === undefined) ? '' : String(rows[i][c]);
       if (/[",\r\n]/.test(s)) s = '"' + s.replace(/"/g, '""') + '"';
       line.push(s);
@@ -1121,103 +1790,121 @@ function download(name, content, mime){
     a.click();
     setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 150);
     toast('已开始下载：' + name);
-  } catch (e){
-    showCopyPanel(content, name);
-  }
+  } catch (e){ showCopyPanel(content, name); }
 }
 function stamp(){
   var d = new Date();
   return '' + d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate()) + '_' + pad2(d.getHours()) + pad2(d.getMinutes());
 }
-function rosterTSV(){
-  var lines = ['学号\t姓名\t性别\t组别\t耐久跑摸底\t跳绳\t训练配速'];
+function expRoster(){
+  var rows = [['学号', '姓名', '性别', '组别', '耐久跑', '50米', '立定跳远', '坐位体前屈', '引体向上', '仰卧起坐', '跳绳', '薄弱项', '伤病备注', '特殊情况', '出勤率', '原始备注']];
   for (var i = 0; i < STU.length; i++){
-    var s = STU[i];
-    lines.push([s.sid, s.name, s.sex, nz(s.grp), nz(s.run) || '未测', nz(s.rope) || '未测', nz(s.pace)].join('\t'));
+    var sid = STU[i].sid, o = stuDro(sid), w = weakOf(sid), ar = attRate(sid);
+    rows.push([sid, nameOf(sid), sexOf(sid), grpOf(sid),
+      valOf(sid, 'run'), valOf(sid, 's50'), valOf(sid, 'lj'), valOf(sid, 'zw'),
+      valOf(sid, 'yt'), valOf(sid, 'yw'), valOf(sid, 'rope'),
+      w.length ? w.map(function(x){ return x.n; }).join('、') : '全部达标',
+      nz(o.injury), nz(o.special), ar === null ? '' : Math.round(ar * 100) + '%', noteOf(sid)]);
   }
-  return lines.join('\r\n');
+  download('学生档案_' + stamp() + '.csv', csvText(rows));
 }
-function exportRoster(){
-  var rows = [['学号', '姓名', '性别', '组别', '耐久跑摸底', '一分钟跳绳', '训练配速', '跳绳加练', '备注']];
-  for (var i = 0; i < STU.length; i++){
-    var s = STU[i];
-    rows.push([s.sid, s.name, s.sex, s.grp, nz(s.run) || '未测', nz(s.rope) || '未测', nz(s.pace), nz(s.rs), nz(s.note)]);
+function expScore(){
+  var head = ['学号', '姓名', '组别'];
+  var cols = simColumns(), i, j;
+  for (i = 0; i < ITEMS.length; i++){
+    for (j = 0; j < cols.length; j++) head.push(ITEMS[i].n + '-' + cols[j].label);
   }
-  download('分组名单_' + stamp() + '.csv', csvText(rows));
+  var rows = [head];
+  for (i = 0; i < STU.length; i++){
+    var sid = STU[i].sid, line = [sid, nameOf(sid), grpOf(sid)];
+    for (j = 0; j < ITEMS.length; j++){
+      for (var c = 0; c < cols.length; c++){
+        line.push(valIn(sid, cols[c].id, ITEMS[j].k));
+      }
+    }
+    rows.push(line);
+  }
+  download('体测成绩总表_' + stamp() + '.csv', csvText(rows));
 }
-function exportAtt(){
-  var rows = [['日期', '时段', '学号', '姓名', '组别', '出勤']];
-  for (var d = 0; d < ATTDATES.length; d++){
-    var dt = ATTDATES[d];
+function expAtt(){
+  var rows = [['日期', '时段', '学号', '姓名', '组别', '出勤']], k;
+  var dayList = [];
+  for (var i = 0; i < DAYS.length; i++){ if (DAYS[i].kind === 'train') dayList.push(DAYS[i].iso); }
+  for (var d = 0; d < dayList.length; d++){
     var sl = ['上午', '下午'];
     for (var s = 0; s < sl.length; s++){
-      var a = D.attendance[attKey(dt, sl[s])];
+      var a = D.attendance[attKey(dayList[d], sl[s])];
       if (!a) continue;
-      for (var i = 0; i < STU.length; i++){
-        var v = a[STU[i].sid];
+      for (var j = 0; j < STU.length; j++){
+        var v = a[STU[j].sid];
         if (!v) continue;
-        rows.push([dt, sl[s], STU[i].sid, STU[i].name, nz(STU[i].grp), v]);
+        rows.push([dayList[d], sl[s], STU[j].sid, nameOf(STU[j].sid), grpOf(STU[j].sid), v]);
       }
     }
   }
-  if (rows.length === 1) toast('还没有点名记录可导出');
-  download('点名记录_' + stamp() + '.csv', csvText(rows));
+  if (rows.length === 1){ toast('还没有点名记录可导出'); return; }
+  download('出勤记录_' + stamp() + '.csv', csvText(rows));
 }
-function exportCheck(){
+function expCheck(){
+  var wk = UI.ckWk || '1', i, j;
   var head = ['学号', '姓名', '组别'];
-  for (var i = 0; i < CKITEMS.length; i++) head.push(CKITEMS[i]);
-  head.push('完成次数', '完成率');
+  for (i = 0; i < CKITEMS.length; i++) head.push(CKITEMS[i]);
+  head.push('完成项数', '完成率');
   var rows = [head];
-  for (var r = 0; r < STU.length; r++){
-    var s = STU[r], row = checkRow(s.sid, true);
-    var line = [s.sid, s.name, nz(s.grp)];
-    for (var c = 0; c < CKITEMS.length; c++) line.push(row[c] ? '已完成' : '未完成');
-    line.push(checkCount(s.sid));
-    line.push(Math.round(checkRate(s.sid) * 100) + '%');
+  for (i = 0; i < STU.length; i++){
+    var sid = STU[i].sid, row = ckRow(wk, sid, true), line = [sid, nameOf(sid), grpOf(sid)];
+    for (j = 0; j < CKITEMS.length; j++) line.push(row[j] ? '已完成' : '未完成');
+    line.push(ckCount(wk, sid));
+    line.push(Math.round(ckRate(wk, sid) * 100) + '%');
     rows.push(line);
   }
-  download('周末打卡统计_' + stamp() + '.csv', csvText(rows));
+  download('周末打卡统计_' + wk + '_' + stamp() + '.csv', csvText(rows));
 }
-function exportScore(){
-  var rows = [['学号', '姓名', '组别', '耐久跑摸底', '耐久跑实测', '跳绳摸底', '跳绳实测', '坐位体前屈', '立定跳远', '备注']];
-  for (var i = 0; i < STU.length; i++){
-    var s = STU[i], sc = D.scores[s.sid] || {};
-    rows.push([s.sid, s.name, nz(s.grp), nz(s.run), nz(sc.run), nz(s.rope), nz(sc.rope),
-      nz(sc.sit), nz(sc.jump), nz(sc.note)]);
-  }
-  download('体测成绩录入_' + stamp() + '.csv', csvText(rows));
-}
-function exportTodo(){
-  var rows = [['序号', '类别', '学号', '姓名', '现有记录', '要做什么', '是否已处理', '处理结果']];
+function expTodo(){
+  var rows = [['序号', '要确认的事', '涉及学生', '现有记录', '是否已处理', '处理结果']];
   for (var i = 0; i < TODOS.length; i++){
-    var o = TODOS[i];
-    rows.push([o.id, o.cat, o.sid, o.name, nz(o.cur), nz(o.todo),
-      D.todoDone[o.id] ? '已处理' : '未处理', nz(D.todoResult[o.id])]);
+    var o = TODOS[i], id = todoId(o, i);
+    rows.push([id, nz(o.t) || nz(o.todo), nz(o.name), nz(o.cur),
+      D.todoDone[id] ? '已处理' : '未处理', nz(D.todoResult[id])]);
   }
-  download('补测待办清单_' + stamp() + '.csv', csvText(rows));
+  download('待补测清单_' + stamp() + '.csv', csvText(rows));
+}
+function expSafety(){
+  var rows = [['学号', '姓名', '组别', '特殊情况', '伤病备注', '替代训练方案']];
+  for (var i = 0; i < STU.length; i++){
+    var sid = STU[i].sid, o = stuDro(sid);
+    if (!nz(o.special) && !nz(o.injury)) continue;
+    var r = altRuleOf(nz(o.special));
+    rows.push([sid, nameOf(sid), grpOf(sid), r ? r.label : '', nz(o.injury), nz(o.alt)]);
+  }
+  if (rows.length === 1){ toast('还没有登记特殊情况'); return; }
+  download('特殊情况名单_' + stamp() + '.csv', csvText(rows));
 }
 function backup(){
   var payload = {
-    app: 'pe-tc-workbench', version: 1,
+    app: 'pe-tc-calendar-workbench', version: 1,
     exportedAt: new Date().toISOString(),
-    settings: D.settings, attendance: D.attendance, attNote: D.attNote,
-    checkin: D.checkin, scores: D.scores, todoDone: D.todoDone, todoResult: D.todoResult
+    settings: D.settings, stu: D.stu, sims: D.sims,
+    attendance: D.attendance, attNote: D.attNote, exec: D.exec,
+    checkin: D.checkin, todoDone: D.todoDone, todoResult: D.todoResult
   };
   download('体测工作台备份_' + stamp() + '.json', JSON.stringify(payload, null, 1), 'application/json;charset=utf-8');
 }
 function doRestore(text){
   var o = null;
   try { o = JSON.parse(text); } catch (e){ toast('这个文件不是有效的备份文件'); return; }
-  if (!o || o.app !== 'pe-tc-workbench'){
+  if (!o || o.app !== 'pe-tc-calendar-workbench'){
     toast('文件格式对不上，这不是本工作台的备份');
     return;
   }
-  if (!confirm('恢复备份会【覆盖】当前录入的点名、打卡、成绩数据。\n\n确定要恢复吗？')) return;
+  if (!confirm('恢复备份会【覆盖】当前录入的档案、成绩、点名、打卡数据。\n\n确定要恢复吗？')) return;
   D.settings = o.settings || D.settings;
+  D.stu = o.stu || {};
+  D.sims = o.sims || [];
   D.attendance = o.attendance || {};
   D.attNote = o.attNote || {};
+  D.exec = o.exec || {};
   D.checkin = o.checkin || {};
-  D.scores = o.scores || {};
   D.todoDone = o.todoDone || {};
   D.todoResult = o.todoResult || {};
   ensureFields();
@@ -1227,17 +1914,45 @@ function doRestore(text){
   toast('已恢复备份');
 }
 function clearAll(){
-  if (!confirm('⚠️ 要清空你录入的全部数据吗？\n（点名记录、打卡、成绩、待办勾选都会被清掉）')) return;
+  if (!confirm('⚠️ 要清空你录入的全部数据吗？\n（学生档案、成绩、模拟测试、点名、打卡、待办都会被清掉）')) return;
   if (!confirm('再确认一次：真的要清空吗？\n\n建议先点「下载备份」存一份。')) return;
-  D.attendance = {}; D.attNote = {}; D.checkin = {};
-  D.scores = {}; D.todoDone = {}; D.todoResult = {};
+  D.stu = {}; D.sims = []; D.attendance = {}; D.attNote = {}; D.exec = {};
+  D.checkin = {}; D.todoDone = {}; D.todoResult = {};
   ensureFields();
   save();
   renderApp();
-  toast('已清空录入数据（名单和方案保持不动）');
+  toast('已清空录入数据（名单和训练方案保持不动）');
+}
+/* 打卡清单文本（发群用） */
+function checkText(wk){
+  var H2 = HOMEWORK[wk];
+  if (!H2) return '';
+  var L = [];
+  L.push('【' + H2.title + '】');
+  L.push(D.settings.className + ' 体育周末家庭作业');
+  L.push('');
+  L.push(H2.intro);
+  for (var g = 0; g < H2.groups.length; g++){
+    L.push('');
+    L.push('■ ' + H2.groups[g].g);
+    for (var j = 0; j < H2.groups[g].items.length; j++){
+      var it = H2.groups[g].items[j];
+      L.push('　' + (j + 1) + '. ' + it.n + '｜' + it.s);
+      L.push('　　' + it.h);
+    }
+  }
+  L.push('');
+  L.push('【打卡要求】');
+  for (var i = 0; i < CKITEMS.length; i++) L.push('　☐ ' + CKITEMS[i] + '：' + (CKDESC[i] || ''));
+  L.push('');
+  L.push('【安全提醒】');
+  for (var k = 0; k < (H2.tips || []).length; k++) L.push('　· ' + H2.tips[k]);
+  L.push('');
+  L.push('练前热身、练后拉伸；身体不适立即停止并告诉老师。');
+  return L.join('\r\n');
 }
 
-/* ---------- 9. 弹窗 / 剪贴板 ---------- */
+/* ---------- 17. 弹窗 / 剪贴板 ---------- */
 function openModal(title, bodyHtml, footHtml){
   var host = $('modalHost');
   host.innerHTML = '<div class="modal"><div class="mh">' + title
@@ -1287,8 +2002,6 @@ function toast(msg){
   clearTimeout(toast._t);
   toast._t = setTimeout(function(){ t.classList.remove('show'); }, 2300);
 }
-
-/* ---------- 10. 事件 ---------- */
 function findAct(node){
   var guard = 0;
   while (node && node !== document && guard < 60){
@@ -1298,24 +2011,64 @@ function findAct(node){
   }
   return null;
 }
+
+/* ---------- 18. 事件 ---------- */
 document.addEventListener('click', function(e){
   var el = findAct(e.target);
   if (!el) return;
   var act = el.getAttribute('data-act');
-  var sid, v, o;
+  var sid, v, i, o;
 
   if (act === 'go'){ go(el.getAttribute('data-v')); return; }
   if (act === 'closeModal'){ closeModal(); return; }
   if (act === 'print'){ window.print(); return; }
   if (act === 'printPage'){
     go(el.getAttribute('data-v'));
-    setTimeout(function(){ window.print(); }, 120);
+    setTimeout(function(){ window.print(); }, 130);
+    return;
+  }
+  if (act === 'printAtt'){ go('printatt'); setTimeout(function(){ window.print(); }, 130); return; }
+  if (act === 'printCheck'){ UI.printWk = el.getAttribute('data-v') || '1'; go('printcheck'); setTimeout(function(){ window.print(); }, 130); return; }
+  if (act === 'printTrunk'){ go('printtrunk'); setTimeout(function(){ window.print(); }, 130); return; }
+  if (act === 'selCopy'){ var ca = $('copyArea'); if (ca){ ca.focus(); ca.select(); } return; }
+
+  /* 日历 */
+  if (act === 'calDay'){ UI.calDay = el.getAttribute('data-v'); renderApp(); return; }
+
+  /* 执行 */
+  if (act === 'exSlot'){ UI.execSlot = el.getAttribute('data-v'); renderApp(); return; }
+  if (act === 'exPrev' || act === 'exNext'){
+    var days = trainDays(), cur = UI.execDay;
+    if (!cur){ var td = todayDay(); cur = (td && td.kind === 'train') ? td.iso : days[0].iso; }
+    var idx = 0;
+    for (i = 0; i < days.length; i++){ if (days[i].iso === cur) idx = i; }
+    idx += (act === 'exPrev' ? -1 : 1);
+    if (idx < 0) idx = 0;
+    if (idx > days.length - 1) idx = days.length - 1;
+    UI.execDay = days[idx].iso;
+    UI.execSlot = 'am';
+    renderApp();
+    return;
+  }
+  if (act === 'exChk'){
+    var k2 = el.getAttribute('data-k');
+    var rec = execRec(UI.execDay, UI.execSlot);
+    rec[k2] = rec[k2] ? 0 : 1;
+    if (!rec[k2]) delete rec[k2];
+    save();
+    renderApp();
     return;
   }
 
+  /* 学生档案 */
+  if (act === 'rosterGrp'){ UI.rosterGrp = el.getAttribute('data-v'); renderApp(); return; }
+  if (act === 'stuOpen'){ stuModal(el.getAttribute('data-sid')); return; }
+  if (act === 'genAlt'){ genAlt(el.getAttribute('data-sid')); return; }
+  if (act === 'attOpen'){ UI.attDate = ''; attPanel(); return; }
+  if (act === 'attSlot'){ UI.attSlot = el.getAttribute('data-v'); attPanel(); return; }
   if (act === 'att'){
     sid = el.getAttribute('data-sid'); v = el.getAttribute('data-v');
-    var a = getAtt(UI.attendDate, UI.attendSlot);
+    var a = getAtt(UI.attDate, UI.attSlot);
     a[sid] = (a[sid] === v) ? '' : v;
     if (!a[sid]) delete a[sid];
     save();
@@ -1324,57 +2077,69 @@ document.addEventListener('click', function(e){
     return;
   }
   if (act === 'attAll'){
-    var aa = getAtt(UI.attendDate, UI.attendSlot);
-    for (var i = 0; i < STU.length; i++) aa[STU[i].sid] = '出';
-    save();
-    renderApp();
-    toast('已把全班标记为出勤，再改缺勤的同学即可');
+    var aa = getAtt(UI.attDate, UI.attSlot);
+    for (i = 0; i < STU.length; i++) aa[STU[i].sid] = '出';
+    save(); attPanel(); toast('已把全班标记为出勤，再改缺勤的同学即可');
     return;
   }
   if (act === 'attClear'){
     if (!confirm('清空本节全部出勤标记？')) return;
-    D.attendance[attKey(UI.attendDate, UI.attendSlot)] = {};
-    save(); renderApp(); toast('已清空本节');
+    D.attendance[attKey(UI.attDate, UI.attSlot)] = {};
+    save(); attPanel(); toast('已清空本节');
     return;
   }
-  if (act === 'attPrev' || act === 'attNext'){
-    var idx = ATTDATES.indexOf(UI.attendDate);
-    idx += (act === 'attPrev' ? -1 : 1);
-    if (idx < 0) idx = 0;
-    if (idx > ATTDATES.length - 1) idx = ATTDATES.length - 1;
-    UI.attendDate = ATTDATES[idx];
-    renderApp();
-    return;
-  }
-  if (act === 'attSlot'){ UI.attendSlot = el.getAttribute('data-v'); renderApp(); return; }
 
+  /* 成绩分析 */
+  if (act === 'anaScope'){ UI.anaScope = el.getAttribute('data-v'); renderApp(); return; }
+  if (act === 'simAdd'){ simAdd(); return; }
+  if (act === 'simDel'){ simDel(); return; }
+
+  /* 打卡 */
+  if (act === 'ckWk'){ UI.ckWk = el.getAttribute('data-v'); renderApp(); return; }
+  if (act === 'ckFilter'){ UI.ckFilter = el.getAttribute('data-v'); renderApp(); return; }
   if (act === 'ck'){
+    var wk = el.getAttribute('data-wk');
     sid = el.getAttribute('data-sid');
-    var ci = parseInt(el.getAttribute('data-i'), 10);
-    var row = checkRow(sid);
-    row[ci] = row[ci] ? 0 : 1;
+    i = parseInt(el.getAttribute('data-i'), 10);
+    var row = ckRow(wk, sid);
+    row[i] = row[i] ? 0 : 1;
     save();
     el.classList.toggle('on');
-    el.textContent = row[ci] ? '✓' : '';
+    el.textContent = row[i] ? '✓' : '';
     refreshCkRow(sid);
     refreshCkHead();
     return;
   }
-  if (act === 'ckFilter'){ UI.ckFilter = el.getAttribute('data-v'); renderApp(); return; }
+  if (act === 'copyCheck'){ copyText(checkText(el.getAttribute('data-v') || '1')); return; }
+  if (act === 'copyHw'){ copyText(checkText(el.getAttribute('data-v') || '1')); return; }
 
-  if (act === 'rosterFilter'){ UI.rosterFilter = el.getAttribute('data-v'); renderApp(); return; }
-  if (act === 'docCh'){ UI.docCh = parseInt(el.getAttribute('data-v'), 10); renderApp(); window.scrollTo(0, 0); return; }
-  if (act === 'docAll'){ UI.docCh = -1; renderApp(); window.scrollTo(0, 0); return; }
+  /* 安全预警 */
+  if (act === 'safetyOpen'){
+    if (UI.safetySid) stuModal(UI.safetySid);
+    return;
+  }
+  if (act === 'safetyDel'){
+    sid = el.getAttribute('data-sid');
+    if (!confirm('清除这位同学的特殊情况与替代方案？')) return;
+    var so = stuD(sid);
+    so.special = ''; so.alt = '';
+    save(); renderApp(); toast('已清除');
+    return;
+  }
 
+  /* 待办 */
   if (act === 'todoChk'){
     var id = el.getAttribute('data-id');
     D.todoDone[id] = !D.todoDone[id];
     if (!D.todoDone[id]) delete D.todoDone[id];
-    save();
-    renderApp();
+    save(); renderApp();
     return;
   }
 
+  /* 训练要点 */
+  if (act === 'tipsCh'){ UI.tipsCh = parseInt(el.getAttribute('data-v'), 10); renderApp(); return; }
+
+  /* 系统 */
   if (act === 'backup'){ backup(); return; }
   if (act === 'restore'){
     openModal('恢复备份',
@@ -1384,17 +2149,12 @@ document.addEventListener('click', function(e){
     return;
   }
   if (act === 'clearAll'){ clearAll(); return; }
-  if (act === 'selCopy'){
-    var ca = $('copyArea');
-    if (ca){ ca.focus(); ca.select(); }
-    return;
-  }
-  if (act === 'exportRoster'){ exportRoster(); return; }
-  if (act === 'exportAtt'){ exportAtt(); return; }
-  if (act === 'exportCheck'){ exportCheck(); return; }
-  if (act === 'exportScore'){ exportScore(); return; }
-  if (act === 'exportTodo'){ exportTodo(); return; }
-  if (act === 'copyRoster'){ copyText(rosterTSV()); return; }
+  if (act === 'expRoster'){ expRoster(); return; }
+  if (act === 'expScore'){ expScore(); return; }
+  if (act === 'expAtt'){ expAtt(); return; }
+  if (act === 'expCheck'){ expCheck(); return; }
+  if (act === 'expTodo'){ expTodo(); return; }
+  if (act === 'expSafety'){ expSafety(); return; }
 });
 
 document.addEventListener('change', function(e){
@@ -1404,19 +2164,48 @@ document.addEventListener('change', function(e){
 
   if (act === 'sc'){
     var sid = el.getAttribute('data-sid'), k = el.getAttribute('data-k');
-    if (!D.scores[sid]) D.scores[sid] = {};
-    D.scores[sid][k] = el.value;
+    var o = stuD(sid);
+    o[k] = el.value;
+    save();
+    refreshRosterRow(sid);
+    return;
+  }
+  if (act === 'stuGrp'){
+    var sid2 = el.getAttribute('data-sid');
+    var o2 = stuD(sid2);
+    if (el.value) o2.grp = el.value; else delete o2.grp;
+    save();
+    toast('已把 ' + nameOf(sid2) + ' 调到 ' + (el.value || '未分组'));
+    renderApp();
+    return;
+  }
+  if (act === 'stuField'){
+    var sid3 = el.getAttribute('data-sid'), k3 = el.getAttribute('data-k');
+    var o3 = stuD(sid3);
+    o3[k3] = el.value;
+    save();
+    toast('已保存');
+    if (k3 === 'special') { /* 选了类型后提示生成 */ }
+    return;
+  }
+  if (act === 'attDate'){ UI.attDate = el.value; attPanel(); return; }
+  if (act === 'anaGrp'){ UI.anaGrp = el.value; renderApp(); return; }
+  if (act === 'anaSid'){ UI.anaSid = el.value; renderApp(); return; }
+  if (act === 'safetySid'){ UI.safetySid = el.value; renderApp(); return; }
+  if (act === 'todoRes'){
+    var tid = el.getAttribute('data-id');
+    if (el.value) D.todoResult[tid] = el.value; else delete D.todoResult[tid];
     save();
     return;
   }
-  if (act === 'todoRes'){
-    var id = el.getAttribute('data-id');
-    if (el.value) D.todoResult[id] = el.value; else delete D.todoResult[id];
+  if (el.id === 'exNote'){
+    var r = execRec(UI.execDay, UI.execSlot);
+    if (el.value) r.note = el.value; else r.note = '';
     save();
     return;
   }
   if (el.id === 'attNote'){
-    var nk = attKey(UI.attendDate, UI.attendSlot);
+    var nk = attKey(UI.attDate, UI.attSlot);
     if (el.value) D.attNote[nk] = el.value; else delete D.attNote[nk];
     save();
     return;
@@ -1432,7 +2221,7 @@ document.addEventListener('change', function(e){
   if (el.id === 'inClass'){
     D.settings.className = el.value || '8年级4班';
     save();
-    $('hTitle').textContent = D.settings.className + ' · 体测冲刺工作台';
+    $('hTitle').textContent = D.settings.className + ' · 体测备考管理工作台';
     toast('班级名已更新');
     return;
   }
@@ -1443,52 +2232,91 @@ document.addEventListener('input', function(e){
   if (!el || !el.id) return;
   if (el.id === 'rosterKey'){
     UI.rosterKey = el.value;
-    var listKey = el.value.trim().toLowerCase();
-    var tbody = document.querySelector('#app table tbody');
-    if (tbody){
-      var list = STU.filter(function(s){
-        if (UI.rosterFilter && (nz(s.grp) || '未分组') !== UI.rosterFilter) return false;
-        if (!listKey) return true;
-        return (nz(s.name).toLowerCase().indexOf(listKey) >= 0) || (String(s.sid).indexOf(listKey) >= 0);
-      });
-      var out = [];
-      for (var i = 0; i < list.length; i++){
-        var s = list[i];
-        out.push('<tr><td class="c">' + esc(s.sid) + '</td><td><b>' + esc(s.name) + '</b></td><td class="c">' + esc(s.sex)
-          + '</td><td class="c"><span class="pill ' + grpCls(s.grp) + '">' + esc(nz(s.grp) || '—') + '</span></td>'
-          + '<td class="c">' + (nz(s.run) ? esc(s.run) : '<span class="muted">未测</span>') + '</td>'
-          + '<td class="c">' + (nz(s.rope) ? esc(s.rope) : '<span class="muted">未测</span>') + '</td>'
-          + '<td>' + esc(nz(s.pace) || '—') + '</td><td>' + esc(nz(s.rs) || '') + '</td>'
-          + '<td>' + esc(nz(s.note) || '') + '</td></tr>');
-      }
-      tbody.innerHTML = out.join('') || '<tr><td colspan="9" class="c muted">没有匹配的人</td></tr>';
+    var key = el.value.trim().toLowerCase();
+    var list = STU.filter(function(s){
+      if (UI.rosterGrp && grpOf(s.sid) !== UI.rosterGrp) return false;
+      if (!key) return true;
+      return (nz(s.name).toLowerCase().indexOf(key) >= 0) || (String(s.sid).indexOf(key) >= 0);
+    });
+    var tb = document.querySelector('#rosterTbl tbody');
+    if (tb){
+      tb.innerHTML = rosterRows(list) || '<tr><td colspan="13" class="c muted">没有匹配的人</td></tr>';
       var cnt = $('rosterCount');
       if (cnt) cnt.textContent = '当前显示 ' + list.length + ' 人';
     }
   }
 });
 
-/* ---------- 11. 初始化 ---------- */
+/* ---------- 19. 业务动作 ---------- */
+function genAlt(sid){
+  var o = stuD(sid);
+  var key = nz(o.special);
+  if (!key){ toast('先在上面选一下「特殊情况」'); return; }
+  var rule = altRuleOf(key);
+  if (!rule){ toast('没找到对应的替代方案'); return; }
+  var L = [];
+  L.push('【' + nameOf(sid) + '】替代训练方案（' + rule.label + '）');
+  L.push('适用原则：' + rule.advice);
+  L.push('');
+  for (var i = 0; i < rule.swap.length; i++){
+    L.push('· ' + rule.swap[i].n + ' → ' + rule.swap[i].s);
+    L.push('　' + rule.swap[i].h);
+  }
+  L.push('');
+  L.push('每节课仍然要参加热身与放松拉伸（可降低幅度），全程在老师视线范围内。');
+  o.alt = L.join('\n');
+  save();
+  stuModal(sid);
+  toast('已生成替代训练方案');
+}
+function simAdd(){
+  var t = todayISO();
+  if (D.sims.length){
+    var last = D.sims[D.sims.length - 1];
+    if (last.date === t){
+      toast('今天已经建过一次模拟了');
+      return;
+    }
+  }
+  var id = 'sim' + (new Date().getTime());
+  D.sims.push({ id: id, date: t, label: '第 ' + (D.sims.length + 1) + ' 次模拟（' + monthDay(t) + '）', res: {} });
+  save();
+  UI.anaScope = 'one';
+  if (STU.length && !UI.anaSid) UI.anaSid = STU[0].sid;
+  renderApp();
+  toast('已新建模拟：去表格里填成绩吧');
+}
+function simDel(){
+  var s = D.sims[D.sims.length - 1];
+  if (!s) return;
+  if (!confirm('删除「' + s.label + '」这次模拟的全部成绩？')) return;
+  D.sims.pop();
+  save();
+  renderApp();
+  toast('已删除');
+}
+
+/* ---------- 20. 初始化 ---------- */
 function init(){
   load();
-  buildAttDates();
-  ATTDATES = buildAttDates();
-  if (ATTDATES.length) UI.attendDate = ATTDATES[0];
-
   var cls = $('inClass');
   if (cls) cls.value = D.settings.className || '';
   var ht = $('hTitle');
-  if (ht) ht.textContent = (D.settings.className || '8年级4班') + ' · 体测冲刺工作台';
+  if (ht) ht.textContent = (D.settings.className || '8年级4班') + ' · 体测备考管理工作台';
   var hs = $('hSub');
-  if (hs) hs.textContent = (D.settings.school || '') + ' · 冲刺期 ' + monthDay(D.settings.trainStart)
-    + '—' + monthDay(D.settings.examStart);
+  if (hs) hs.textContent = (D.settings.school || '') + ' · 备考截止 ' + monthDay(D.settings.examDate)
+    + '（' + dowCN(D.settings.examDate) + '）· 上午 ' + D.settings.amTime + ' / 下午 ' + D.settings.pmTime;
 
   var qb = $('btnQuickBack'), qr = $('btnQuickRestore');
   if (qb) qb.onclick = function(){ backup(); };
-  if (qr) qr.onclick = function(){ go('data'); openModal('恢复备份',
-    '<input type="file" id="restoreFile" accept=".json,application/json" class="f" style="width:100%">',
-    '<button class="btn g" data-act="closeModal">取消</button>'); };
-
+  if (qr) qr.onclick = function(){
+    openModal('恢复备份',
+      '<p style="margin-bottom:9px">选择你之前下载的备份文件（<b>.json</b>）。</p>'
+      + '<input type="file" id="restoreFile" accept=".json,application/json" class="f" style="width:100%">',
+      '<button class="btn g" data-act="closeModal">取消</button>');
+  };
+  var td = todayDay();
+  UI.calDay = td ? td.iso : (DAYS.length ? DAYS[0].iso : '');
   renderApp();
 }
 
